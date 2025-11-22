@@ -3,6 +3,9 @@ class_name PlayerController extends CharacterBody3D
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 
 @export var move_speed: float = 2.0
+@export var jump_velocity: float = 6.0
+
+@export var max_velocity: Vector2 = Vector2(10.0, 10.0)
 
 const MOUSE_SENSITIVITY_X: float = 0.125
 const MOUSE_SENSITIVITY_Y: float = 0.125
@@ -48,5 +51,11 @@ func _physics_process(delta: float) -> void:
 	process_motion(delta)
 	
 	if not is_on_floor():
-		velocity.y = -8
+		velocity.y += -8.0 * delta
+	elif Input.is_action_just_pressed("jump"):
+		velocity.y = jump_velocity
+		
+	velocity.x = clampf(velocity.x, -max_velocity.x, max_velocity.x)
+	velocity.y = clampf(velocity.y, -max_velocity.y, max_velocity.y)
+	
 	move_and_slide()
