@@ -5,8 +5,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Settings.override_aspect_ratio:
-		pass
+	if Settings.hud_aspect_ratio > 0.0:
+		ratio = Settings.hud_aspect_ratio
 	else:
 		var current_window := get_window()
 		if current_window != null:
