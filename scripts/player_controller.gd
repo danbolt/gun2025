@@ -26,6 +26,17 @@ func _ready() -> void:
 func _process_mouse_input(delta) -> void:
 	character_camera.rotate_y(_accumulated_input.x * MOUSE_SENSITIVITY_X * delta * -1.0)
 	character_camera.rotate(character_camera.basis.x, _accumulated_input.y * MOUSE_SENSITIVITY_Y * delta * -1.0)
+	
+	var camera_up := character_camera.basis * Vector3.UP
+	var camera_up_dot_from_up := camera_up.dot(Vector3.UP)
+	if camera_up_dot_from_up < 0.0:
+		var camera_forward := character_camera.basis * Vector3.FORWARD
+		var camera_right := character_camera.basis * Vector3.RIGHT
+		if camera_forward.y > 0.0:
+			character_camera.basis = Basis(camera_right, Vector3.DOWN.cross(camera_right), Vector3.DOWN)
+		else:
+			character_camera.basis = Basis(camera_right, Vector3.UP.cross(camera_right), Vector3.UP)
+			
 	_accumulated_input = Vector2.ZERO
 
 func _process(delta: float) -> void:
