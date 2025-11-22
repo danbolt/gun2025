@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=22 format=4 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_alcla"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_bev8n"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_p3dph"]
 [ext_resource type="Script" uid="uid://ci2bdepegepjt" path="res://scripts/player_controller.gd" id="9_p3dph"]
+[ext_resource type="Script" uid="uid://b3qvgg405ygo1" path="res://hud/hud_root.gd" id="10_atkp5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bev8n"]
 lightmap_size_hint = Vector2i(1262, 1246)
@@ -72,7 +73,8 @@ script = ExtResource("8_p3dph")
 process_mode = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -134,11 +136,30 @@ script = ExtResource("9_p3dph")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController"]
 shape = SubResource("CapsuleShape3D_y7be5")
 
-[node name="CharacterCamera" type="Node3D" parent="PlayerController"]
+[node name="CharacterCamera" type="Node3D" parent="PlayerController" node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 2
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 top_level = true
 script = ExtResource("7_bev8n")
 follow_mode = 1
+follow_target = NodePath("..")
 tween_resource = SubResource("Resource_atkp5")
+collision_mask = 0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="GameplayHUD" type="AspectRatioContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_atkp5")
+metadata/_custom_type_script = "uid://b3qvgg405ygo1"
+
+[node name="Control" type="Control" parent="GameplayHUD"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameplayHUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
