@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=30 format=4 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://df7x4nbm2yb0" path="res://scripts/gameplay.gd" id="1_8r83d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
@@ -78,7 +78,11 @@ script = ExtResource("8_p3dph")
 script = ExtResource("10_0xv0x")
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r83d"]
+use_fov_override = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_mocpu"]
+material = SubResource("StandardMaterial3D_8r83d")
 size = Vector3(0.25, 0.25, 0.25)
 
 [node name="Gameplay" type="Node3D"]
