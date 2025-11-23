@@ -27,9 +27,9 @@ const SCALING_OPTIONS: Dictionary[String, Viewport.Scaling3DMode] = {
 }
 
 @export var fov: float = 72.0
-var _prev_frame_fov: float = -1.0
+var _prev_fov: float = -1.0
 
 func _process(_delta: float) -> void:
-	if not is_equal_approx(fov, _prev_frame_fov):
+	if not is_equal_approx(fov, _prev_fov):
 		get_tree().call_group("listen_for_fov_updates", "update_fov", fov)
-		_prev_frame_fov = fov
+		_prev_fov = fov
