@@ -5,8 +5,8 @@
 [node name="GameSettingsPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 295.0
-offset_bottom = 246.0
+offset_right = 472.0
+offset_bottom = 257.0
 script = ExtResource("1_wwijd")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -51,6 +51,8 @@ layout_mode = 2
 [node name="FOVText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "FOV: 99"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FOVSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -85,3 +87,42 @@ text = "Y-Invert"
 
 [node name="YInvertButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts/Y"]
 layout_mode = 2
+
+[node name="Inverts2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="X" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts2/X"]
+layout_mode = 2
+text = "H. Sensitivity"
+
+[node name="XSensitivitySlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts2/X"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="Y" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts2/Y"]
+layout_mode = 2
+text = "Y. Sensitvity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YSensitivitySlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts2/Y"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 1.0

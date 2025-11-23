@@ -20,6 +20,9 @@ enum LastUsedGamepadType {
 @export var x_invert: bool = false
 @export var y_invert: bool = false
 
+@export var x_sensitivity: float = 1.0
+@export var y_sensitivity: float = 1.0
+
 const HUD_ASPECT_RATIOS: Dictionary[String, float] = {
 	"Full HUD": -1.0,
 	"16:9": 16.0 / 9.0,
