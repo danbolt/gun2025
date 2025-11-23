@@ -2,8 +2,9 @@ class_name PlayerController extends CharacterBody3D
 
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 
-@export var move_speed: float = 2.0
+@export var move_speed: float = 4.0
 @export var jump_velocity: float = 8.0
+@export var sprint_modifier: float = 2.0
 
 @export var max_velocity: Vector2 = Vector2(10.0, 10.0)
 
@@ -80,8 +81,10 @@ func process_motion(_delta: float) -> void:
 	var oriented_input := input_direction * current_camera.global_basis
 	oriented_input.y = 0
 	oriented_input = oriented_input.normalized() * input_direction.length()
-	velocity.x = oriented_input.x * move_speed
-	velocity.z = oriented_input.z * move_speed * -1.0
+	
+	var speed := move_speed * (sprint_modifier if Input.is_action_pressed("sprint") else 1.0)
+	velocity.x = oriented_input.x * speed
+	velocity.z = oriented_input.z * speed * -1.0
 	
 
 func _physics_process(delta: float) -> void:
