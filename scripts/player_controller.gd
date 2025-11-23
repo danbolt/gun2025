@@ -14,8 +14,8 @@ const GAMEPAD_SENSITIVITY_Y: float = 3.0
 
 var _accumulated_input: Vector2 = Vector2.ZERO
 
-func update_fov(new_fov: float) -> void:
-	character_camera.fov = new_fov
+func update_fov(_new_fov: float) -> void:
+	character_camera.fov = Settings.fov
 
 func _input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
@@ -63,6 +63,8 @@ func _process_gamepad_turning(delta: float) -> void:
 			character_camera.basis = Basis(camera_right, Vector3.UP.cross(camera_right), Vector3.UP)
 
 func _process(delta: float) -> void:
+	character_camera.fov = Settings.fov
+	
 	_process_mouse_turning(delta)
 	_process_gamepad_turning(delta)
 

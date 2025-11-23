@@ -41,6 +41,7 @@ func _ready() -> void:
 	y_sensitivity_slider.value = Settings.y_sensitivity
 	
 	fov_slider.value = Settings.fov
+	fov_slider.value_changed.connect(func (new_value: float) -> void: Settings.fov = new_value)
 
 func _process(_delta: float) -> void:
 	fullscreen_toggle.button_pressed = Settings.fullscreen
