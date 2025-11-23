@@ -7,6 +7,9 @@ class_name GameSettingsPanel extends Control
 @onready var fov_text: Label = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FOVText
 @onready var fov_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FOVSlider
 
+@onready var x_invert_button := $PanelContainer/MarginContainer/VBoxContainer/Inverts/X/XInvertButton
+@onready var y_invert_button := $PanelContainer/MarginContainer/VBoxContainer/Inverts/Y/YInvertButton
+
 func _ready() -> void:
 	fullscreen_toggle.pressed.connect(func() -> void: Settings.fullscreen = fullscreen_toggle.button_pressed)
 	
@@ -28,6 +31,9 @@ func _ready() -> void:
 			hud_aspect_ratio.select(hud_aspect_ratio.item_count - 1)
 	hud_aspect_ratio.item_selected.connect(func(index: int) -> void: Settings.hud_aspect_ratio = Settings.HUD_ASPECT_RATIOS[hud_aspect_ratio.get_item_text(index)] )
 	
+	x_invert_button.pressed.connect(func() -> void: Settings.x_invert = x_invert_button.button_pressed)
+	y_invert_button.pressed.connect(func() -> void: Settings.y_invert = y_invert_button.button_pressed)
+	
 	fov_slider.value = Settings.fov
 
 func _process(_delta: float) -> void:
@@ -38,3 +44,6 @@ func _process(_delta: float) -> void:
 		
 	fov_text.text = "FOV: %d" % (int(fov_slider.value))
 	Settings.fov = fov_slider.value
+	
+	x_invert_button.button_pressed = Settings.x_invert
+	y_invert_button.button_pressed = Settings.y_invert

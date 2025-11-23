@@ -182,6 +182,10 @@ script = ExtResource("11_he0yp")
 
 [node name="GameSettingsPanel" parent="GameplayHUD/Control/PauseScreen" instance=ExtResource("12_fwhjk")]
 layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 311.0
+offset_bottom = 262.0
 
 [node name="PauseLabel" type="Label" parent="GameplayHUD/Control/PauseScreen"]
 layout_mode = 1

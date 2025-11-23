@@ -31,8 +31,8 @@ func _ready() -> void:
 	character_camera.set_follow_target(self)
 
 func _process_mouse_turning(delta: float) -> void:
-	character_camera.rotate_y(_accumulated_input.x * MOUSE_SENSITIVITY_X * delta * -1.0)
-	character_camera.rotate(character_camera.basis.x, _accumulated_input.y * MOUSE_SENSITIVITY_Y * delta * -1.0)
+	character_camera.rotate_y(_accumulated_input.x * MOUSE_SENSITIVITY_X * delta * -1.0  * (1.0 if not Settings.x_invert else -1.0))
+	character_camera.rotate(character_camera.basis.x, _accumulated_input.y * MOUSE_SENSITIVITY_Y * delta * -1.0 * (1.0 if not Settings.y_invert else -1.0))
 	
 	var camera_up := character_camera.basis * Vector3.UP
 	var camera_up_dot_from_up := camera_up.dot(Vector3.UP)
@@ -47,8 +47,8 @@ func _process_mouse_turning(delta: float) -> void:
 	_accumulated_input = Vector2.ZERO
 
 func _process_gamepad_turning(delta: float) -> void:
-	var input_horizontal := Input.get_axis("turn_left", "turn_right")
-	var input_vertical := Input.get_axis("turn_down", "turn_up")
+	var input_horizontal := Input.get_axis("turn_left", "turn_right") * (1.0 if not Settings.x_invert else -1.0)
+	var input_vertical := Input.get_axis("turn_down", "turn_up") * (1.0 if not Settings.y_invert else -1.0)
 	character_camera.rotate_y(input_horizontal * delta * -1.0 * GAMEPAD_SENSITIVITY_X)
 	character_camera.rotate(character_camera.basis.x, input_vertical * delta * GAMEPAD_SENSITIVITY_Y)
 	

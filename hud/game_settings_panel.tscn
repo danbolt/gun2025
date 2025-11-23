@@ -58,3 +58,30 @@ size_flags_horizontal = 3
 min_value = 40.0
 max_value = 120.0
 value = 70.0
+
+[node name="Inverts" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="X" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts/X"]
+layout_mode = 2
+text = "X-Invert"
+
+[node name="XInvertButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts/X"]
+layout_mode = 2
+
+[node name="Y" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts/Y"]
+layout_mode = 2
+text = "Y-Invert"
+
+[node name="YInvertButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/Inverts/Y"]
+layout_mode = 2
