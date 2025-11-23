@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=4 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=29 format=4 uid="uid://ccq2lncotd4l7"]
 
+[ext_resource type="Script" uid="uid://df7x4nbm2yb0" path="res://scripts/gameplay.gd" id="1_8r83d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_alcla"]
 [ext_resource type="LightmapGIData" uid="uid://crlajra0i4e5j" path="res://bakes/gameplay.lmbake" id="2_y7be5"]
@@ -77,8 +78,12 @@ script = ExtResource("8_p3dph")
 script = ExtResource("10_0xv0x")
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
+[sub_resource type="BoxMesh" id="BoxMesh_mocpu"]
+size = Vector3(0.25, 0.25, 0.25)
+
 [node name="Gameplay" type="Node3D"]
 process_mode = 1
+script = ExtResource("1_8r83d")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
@@ -158,6 +163,13 @@ tween_on_load = false
 camera_3d_resource = SubResource("Resource_mocpu")
 collision_mask = 0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="HandsRoot" type="Node3D" parent="PlayerController/CharacterCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39253712, -0.72376025)
+
+[node name="temp" type="MeshInstance3D" parent="PlayerController/CharacterCamera/HandsRoot"]
+mesh = SubResource("BoxMesh_mocpu")
+skeleton = NodePath("../..")
 
 [node name="GameplayHUD" type="AspectRatioContainer" parent="."]
 anchors_preset = 15
