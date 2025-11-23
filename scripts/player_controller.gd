@@ -12,6 +12,9 @@ const MOUSE_SENSITIVITY_Y: float = 0.125
 
 var _accumulated_input: Vector2 = Vector2.ZERO
 
+func update_fov(new_fov: float) -> void:
+	character_camera.fov = new_fov
+
 func _input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
@@ -20,6 +23,8 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	_accumulated_input = Vector2.ZERO
+	
+	character_camera.fov = Settings.fov
 	
 	character_camera.set_follow_target(self)
 

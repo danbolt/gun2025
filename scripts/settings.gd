@@ -19,3 +19,11 @@ const RESOLUTION_SCALE_OPTIONS: Dictionary[String, float] = {
 	"25%": 0.25,
 	"12.5%": 0.125,
 }
+
+@export var fov: float = 72.0
+var _prev_frame_fov: float = -1.0
+
+func _process(_delta: float) -> void:
+	if not is_equal_approx(fov, _prev_frame_fov):
+		get_tree().call_group("listen_for_fov_updates", "update_fov", fov)
+		_prev_frame_fov = fov

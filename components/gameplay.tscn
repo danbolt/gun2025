@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=26 format=4 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_alcla"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_bev8n"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_p3dph"]
 [ext_resource type="Script" uid="uid://ci2bdepegepjt" path="res://scripts/player_controller.gd" id="9_p3dph"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="10_0xv0x"]
 [ext_resource type="Script" uid="uid://b3qvgg405ygo1" path="res://hud/hud_root.gd" id="10_atkp5"]
 [ext_resource type="Script" uid="uid://cy8yfplkyme4s" path="res://hud/pause_screen.gd" id="11_he0yp"]
 [ext_resource type="PackedScene" uid="uid://d0pm37oocpcoo" path="res://hud/game_settings_panel.tscn" id="12_fwhjk"]
@@ -71,6 +72,10 @@ sky = SubResource("Sky_b6e02")
 [sub_resource type="Resource" id="Resource_atkp5"]
 script = ExtResource("8_p3dph")
 
+[sub_resource type="Resource" id="Resource_mocpu"]
+script = ExtResource("10_0xv0x")
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [node name="Gameplay" type="Node3D"]
 process_mode = 1
 
@@ -79,6 +84,7 @@ physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_mode = 3
 process_priority = 300
 process_physics_priority = 300
 physics_interpolation_mode = 2
@@ -131,7 +137,7 @@ light_bake_mode = 1
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="PlayerController" type="CharacterBody3D" parent="."]
+[node name="PlayerController" type="CharacterBody3D" parent="." groups=["listen_for_fov_updates"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("9_p3dph")
 
@@ -139,6 +145,7 @@ script = ExtResource("9_p3dph")
 shape = SubResource("CapsuleShape3D_y7be5")
 
 [node name="CharacterCamera" type="Node3D" parent="PlayerController" node_paths=PackedStringArray("follow_target")]
+process_mode = 3
 physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 top_level = true
@@ -146,6 +153,8 @@ script = ExtResource("7_bev8n")
 follow_mode = 1
 follow_target = NodePath("..")
 tween_resource = SubResource("Resource_atkp5")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_mocpu")
 collision_mask = 0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
