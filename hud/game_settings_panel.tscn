@@ -39,6 +39,9 @@ text = "Fullscreen"
 [node name="ResolutionScale" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="ResolutionScaleMode" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="HUDAspectRatio" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 

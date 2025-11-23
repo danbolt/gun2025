@@ -2,6 +2,7 @@ class_name GameSettingsPanel extends Control
 
 @onready var fullscreen_toggle := $PanelContainer/MarginContainer/VBoxContainer/FullscreenToggle
 @onready var resolution_scale := $PanelContainer/MarginContainer/VBoxContainer/ResolutionScale
+@onready var resolution_scale_mode := $PanelContainer/MarginContainer/VBoxContainer/ResolutionScaleMode
 @onready var hud_aspect_ratio := $PanelContainer/MarginContainer/VBoxContainer/HUDAspectRatio
 @onready var fov_text: Label = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FOVText
 @onready var fov_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FOVSlider
@@ -11,7 +12,15 @@ func _ready() -> void:
 	
 	for key: String in Settings.RESOLUTION_SCALE_OPTIONS:
 		resolution_scale.add_item(key)
-	resolution_scale.item_selected.connect(func(index: int) -> void: get_window().scaling_3d_scale = Settings.RESOLUTION_SCALE_OPTIONS[resolution_scale.get_item_text(index)] )
+		if (is_equal_approx(get_viewport().scaling_3d_scale, Settings.RESOLUTION_SCALE_OPTIONS[key])):
+			resolution_scale.select(resolution_scale.item_count - 1)
+	resolution_scale.item_selected.connect(func(index: int) -> void: get_viewport().scaling_3d_scale = Settings.RESOLUTION_SCALE_OPTIONS[resolution_scale.get_item_text(index)] )
+	
+	for key: String in Settings.SCALING_OPTIONS:
+		resolution_scale_mode.add_item(key)
+		if get_window().scaling_3d_mode == Settings.SCALING_OPTIONS[key]:
+			resolution_scale_mode.select(resolution_scale_mode.item_count - 1)
+	resolution_scale_mode.item_selected.connect(func(index: int) -> void: get_viewport().scaling_3d_mode = Settings.SCALING_OPTIONS[resolution_scale_mode.get_item_text(index)] )
 	
 	for key: String in Settings.HUD_ASPECT_RATIOS:
 		hud_aspect_ratio.add_item(key)

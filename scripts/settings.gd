@@ -20,6 +20,12 @@ const RESOLUTION_SCALE_OPTIONS: Dictionary[String, float] = {
 	"12.5%": 0.125,
 }
 
+const SCALING_OPTIONS: Dictionary[String, Viewport.Scaling3DMode] = {
+	"Bilinear":  Viewport.Scaling3DMode.SCALING_3D_MODE_BILINEAR,
+	"FSR": Viewport.Scaling3DMode.SCALING_3D_MODE_FSR,
+	"FSR2": Viewport.Scaling3DMode.SCALING_3D_MODE_FSR2,
+}
+
 @export var fov: float = 72.0
 var _prev_frame_fov: float = -1.0
 
