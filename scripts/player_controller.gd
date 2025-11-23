@@ -9,6 +9,8 @@ class_name PlayerController extends CharacterBody3D
 
 const MOUSE_SENSITIVITY_X: float = 0.125
 const MOUSE_SENSITIVITY_Y: float = 0.125
+const GAMEPAD_SENSITIVITY_X: float = 1.0
+const GAMEPAD_SENSITIVITY_Y: float = 1.0
 
 var _accumulated_input: Vector2 = Vector2.ZERO
 
@@ -28,7 +30,7 @@ func _ready() -> void:
 	
 	character_camera.set_follow_target(self)
 
-func _process_mouse_input(delta) -> void:
+func _process_mouse_turning(delta: float) -> void:
 	character_camera.rotate_y(_accumulated_input.x * MOUSE_SENSITIVITY_X * delta * -1.0)
 	character_camera.rotate(character_camera.basis.x, _accumulated_input.y * MOUSE_SENSITIVITY_Y * delta * -1.0)
 	
@@ -44,8 +46,25 @@ func _process_mouse_input(delta) -> void:
 			
 	_accumulated_input = Vector2.ZERO
 
+func _process_gamepad_turning(delta: float) -> void:
+	var input_horizontal := Input.get_axis("turn_left", "turn_right")
+	var input_vertical := Input.get_axis("turn_down", "turn_up")
+	character_camera.rotate_y(input_horizontal * delta * -1.0 * GAMEPAD_SENSITIVITY_X)
+	character_camera.rotate(character_camera.basis.x, input_vertical * delta * GAMEPAD_SENSITIVITY_Y)
+	
+	var camera_up := character_camera.basis * Vector3.UP
+	var camera_up_dot_from_up := camera_up.dot(Vector3.UP)
+	if camera_up_dot_from_up < 0.0:
+		var camera_forward := character_camera.basis * Vector3.FORWARD
+		var camera_right := character_camera.basis * Vector3.RIGHT
+		if camera_forward.y > 0.0:
+			character_camera.basis = Basis(camera_right, Vector3.DOWN.cross(camera_right), Vector3.DOWN)
+		else:
+			character_camera.basis = Basis(camera_right, Vector3.UP.cross(camera_right), Vector3.UP)
+
 func _process(delta: float) -> void:
-	_process_mouse_input(delta)
+	_process_mouse_turning(delta)
+	_process_gamepad_turning(delta)
 
 func process_motion(_delta: float) -> void:
 	var current_viewport := get_viewport()
