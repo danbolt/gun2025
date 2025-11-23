@@ -90,14 +90,12 @@ process_mode = 1
 script = ExtResource("1_8r83d")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_mode = 3
 process_priority = 300
 process_physics_priority = 300
-physics_interpolation_mode = 2
 script = ExtResource("1_vd3jt")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
@@ -156,7 +154,6 @@ shape = SubResource("CapsuleShape3D_y7be5")
 
 [node name="CharacterCamera" type="Node3D" parent="PlayerController" node_paths=PackedStringArray("follow_target")]
 process_mode = 3
-physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 top_level = true
 script = ExtResource("7_bev8n")
