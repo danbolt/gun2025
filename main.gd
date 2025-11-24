@@ -1,6 +1,10 @@
 extends Node
 
-@onready var gameplay := $Gameplay
+@onready var gameplay: Gameplay = $Gameplay
+
+func new_level(next_level: String) -> void:
+	gameplay.remove_level()
+	gameplay.load_and_add_level("res://levels/%s.tscn" % next_level)
 
 func on_timeline_started() -> void:
 	var tree := get_tree()

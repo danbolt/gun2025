@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dp0qjrttiy77c" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ccq2lncotd4l7" path="res://components/gameplay.tscn" id="1_ig7tw"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" groups=["listen_for_level_change"]]
 process_mode = 3
 script = ExtResource("1_0xm2m")
 
