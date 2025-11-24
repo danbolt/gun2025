@@ -34,8 +34,14 @@ func on_dialogic_signal(data: Variant) -> void:
 				if camera.name == camera_name:
 					camera.priority = priority
 	
+func dialogue_finished() -> void:
+	var cameras := level.find_children("", "PhantomCamera3D", true, false)
+	for camera: PhantomCamera3D in cameras:
+		camera.priority = 0
+	
 func _ready() -> void:
 	$Camera3D.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	Dialogic.signal_event.connect(on_dialogic_signal)
+	Dialogic.timeline_ended.connect(dialogue_finished)
 	
