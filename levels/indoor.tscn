@@ -320,7 +320,6 @@ navigation_mesh = SubResource("NavigationMesh_2x7f7")
 
 [node name="LightmapGI" type="LightmapGI" parent="NavigationRegion3D"]
 quality = 0
-use_denoiser = false
 light_data = ExtResource("1_hjcc1")
 
 [node name="FuncGodotMap" type="Node3D" parent="NavigationRegion3D/LightmapGI"]
