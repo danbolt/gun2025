@@ -13,6 +13,9 @@ class_name GameSettingsPanel extends Control
 @onready var x_sensitivity_slider := $PanelContainer/MarginContainer/VBoxContainer/Inverts2/X/XSensitivitySlider
 @onready var y_sensitivity_slider := $PanelContainer/MarginContainer/VBoxContainer/Inverts2/Y/YSensitivitySlider
 
+@onready var refresh_rate_select := %RefreshRateSelect
+@onready var vsync_check := %VSyncCheck
+
 func _ready() -> void:
 	fullscreen_toggle.pressed.connect(func() -> void: Settings.fullscreen = fullscreen_toggle.button_pressed)
 	
@@ -34,16 +37,27 @@ func _ready() -> void:
 			hud_aspect_ratio.select(hud_aspect_ratio.item_count - 1)
 	hud_aspect_ratio.item_selected.connect(func(index: int) -> void: Settings.hud_aspect_ratio = Settings.HUD_ASPECT_RATIOS[hud_aspect_ratio.get_item_text(index)] )
 	
+	for key:String in Settings.REFRESH_RATE_OPTIONS:
+		refresh_rate_select.add_item(key)
+		if is_equal_approx(Engine.max_fps, Settings.REFRESH_RATE_OPTIONS[key]):
+			refresh_rate_select.select(refresh_rate_select.item_count - 1)
+	refresh_rate_select.item_selected.connect(func(index: int) -> void: Engine.max_fps = Settings.REFRESH_RATE_OPTIONS[refresh_rate_select.get_item_text(index)])
+	
 	x_invert_button.pressed.connect(func() -> void: Settings.x_invert = x_invert_button.button_pressed)
 	y_invert_button.pressed.connect(func() -> void: Settings.y_invert = y_invert_button.button_pressed)
 	
 	x_sensitivity_slider.value = Settings.x_sensitivity
 	y_sensitivity_slider.value = Settings.y_sensitivity
 	
+	vsync_check.pressed.connect(func () -> void: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if vsync_check.button_pressed else DisplayServer.VSyncMode.VSYNC_DISABLED))
+	
 	fov_slider.value = Settings.fov
 	fov_slider.value_changed.connect(func (new_value: float) -> void: Settings.fov = new_value)
 
 func _process(_delta: float) -> void:
+	var current_vsync_mode := DisplayServer.window_get_vsync_mode()
+	vsync_check.button_pressed = current_vsync_mode != DisplayServer.VSyncMode.VSYNC_DISABLED
+	
 	fullscreen_toggle.button_pressed = Settings.fullscreen
 	var window := get_window()
 	if window:

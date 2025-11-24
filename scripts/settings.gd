@@ -45,6 +45,20 @@ const SCALING_OPTIONS: Dictionary[String, Viewport.Scaling3DMode] = {
 	"FSR2": Viewport.Scaling3DMode.SCALING_3D_MODE_FSR2,
 }
 
+const REFRESH_RATE_OPTIONS: Dictionary[String, int] = {
+	"15": 15,
+	"24": 24,
+	"30": 30,
+	"40": 40,
+	"48": 48,
+	"50": 50,
+	"60": 60,
+	"90": 90,
+	"120": 120,
+	"144": 144,
+	"No Limit": 0,
+}
+
 @export var fov: float = 72.0
 var _prev_fov: float = -1.0
 
