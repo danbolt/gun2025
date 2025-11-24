@@ -26,6 +26,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
+"entry": "res://timelines/entry.dtl",
 "test": "res://timelines/test.dtl"
 }
 layout/style_directory={
@@ -171,6 +172,11 @@ dialogic_default_action={
 [input_devices]
 
 pointing/emulate_mouse_from_touch=false
+
+[layer_names]
+
+3d_physics/layer_1="Physical World"
+3d_physics/layer_2="Player"
 
 [physics]
 

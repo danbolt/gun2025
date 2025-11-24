@@ -27,9 +27,6 @@ func _process(_delta: float) -> void:
 	if tree == null:
 		return
 		
-	if Input.is_action_just_pressed("ui_accept") and tree.paused == false:
-		Dialogic.start("test").process_mode = Node.PROCESS_MODE_ALWAYS
-		
 	if Input.is_action_just_pressed("pause") and Dialogic.current_timeline == null:
 		tree.paused = !tree.paused
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://dshjh4dwl34l0"]
+[gd_scene load_steps=85 format=4 uid="uid://dshjh4dwl34l0"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_3x4fl"]
 [ext_resource type="LightmapGIData" uid="uid://b1caan6g4l1xy" path="res://bakes/indoor.lmbake" id="1_hjcc1"]
@@ -14,6 +14,8 @@
 [ext_resource type="Material" uid="uid://bvtlpjrcbr36g" path="res://maps/textures/emit_white.tres" id="6_hjcc1"]
 [ext_resource type="Material" uid="uid://bfrpip07ko13t" path="res://maps/textures/tiles133a.tres" id="8_13vfk"]
 [ext_resource type="Script" uid="uid://rp72pl3cwur" path="res://scripts/spawn_point.gd" id="11_fxdr2"]
+[ext_resource type="Script" uid="uid://drbo7717sjohn" path="res://scripts/dialogue_trigger.gd" id="15_brrid"]
+[ext_resource type="Resource" uid="uid://dw75vr72yg3e6" path="res://timelines/entry.dtl" id="16_1nego"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2x7f7"]
 vertices = PackedVector3Array(-9.5, -4, -25.5, -9.5, -4, -23.25, -2.5, -4, -23.25, -2.5, -4, -25.5, -15, -10, -22.5, -15, -10, -4, -12, -10, -4, -12, -10, -22.5, -11, -4, -22.5, -11, -4, -4, -10.25, -4, -4, -10.25, -4, -22.5, -6.5, -3.5, -22.5, -6.5, -3.5, -4, -5.5, -3.5, -4, -5.5, -3.5, -22.5, -1.5, -4, -22.5, -1.5, -4, -4, -0.75, -4, -4, -0.75, -4, -22.5, 0.25, -10, -22.5, 0.25, -10, -4, 23, -10, -4, 23, -10, -22.5, -9.25, -10, -3.5, -2.5, -10, -3.25, -2.5, -10, -22.25, -9.25, -10, -22.25, 18, -10, 45.5, 18, -9.75, 41.25, 17.5, -10, 41.25, -14.75, -10, 45.5, -9.25, -10, -1.75, -2.25, -10, -1.25, 17.5, -10, 36, 23, -10, 35.75, 23, -10, -1.25, -9.75, -10, -1.25, -14.75, -10, -1.25, -15, 14, -3, -15, 14, -2.25, 23, 14, -2.25, 23, 14, -3, -16.5, 14, 45.5, -16, 14, 45.5, -15.75, 14, 43.75, -15.75, 14, -1.5, -16.5, 14, -1.5, 24, 14, 43.75, 24.5, 14, 45.5, 24.5, 14, -1.5, 24, 14, -1.5, -14.75, 1, 5, -10.5, 1, 5.25, -10.5, 1, 3.75, -8.75, 1, 3.5, -9, 1, -1.25, -14.75, 1, -1.25, 17, 1, 3.5, 17.25, 1, -1.25, 18.5, 1, 3.5, 18.75, 1, 5.25, 23, 1, 5, 23, 1, -1.25, -15, 15, 0.5, -15, 15, 1.5, 23.25, 15, 1.5, 23.25, 15, 0.5, -15, 15, 4.5, -15, 15, 5.5, 23.25, 15, 5.5, 23.25, 15, 4.5, -9.5, 2.5, 4.5, -9, 2.5, 5.25, 17, 2.5, 5.25, 17.75, 2.5, 4.5, -9.5, 2.5, 39.75, -9, 2.5, 38.75, 17.75, 2.5, 22.25, 17, 2.5, 38.75, 17.5, 2.5, 39.75, -14.75, 1, 39.25, -10.5, 1, 39, 18.5, -8.75, 39.25, 23, -8.75, 39.25, 18.641304, 0.75, 20.032608, 23, 1, 19.891304, -15, 15, 8.5, -15, 15, 9.5, 23.25, 15, 9.5, 23.25, 15, 8.5, -15, 15, 12.5, -15, 15, 13.5, 23.25, 15, 13.5, 23.25, 15, 12.5, -15, 15, 16.5, -15, 15, 17.5, 23.25, 15, 17.5, 23.25, 15, 16.5, 3, 5.5, 17.5, 3, 5.5, 29, 12.5, 5.5, 29, 12.5, 5.5, 17.5, -15, 15, 20.5, -15, 15, 21.5, 23.25, 15, 21.5, 23.25, 15, 20.5, -15, 15, 24.5, -15, 15, 25.5, 23.25, 15, 25.5, 23.25, 15, 24.5, -15, 15, 28.5, -15, 15, 29.5, 23.25, 15, 29.5, 23.25, 15, 28.5, -15, 15, 32.5, -15, 15, 33.5, 23.25, 15, 33.5, 23.25, 15, 32.5, -15, 15, 36.5, -15, 15, 37.5, 23.25, 15, 37.5, 23.25, 15, 36.5, -10.5, 1, 40.5, -9, 1, 45.5, -8.75, 1, 40.75, -14.75, 1, 45.5, 18.5, -9.75, 41.25, 23, -10, 45.5, 23, -10, 41.75, -15, 15, 40.5, -15, 15, 41.5, 23.25, 15, 41.5, 23.25, 15, 40.5, 23, 1, 45.5, 23, 1, 40.5, -15, 15, 44.5, -15, 15, 45.75, 23.25, 15, 45.75, 23.25, 15, 44.5)
@@ -299,6 +301,9 @@ ambient_light_source = 3
 glow_enabled = true
 fog_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1nego"]
+size = Vector3(9, 8, 1)
+
 [node name="Indoor" type="Node3D"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -536,3 +541,13 @@ size = Vector3(35.747986, 9.7706375, 44.970886)
 [node name="ReflectionProbe2" type="ReflectionProbe" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.701702, -8.224027, -13.207483)
 size = Vector3(14.811493, 6.757084, 22.782951)
+
+[node name="DialogueTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6729436, -5.8818274, -1.7528014)
+script = ExtResource("15_brrid")
+timeline = ExtResource("16_1nego")
+metadata/_custom_type_script = "uid://drbo7717sjohn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0000005, -1.5, 0)
+shape = SubResource("BoxShape3D_1nego")
