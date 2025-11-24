@@ -184,5 +184,6 @@ common/physics_interpolation=true
 
 [rendering]
 
+shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
 lightmapping/bake_performance/region_size=64
