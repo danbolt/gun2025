@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ccpauq2da4rfu"]
+
+[ext_resource type="StyleBox" uid="uid://dfvrsl0orrpa4" path="res://themes/default_stylebox.tres" id="1_het5a"]
+[ext_resource type="FontFile" uid="uid://dhxxa64rficsj" path="res://fonts/LINE_Seed_Sans_V1.003/App/OTF/LINESeedSans_A_Rg.otf" id="1_mlkpy"]
+[ext_resource type="StyleBox" uid="uid://us8x103iwa2n" path="res://themes/default_stylebox_inner_hover.tres" id="1_nwjvr"]
+[ext_resource type="StyleBox" uid="uid://bsg3cdkokvk58" path="res://themes/default_stylebox_inner_focus.tres" id="1_r3xux"]
+[ext_resource type="StyleBox" uid="uid://k1cm2oj2yjcl" path="res://themes/default_stylebox_inner.tres" id="2_nwjvr"]
+[ext_resource type="StyleBox" uid="uid://dik8rfb1hwgnp" path="res://themes/default_stylebox_inner_pressed.tres" id="3_nwjvr"]
+
+[resource]
+default_font = ExtResource("1_mlkpy")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.37036464, 0.37036443, 0.37036446, 0.5019608)
+Button/colors/font_focus_color = Color(0.16862746, 0.16862746, 0.37254903, 1)
+Button/colors/font_hover_color = Color(0.12719876, 0.12658978, 0.29412097, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/styles/focus = ExtResource("1_r3xux")
+Button/styles/hover = ExtResource("1_nwjvr")
+Button/styles/normal = ExtResource("2_nwjvr")
+Button/styles/pressed = ExtResource("3_nwjvr")
+CheckButton/colors/button_checked_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+CheckButton/colors/button_unchecked_color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+CheckButton/colors/font_color = Color(0.08856013, 0.088559814, 0.08855989, 1)
+CheckButton/colors/font_focus_color = Color(0.18431373, 0.18431373, 0.5803922, 1)
+CheckButton/colors/font_hover_color = Color(0.54509807, 0.5647059, 0.85882354, 1)
+CheckButton/colors/font_hover_pressed_color = Color(0.54509807, 0.5647059, 0.85882354, 1)
+CheckButton/colors/font_pressed_color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+Label/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/styles/normal = null
+Panel/styles/panel = ExtResource("1_het5a")
+PanelContainer/styles/panel = ExtResource("1_het5a")

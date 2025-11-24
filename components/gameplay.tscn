@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=8 format=3 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://df7x4nbm2yb0" path="res://scripts/gameplay.gd" id="1_8r83d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
+[ext_resource type="Theme" uid="uid://ccpauq2da4rfu" path="res://themes/default_theme.tres" id="4_juyxp"]
 [ext_resource type="PackedScene" uid="uid://icjpxsgtudhd" path="res://components/player_controller.tscn" id="7_bev8n"]
 [ext_resource type="Script" uid="uid://b3qvgg405ygo1" path="res://hud/hud_root.gd" id="10_atkp5"]
 [ext_resource type="Script" uid="uid://cy8yfplkyme4s" path="res://hud/pause_screen.gd" id="11_he0yp"]
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_juyxp")
 script = ExtResource("10_atkp5")
 metadata/_custom_type_script = "uid://b3qvgg405ygo1"
 
@@ -51,10 +53,10 @@ script = ExtResource("11_he0yp")
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 605.0
-offset_bottom = 288.0
+offset_right = 490.0
+offset_bottom = 296.0
 
-[node name="PauseMenuPanel" type="MarginContainer" parent="GameplayHUD/Control/PauseScreen"]
+[node name="PauseMenuPanel" type="Panel" parent="GameplayHUD/Control/PauseScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,13 +65,17 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -46.0
 offset_top = -46.5
-offset_right = 46.0
-offset_bottom = 46.5
+offset_right = 53.0
+offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="GameplayHUD/Control/PauseScreen/PauseMenuPanel"]
-layout_mode = 2
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 95.0
+offset_bottom = 94.0
 
 [node name="PauseLabel" type="Label" parent="GameplayHUD/Control/PauseScreen/PauseMenuPanel/VBoxContainer2"]
 layout_mode = 2

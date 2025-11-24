@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpc6rj8nxoade"]
+
+[ext_resource type="Script" uid="uid://c8d470kti274h" path="res://addons/dialogic/Resources/dialogic_layout_layer.gd" id="1_yijkn"]
+
+[node name="DialogueLayer" type="Node"]
+script = ExtResource("1_yijkn")
+metadata/_custom_type_script = "uid://c8d470kti274h"
