@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://11v1xdx0u5r3"]
+[gd_scene load_steps=5 format=3 uid="uid://11v1xdx0u5r3"]
 
 [ext_resource type="Script" uid="uid://dp0qjrttiy77c" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ccq2lncotd4l7" path="res://components/gameplay.tscn" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://c5ce0bjh8qdqy" path="res://shaders/curtains.gdshader" id="3_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+shader = ExtResource("3_h2yge")
+shader_parameter/t = 0.0
 
 [node name="Main" type="Node" groups=["listen_for_level_change"]]
 process_mode = 3
 script = ExtResource("1_0xm2m")
+curtains_open = true
 
 [node name="Gameplay" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Curtains" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1bvp3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

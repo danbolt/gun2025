@@ -2,6 +2,11 @@ extends Node
 
 @onready var gameplay: Gameplay = $Gameplay
 
+@onready var curtains: Control = %Curtains
+
+var curtains_value: float = 0.0
+@export var curtains_open: bool = false
+
 func new_level(next_level: String) -> void:
 	gameplay.remove_level()
 	gameplay.load_and_add_level("res://levels/%s.tscn" % next_level)
@@ -21,12 +26,17 @@ func on_timeline_finished() -> void:
 func _ready() -> void:
 	gameplay.load_and_add_level("res://levels/indoor.tscn")
 	
+	curtains_open = true
+	
 	Dialogic.timeline_started.connect(on_timeline_started)
 	Dialogic.timeline_ended.connect(on_timeline_finished)
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	curtains_value = lerp(curtains_value, 1.9 if curtains_open else 0.0, 1.0 - pow(0.131, delta * 1.3))
+	(curtains.material as ShaderMaterial).set_shader_parameter("t", curtains_value)
+	
 	var tree := get_tree()
 	if tree == null:
 		return
