@@ -22,5 +22,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var tree := get_tree()
-	if tree != null:
+	if tree != null and Dialogic.current_timeline == null:
 		visible = tree.paused
