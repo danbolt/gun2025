@@ -54,7 +54,7 @@ layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 490.0
-offset_bottom = 296.0
+offset_bottom = 315.0
 
 [node name="PauseMenuPanel" type="PanelContainer" parent="GameplayHUD/Control/PauseScreen"]
 layout_mode = 1

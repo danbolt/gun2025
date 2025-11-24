@@ -7,7 +7,7 @@
 layout_mode = 3
 anchors_preset = 0
 offset_right = 472.0
-offset_bottom = 257.0
+offset_bottom = 269.0
 theme = ExtResource("1_t0nhm")
 script = ExtResource("1_wwijd")
 
@@ -32,6 +32,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
