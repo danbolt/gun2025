@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=29 format=4 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://df7x4nbm2yb0" path="res://scripts/gameplay.gd" id="1_8r83d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://b3qvgg405ygo1" path="res://hud/hud_root.gd" id="10_atkp5"]
 [ext_resource type="Script" uid="uid://cy8yfplkyme4s" path="res://hud/pause_screen.gd" id="11_he0yp"]
 [ext_resource type="PackedScene" uid="uid://d0pm37oocpcoo" path="res://hud/game_settings_panel.tscn" id="12_fwhjk"]
-[ext_resource type="PackedScene" uid="uid://bs1bw7ux2tlqb" path="res://components/input_icon.tscn" id="14_mocpu"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bev8n"]
 lightmap_size_hint = Vector2i(1262, 1246)
@@ -237,24 +236,3 @@ text = "Resume"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit Game"
-
-[node name="Node" type="Node" parent="."]
-
-[node name="InputIcon" parent="Node" instance=ExtResource("14_mocpu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -7)
-pressed = true
-associated_button = 2
-
-[node name="InputIcon2" parent="Node" instance=ExtResource("14_mocpu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -7)
-associated_key = 51
-associated_button = 0
-
-[node name="InputIcon3" parent="Node" instance=ExtResource("14_mocpu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 5, -7)
-pressed = true
-associated_button = 3
-
-[node name="InputIcon4" parent="Node" instance=ExtResource("14_mocpu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -7)
-pressed = true
