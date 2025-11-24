@@ -56,7 +56,7 @@ offset_top = 16.0
 offset_right = 490.0
 offset_bottom = 296.0
 
-[node name="PauseMenuPanel" type="Panel" parent="GameplayHUD/Control/PauseScreen"]
+[node name="PauseMenuPanel" type="PanelContainer" parent="GameplayHUD/Control/PauseScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,17 +65,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -46.0
 offset_top = -46.5
-offset_right = 53.0
-offset_bottom = 67.0
+offset_right = 59.0
+offset_bottom = 67.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="GameplayHUD/Control/PauseScreen/PauseMenuPanel"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 95.0
-offset_bottom = 94.0
+layout_mode = 2
 
 [node name="PauseLabel" type="Label" parent="GameplayHUD/Control/PauseScreen/PauseMenuPanel/VBoxContainer2"]
 layout_mode = 2
