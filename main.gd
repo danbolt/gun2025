@@ -3,7 +3,7 @@ extends Node
 @onready var gameplay := $Gameplay
 
 func _ready() -> void:
-	gameplay.load_and_add_level("res://levels/wood_obsidian.tscn")
+	gameplay.load_and_add_level("res://levels/indoor.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

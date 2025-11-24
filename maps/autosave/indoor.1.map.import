@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dvt7fbee5f5qt"
+path="res://.godot/imported/indoor.1.map-81a8d6bf87b9d4976bead85b81c5e41a.tres"
+
+[deps]
+
+source_file="res://maps/autosave/indoor.1.map"
+dest_files=["res://.godot/imported/indoor.1.map-81a8d6bf87b9d4976bead85b81c5e41a.tres"]
+
+[params]
+

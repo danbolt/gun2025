@@ -29,7 +29,6 @@ shape = SubResource("CapsuleShape3D_y7be5")
 
 [node name="CharacterCamera" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 top_level = true
 script = ExtResource("2_8d205")
 follow_mode = 1
@@ -44,6 +43,5 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39253712, -0.72376025)
 
 [node name="temp" type="MeshInstance3D" parent="CharacterCamera/HandsRoot"]
-visible = false
 mesh = SubResource("BoxMesh_mocpu")
 skeleton = NodePath("../..")
