@@ -199,8 +199,8 @@ script = ExtResource("11_he0yp")
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 393.0
-offset_bottom = 260.0
+offset_right = 532.0
+offset_bottom = 251.0
 
 [node name="PauseMenuPanel" type="MarginContainer" parent="GameplayHUD/Control/PauseScreen"]
 layout_mode = 1
