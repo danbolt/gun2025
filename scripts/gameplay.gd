@@ -24,4 +24,4 @@ func setup_player_location() -> void:
 		break
 	
 func _ready() -> void:
-	load_and_add_level("res://levels/wood_obsidian.tscn")
+	pass
