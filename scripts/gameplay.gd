@@ -23,5 +23,19 @@ func setup_player_location() -> void:
 		player_controller.camera_rotation_y = spawn_point.rotation.y
 		break
 	
+func on_dialogic_signal(data: Variant) -> void:
+	if data is Dictionary:
+		if data.has("Camera") and data.has("Priority"):
+			var camera_name: String = data["Camera"]
+			var priority: int = data["Priority"]
+			
+			var cameras := level.find_children("", "PhantomCamera3D", true, false)
+			for camera: PhantomCamera3D in cameras:
+				if camera.name == camera_name:
+					camera.priority = priority
+	
 func _ready() -> void:
-	pass
+	$Camera3D.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	Dialogic.signal_event.connect(on_dialogic_signal)
+	

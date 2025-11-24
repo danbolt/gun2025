@@ -32,6 +32,7 @@ shape = SubResource("CapsuleShape3D_y7be5")
 process_mode = 3
 top_level = true
 script = ExtResource("2_8d205")
+priority = 10
 follow_mode = 1
 follow_target = NodePath("..")
 tween_resource = SubResource("Resource_atkp5")

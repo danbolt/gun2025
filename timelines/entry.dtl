@@ -1,4 +1,13 @@
 We've entered an area.
-How about now?
-
-Is this going well?
+Want to see the ramp?
+- Yes
+	[signal arg_type="dict" arg="{"Camera":"StairsCamera","Priority":15}"]
+	Okay, look here!
+	See it?
+	[signal arg_type="dict" arg="{"Camera":"StairsCamera","Priority":0}"]
+	[signal arg_type="dict" arg="{"Camera":"StairsCamera2","Priority":10}"]
+	You can use it to get to the upper floor.
+	Pretty cool, right?
+	[signal arg_type="dict" arg="{"Camera":"StairsCamera2","Priority":0}"]
+- No
+	Suit yourself!
