@@ -1,6 +1,12 @@
 class_name PlayerController extends CharacterBody3D
 
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
+@export var camera_rotation_y: float:
+	get:
+		return character_camera.rotation.y
+	set(value):
+		character_camera.rotation.y = value
+
 
 @export var move_speed: float = 4.0
 @export var jump_velocity: float = 8.0

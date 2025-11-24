@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="FuncGodotMapSettings" load_steps=16 format=3 uid="uid://cvtgbpsw27vq2"]
+
+[ext_resource type="Material" uid="uid://cvex6toty8yn7" path="res://addons/func_godot/textures/default_material.tres" id="1_p5fjr"]
+[ext_resource type="Resource" uid="uid://nayxb8n7see2" path="res://addons/func_godot/fgd/phong_base.tres" id="2_d5qfg"]
+[ext_resource type="Resource" uid="uid://doo4ly322b4jc" path="res://addons/func_godot/fgd/vertex_merge_distance_base.tres" id="3_dbslg"]
+[ext_resource type="Resource" uid="uid://bdji3873bg32h" path="res://addons/func_godot/fgd/worldspawn.tres" id="4_yree8"]
+[ext_resource type="Resource" uid="uid://b70vf4t5dc70t" path="res://addons/func_godot/fgd/func_geo.tres" id="5_fj4ay"]
+[ext_resource type="Resource" uid="uid://cxy7jnh6d7msn" path="res://addons/func_godot/fgd/func_detail.tres" id="6_8r6qn"]
+[ext_resource type="Resource" uid="uid://ch3e0dix85uhb" path="res://addons/func_godot/fgd/func_detail_illusionary.tres" id="7_7nxfe"]
+[ext_resource type="Resource" uid="uid://dg5x44cc7flew" path="res://addons/func_godot/fgd/func_illusionary.tres" id="8_2e3ic"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="9_d5qfg"]
+[ext_resource type="Script" uid="uid://drlmgulwbjwqu" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="9_spohq"]
+[ext_resource type="Script" uid="uid://rp72pl3cwur" path="res://scripts/spawn_point.gd" id="10_dbslg"]
+[ext_resource type="Script" uid="uid://38q6k0ctahjn" path="res://addons/func_godot/src/map/func_godot_map_settings.gd" id="10_ibbtw"]
+[ext_resource type="Script" uid="uid://cij36hpqc46c" path="res://addons/func_godot/src/import/quake_wad_file.gd" id="11_vctwl"]
+
+[sub_resource type="Resource" id="Resource_dbslg"]
+script = ExtResource("9_d5qfg")
+script_class = ExtResource("10_dbslg")
+apply_scale_on_map_build = false
+classname = "info_player_start"
+description = "Where to spawn the player"
+node_class = "SpawnPoint"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"
+
+[sub_resource type="Resource" id="Resource_8cely"]
+script = ExtResource("9_spohq")
+entity_definitions = Array[Resource]([ExtResource("2_d5qfg"), ExtResource("3_dbslg"), ExtResource("4_yree8"), ExtResource("5_fj4ay"), ExtResource("6_8r6qn"), ExtResource("7_7nxfe"), ExtResource("8_2e3ic"), SubResource("Resource_dbslg")])
+
+[resource]
+script = ExtResource("10_ibbtw")
+entity_fgd = SubResource("Resource_8cely")
+base_texture_dir = "res://maps/textures"
