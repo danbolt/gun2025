@@ -8,9 +8,8 @@ func on_body_entered(intruder: Node3D) -> void:
 	assert(intruder is PlayerController, "non-player entered Dialogue")
 	Dialogic.start(timeline).process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	body_entered.disconnect(on_body_entered)
-	
 	if queue_free_on_entry:
+		body_entered.disconnect(on_body_entered)
 		queue_free()
 
 func _ready() -> void:
