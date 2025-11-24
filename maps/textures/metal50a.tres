@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://lhbqcwgtr723"]
+
+[ext_resource type="Texture2D" uid="uid://tk1hb7jefs3c" path="res://maps/textures/metal50a.png" id="1_16n1k"]
+[ext_resource type="Texture2D" uid="uid://dh07rqj13x73b" path="res://maps/textures/metal50a/metal50a_height.png" id="2_lfiv1"]
+[ext_resource type="Texture2D" uid="uid://78ffn10qd2qw" path="res://maps/textures/metal50a/metal50a_metallic.png" id="3_2pp1s"]
+[ext_resource type="Texture2D" uid="uid://dnmpcd4hwywfp" path="res://maps/textures/metal50a/metal50a_normal.png" id="4_anhkv"]
+
+[resource]
+albedo_texture = ExtResource("1_16n1k")
+metallic = 1.0
+metallic_texture = ExtResource("3_2pp1s")
+roughness = 0.0
+normal_enabled = true
+normal_texture = ExtResource("4_anhkv")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_lfiv1")
+texture_filter = 2
