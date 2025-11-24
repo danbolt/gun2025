@@ -14,7 +14,7 @@
 [ext_resource type="Material" uid="uid://bvtlpjrcbr36g" path="res://maps/textures/emit_white.tres" id="6_hjcc1"]
 [ext_resource type="Material" uid="uid://bfrpip07ko13t" path="res://maps/textures/tiles133a.tres" id="8_13vfk"]
 [ext_resource type="Script" uid="uid://rp72pl3cwur" path="res://scripts/spawn_point.gd" id="11_fxdr2"]
-[ext_resource type="Script" uid="uid://drbo7717sjohn" path="res://scripts/dialogue_trigger.gd" id="15_brrid"]
+[ext_resource type="Script" path="res://scripts/dialogue_trigger.gd" id="15_brrid"]
 [ext_resource type="Resource" uid="uid://dw75vr72yg3e6" path="res://timelines/entry.dtl" id="16_1nego"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="17_oqpqe"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="18_fxdr2"]
@@ -554,7 +554,6 @@ size = Vector3(14.811493, 6.757084, 22.782951)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6729436, -5.8818274, -1.7528014)
 script = ExtResource("15_brrid")
 timeline = ExtResource("16_1nego")
-metadata/_custom_type_script = "uid://drbo7717sjohn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0000005, -1.5, 0)
