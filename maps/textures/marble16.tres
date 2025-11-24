@@ -12,5 +12,6 @@ roughness_texture = ExtResource("3_0liex")
 normal_enabled = true
 normal_texture = ExtResource("2_gi805")
 heightmap_enabled = true
+heightmap_scale = 1.0
 heightmap_texture = ExtResource("2_0liex")
 texture_filter = 2
