@@ -1,0 +1,3 @@
+@baseclass size(-16 -16 -16, 16 16 16) color(100 100 100) = TouchClass []
+
+@PointClass base(TouchClass) = touch : "A touch" []

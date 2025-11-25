@@ -3,6 +3,7 @@
 // entity 0
 {
 "classname" "worldspawn"
+"_tb_def" "external:entities.fgd"
 // brush 0
 {
 ( -736 -64 -368 ) ( -736 -63 -368 ) ( -736 -64 -367 ) woodfloor51 0 -352 0 1 1
@@ -557,4 +558,30 @@
 {
 "classname" "info_player_start"
 "origin" "-704 -192 -312"
+}
+// entity 2
+{
+"classname" "func_group"
+"_tb_type" "_tb_layer"
+"_tb_name" "objects"
+"_tb_id" "1"
+"_tb_layer_sort_index" "0"
+}
+// entity 3
+{
+"classname" "touch"
+"origin" "32 -32 -104"
+"_tb_layer" "1"
+}
+// entity 4
+{
+"classname" "touch"
+"origin" "32 -176 -88"
+"_tb_layer" "1"
+}
+// entity 5
+{
+"classname" "touch"
+"origin" "32 -320 -88"
+"_tb_layer" "1"
 }
