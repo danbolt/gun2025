@@ -24,7 +24,7 @@ func on_timeline_finished() -> void:
 		pass
 
 func _ready() -> void:
-	gameplay.load_and_add_level("res://levels/indoor.tscn")
+	gameplay.load_and_add_level("res://levels/palace.tscn")
 	
 	curtains_open = true
 	
