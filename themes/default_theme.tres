@@ -1,14 +1,14 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://ccpauq2da4rfu"]
 
 [ext_resource type="StyleBox" uid="uid://dfvrsl0orrpa4" path="res://themes/default_stylebox.tres" id="1_het5a"]
-[ext_resource type="FontFile" uid="uid://dhxxa64rficsj" path="res://fonts/LINE_Seed_Sans_V1.003/App/OTF/LINESeedSans_A_Rg.otf" id="1_mlkpy"]
 [ext_resource type="StyleBox" uid="uid://us8x103iwa2n" path="res://themes/default_stylebox_inner_hover.tres" id="1_nwjvr"]
 [ext_resource type="StyleBox" uid="uid://bsg3cdkokvk58" path="res://themes/default_stylebox_inner_focus.tres" id="1_r3xux"]
 [ext_resource type="StyleBox" uid="uid://k1cm2oj2yjcl" path="res://themes/default_stylebox_inner.tres" id="2_nwjvr"]
 [ext_resource type="StyleBox" uid="uid://dik8rfb1hwgnp" path="res://themes/default_stylebox_inner_pressed.tres" id="3_nwjvr"]
+[ext_resource type="FontFile" uid="uid://5kxbhonwxux3" path="res://fonts/luxi/luxisr.ttf" id="6_r3xux"]
 
 [resource]
-default_font = ExtResource("1_mlkpy")
+default_font = ExtResource("6_r3xux")
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.37036464, 0.37036443, 0.37036446, 0.5019608)
 Button/colors/font_focus_color = Color(0.16862746, 0.16862746, 0.37254903, 1)
