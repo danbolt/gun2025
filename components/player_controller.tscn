@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://icjpxsgtudhd"]
+[gd_scene load_steps=12 format=3 uid="uid://icjpxsgtudhd"]
 
 [ext_resource type="Script" uid="uid://ci2bdepegepjt" path="res://scripts/player_controller.gd" id="1_1l8hx"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_8d205"]
@@ -20,6 +20,11 @@ use_fov_override = true
 [sub_resource type="BoxMesh" id="BoxMesh_mocpu"]
 material = SubResource("StandardMaterial3D_8r83d")
 size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d205"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8d205"]
+material = SubResource("StandardMaterial3D_8d205")
 
 [node name="PlayerController" type="CharacterBody3D" groups=["listen_for_fov_updates"]]
 collision_layer = 2
@@ -47,3 +52,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39253712, -0.72376025)
 [node name="temp" type="MeshInstance3D" parent="CharacterCamera/HandsRoot"]
 mesh = SubResource("BoxMesh_mocpu")
 skeleton = NodePath("../..")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_8d205")
