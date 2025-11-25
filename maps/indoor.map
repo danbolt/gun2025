@@ -577,11 +577,14 @@
 {
 "classname" "touch"
 "origin" "32 -176 -88"
+"angle" "285"
 "_tb_layer" "1"
 }
 // entity 5
 {
 "classname" "touch"
 "origin" "32 -320 -88"
+"1" "0"
+"2" "0"
 "_tb_layer" "1"
 }

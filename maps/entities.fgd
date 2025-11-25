@@ -1,3 +1,8 @@
 @baseclass size(-16 -16 -16, 16 16 16) color(100 100 100) = TouchClass []
 
-@PointClass base(TouchClass) = touch : "A touch" []
+@PointClass base(TouchClass) = touch : "A touch" [
+    1(boolean)	: "One"	: 0 		: "Keyvalue Description"
+    2(boolean)	: "Two"	: 0 		: "Keyvalue Description"    
+    3(boolean)	: "Three"	: 0 		: "Keyvalue Description"
+    4(boolean)	: "Four"	: 0 		: "Keyvalue Description"
+]
