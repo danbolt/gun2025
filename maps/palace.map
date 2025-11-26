@@ -200,11 +200,15 @@
 {
 "classname" "touch"
 "origin" "-16 176 32"
+"3on" "0"
 }
 // entity 3
 {
 "classname" "touch"
 "origin" "128 208 32"
+"3on" "99"
+"killtarget" ""
+"spawnflags" "1"
 }
 // entity 4
 {

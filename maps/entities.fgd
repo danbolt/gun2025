@@ -1,8 +1,20 @@
 @baseclass size(-16 -16 -16, 16 16 16) color(100 100 100) = TouchClass []
 
 @PointClass base(TouchClass) = touch : "A touch" [
-    1(boolean)	: "One"	: 0 		: "Keyvalue Description"
-    2(boolean)	: "Two"	: 0 		: "Keyvalue Description"    
-    3(boolean)	: "Three"	: 0 		: "Keyvalue Description"
-    4(boolean)	: "Four"	: 0 		: "Keyvalue Description"
+    spawnflags(flags) =
+    [
+        1 : "A" : 0
+        2 : "B" : 0 
+        4 : "C" : 0 
+        8 : "D" : 0 
+    ]
+
+    maskflags(flags) =
+    [
+        1 : "A Enabled" : 1
+        2 : "B Enabled" : 1
+        4 : "C Enabled" : 1 
+        8 : "D Enabled" : 1 
+    ]
 ]
+
