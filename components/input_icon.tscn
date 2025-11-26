@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs1bw7ux2tlqb"]
 
 [ext_resource type="Script" uid="uid://d2ici11oa3g4m" path="res://scripts/input_icon.gd" id="1_s40mh"]
-[ext_resource type="Texture2D" uid="uid://bdktdud7cjoao" path="res://kenney_input-prompts_1.4/Xbox Series/Double/xbox_button_color_b_outline.png" id="2_s8md3"]
+[ext_resource type="Texture2D" uid="uid://biwbgavd2xkyn" path="res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_6_outline.png" id="2_s8md3"]
 
 [node name="InputIcon" type="Node3D"]
 script = ExtResource("1_s40mh")
@@ -10,4 +10,5 @@ associated_button = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
+no_depth_test = true
 texture = ExtResource("2_s8md3")
