@@ -10,5 +10,4 @@ associated_button = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
-no_depth_test = true
 texture = ExtResource("2_s8md3")

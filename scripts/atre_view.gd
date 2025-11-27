@@ -1,6 +1,8 @@
 @tool
 class_name ArteView extends Node3D
 
+@onready var icons: Node3D = $Icons
+
 @onready var input_icon_0: InputIcon = %InputIcon_0
 @onready var input_icon_1: InputIcon = %InputIcon_1
 @onready var input_icon_2: InputIcon = %InputIcon_2
@@ -9,6 +11,7 @@ class_name ArteView extends Node3D
 @onready var strike_marker: Node3D = %StrikeMarker
 
 @export var extent_distance: float = 1.0
+@export var out_distance: float = 2.0
 
 @export var all_pressed: bool:
 	get:
@@ -58,6 +61,9 @@ func _physics_process(_delta: float) -> void:
 func _process(delta: float) -> void:
 	if strike_marker:
 		strike_marker.visible = all_pressed
+	
+	if icons:
+		icons.position = Vector3.BACK * out_distance
 	
 	var current_viewport := get_viewport()
 	if current_viewport != null:

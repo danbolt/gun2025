@@ -315,6 +315,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1
 spawn_flags = 1
 mask_flags = 3
 
+[node name="entity_3_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5, 1, 3.5)
+spawn_flags = 5
+
 [node name="Lighting" type="Node" parent="NavigationRegion3D/LightmapGI"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="NavigationRegion3D/LightmapGI/Lighting"]

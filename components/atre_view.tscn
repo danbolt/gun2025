@@ -5,6 +5,7 @@
 
 [node name="AtreView" type="Node3D"]
 script = ExtResource("1_jvvgj")
+out_distance = null
 
 [node name="Icons" type="Node3D" parent="."]
 

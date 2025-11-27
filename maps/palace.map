@@ -208,6 +208,14 @@
 }
 // entity 3
 {
+"classname" "touch"
+"origin" "112 -48 32"
+"3on" "99"
+"killtarget" ""
+"spawnflags" "5"
+}
+// entity 4
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "inner"
