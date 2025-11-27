@@ -14,6 +14,12 @@ signal struck_victim(victim: ArteView)
 @export var jump_velocity: float = 8.0
 @export var sprint_modifier: float = 2.0
 
+var is_knocked_back: bool = false
+var knockback_direction: Vector3 = Vector3.FORWARD
+var knockback_speed: float = 16
+var knockback_time: float = 0.0
+var knockback_duration: float = 1.0
+
 @export var max_velocity: Vector2 = Vector2(10.0, 10.0)
 
 const MOUSE_SENSITIVITY_X: float = 0.125
@@ -29,9 +35,16 @@ func update_fov(_new_fov: float) -> void:
 func struck(victim: ArteView) -> void:
 	struck_victim.emit(victim)
 
-func damaged(_damager: ArteView) -> void:
-	# TODO: knockback
-	pass
+func damaged(damager: ArteView) -> void:
+	if is_knocked_back:
+		return
+	
+	is_knocked_back = true
+	knockback_time = knockback_duration
+	knockback_direction = (global_position - damager.global_position + Vector3.UP * 0.5).normalized()
+	
+	velocity = knockback_direction * knockback_speed
+		
 
 func _input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
@@ -102,13 +115,22 @@ func process_motion(_delta: float) -> void:
 	velocity.z = oriented_input.z * speed * -1.0
 
 func _physics_process(delta: float) -> void:
+	if is_knocked_back:
+		knockback_time -= delta
+		if knockback_time < 0.0:
+			is_knocked_back = false
 	
-	process_motion(delta)
-	
-	if not is_on_floor():
-		velocity.y += -8.0 * delta
-	elif Input.is_action_just_pressed("jump"):
-		velocity.y = jump_velocity
+	if not is_knocked_back:
+		process_motion(delta)
+		
+		if not is_on_floor():
+			velocity.y += -8.0 * delta
+		elif Input.is_action_just_pressed("jump"):
+			velocity.y = jump_velocity
+	else:
+
+		if not is_on_floor():
+			velocity.y += -8.0 * delta
 		
 	velocity.x = clampf(velocity.x, -max_velocity.x, max_velocity.x)
 	velocity.y = clampf(velocity.y, -max_velocity.y, max_velocity.y)

@@ -26,6 +26,11 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="PlayerController" parent="." instance=ExtResource("7_bev8n")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+camera_rotation_y = null
+move_speed = null
+jump_velocity = null
+sprint_modifier = null
+max_velocity = null
 
 [node name="GameplayHUD" type="AspectRatioContainer" parent="."]
 anchors_preset = 15
