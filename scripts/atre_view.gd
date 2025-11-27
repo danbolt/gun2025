@@ -24,6 +24,7 @@ signal damaged()
 func on_intruder_entered_hitbox(intruder: Node3D) -> void:
 	var player: PlayerController = intruder as PlayerController
 	if all_pressed:
+		player.struck(self)
 		damaged.emit()
 	else:
 		player.damaged(self)

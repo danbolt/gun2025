@@ -307,17 +307,36 @@ shape = SubResource("ConvexPolygonShape3D_cr187")
 shape = SubResource("ConvexPolygonShape3D_glsl4")
 
 [node name="entity_1_info_player_start" type="Marker3D" parent="NavigationRegion3D/LightmapGI/FuncGodotMap"]
-transform = Transform3D(1.3907092e-07, 0, 1, 0, 1, 0, -1, 0, 1.3907092e-07, 2, 0.75, 1)
+transform = Transform3D(1.3907092e-07, 0, 1, 0, 1, 0, -1, 0, 1.3907092e-07, 22, 0.75, 0)
 script = ExtResource("14_dwj0r")
 
 [node name="entity_2_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -1.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13, 1, -8.5)
 spawn_flags = 1
-mask_flags = 3
 
 [node name="entity_3_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5, 1, 3.5)
-spawn_flags = 5
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.5, 1, 14)
+spawn_flags = 1
+
+[node name="entity_4_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.5, 1, -14)
+spawn_flags = 10
+
+[node name="entity_5_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.5, 1, -11.5)
+spawn_flags = 10
+
+[node name="entity_6_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9, 1, 12)
+spawn_flags = 14
+
+[node name="entity_7_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.5, 1, 5.5)
+spawn_flags = 12
+
+[node name="entity_8_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 1, 5.5)
+spawn_flags = 4
 
 [node name="Lighting" type="Node" parent="NavigationRegion3D/LightmapGI"]
 

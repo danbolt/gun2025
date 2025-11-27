@@ -1,5 +1,7 @@
 class_name PlayerController extends CharacterBody3D
 
+signal struck_victim(victim: ArteView)
+
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 @export var camera_rotation_y: float:
 	get:
@@ -23,6 +25,9 @@ var _accumulated_input: Vector2 = Vector2.ZERO
 
 func update_fov(_new_fov: float) -> void:
 	character_camera.fov = Settings.fov
+
+func struck(victim: ArteView) -> void:
+	struck_victim.emit(victim)
 
 func damaged(_damager: ArteView) -> void:
 	# TODO: knockback
@@ -95,9 +100,9 @@ func process_motion(_delta: float) -> void:
 	var speed := move_speed * (sprint_modifier if Input.is_action_pressed("sprint") else 1.0)
 	velocity.x = oriented_input.x * speed
 	velocity.z = oriented_input.z * speed * -1.0
-	
 
 func _physics_process(delta: float) -> void:
+	
 	process_motion(delta)
 	
 	if not is_on_floor():

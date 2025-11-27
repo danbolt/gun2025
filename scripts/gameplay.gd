@@ -4,6 +4,15 @@ class_name Gameplay extends Node3D
 
 @onready var player_controller: PlayerController = %PlayerController
 
+@onready var hp_bar: ProgressBar = %HPBar
+
+@export var max_hp: float = 100
+@export var hp: float = max_hp
+
+func on_player_struck_victim(_victim: ArteView) -> void:
+	const ARBITRARY_BONUS: float = 4.0
+	hp = clamp(hp + ARBITRARY_BONUS, 0.0, max_hp)
+
 func remove_level() -> void:
 	for child: Node in level.get_children():
 		child.queue_free()
@@ -42,6 +51,20 @@ func dialogue_finished() -> void:
 func _ready() -> void:
 	$Camera3D.process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	player_controller.struck_victim.connect(on_player_struck_victim)
+	
 	Dialogic.signal_event.connect(on_dialogic_signal)
 	Dialogic.timeline_ended.connect(dialogue_finished)
 	
+func _process_hp(delta: float) -> void:
+	const DEPLETE_SPEED: float = 4.0
+	hp -= delta * DEPLETE_SPEED
+	if hp < 0:
+		hp = 0
+
+func _physics_process(delta: float) -> void:
+	_process_hp(delta)
+	
+func _process(_delta: float) -> void:
+	hp_bar.value = hp
+	hp_bar.max_value = max_hp
