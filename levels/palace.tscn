@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://hhdmxr5cque2"]
+[gd_scene load_steps=49 format=4 uid="uid://hhdmxr5cque2"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_8hamg"]
 [ext_resource type="LightmapGIData" uid="uid://pmfviuhvodup" path="res://bakes/palace.lmbake" id="1_ue10f"]
@@ -6,7 +6,6 @@
 [ext_resource type="Material" uid="uid://dqbwuf8ce4h80" path="res://maps/textures/tiles131.tres" id="3_c85mt"]
 [ext_resource type="Material" uid="uid://ddakk0e584lke" path="res://maps/textures/bricks099.tres" id="4_ue10f"]
 [ext_resource type="PackedScene" uid="uid://b2gltlvs8xnef" path="res://components/touch_object.tscn" id="8_c8xce"]
-[ext_resource type="PackedScene" uid="uid://cn42uc3ccpsx5" path="res://components/atre_view.tscn" id="10_c8xce"]
 [ext_resource type="Material" uid="uid://bwnlgoksj6ca7" path="res://maps/textures/woodfloor51.tres" id="12_omytj"]
 [ext_resource type="Material" uid="uid://lhbqcwgtr723" path="res://maps/textures/metal50a.tres" id="13_f4be2"]
 [ext_resource type="Script" uid="uid://rp72pl3cwur" path="res://scripts/spawn_point.gd" id="14_dwj0r"]
@@ -308,18 +307,13 @@ shape = SubResource("ConvexPolygonShape3D_cr187")
 shape = SubResource("ConvexPolygonShape3D_glsl4")
 
 [node name="entity_1_info_player_start" type="Marker3D" parent="NavigationRegion3D/LightmapGI/FuncGodotMap"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 40, 0.75, 0)
+transform = Transform3D(1.3907092e-07, 0, 1, 0, 1, 0, -1, 0, 1.3907092e-07, 2, 0.75, 1)
 script = ExtResource("14_dwj0r")
 
 [node name="entity_2_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.5, 1, -0.5)
-
-[node name="entity_3_touch" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("8_c8xce")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.5, 1, 4)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -1.5)
 spawn_flags = 1
-mask_flags = 4
-
-[node name="AtreView" parent="NavigationRegion3D/LightmapGI/FuncGodotMap/entity_3_touch" instance=ExtResource("10_c8xce")]
+mask_flags = 3
 
 [node name="Lighting" type="Node" parent="NavigationRegion3D/LightmapGI"]
 
@@ -333,7 +327,6 @@ directional_shadow_mode = 0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/LightmapGI/Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73851967, 10.579421, -0.2158432)
-light_energy = 100.0
 light_bake_mode = 1
 omni_range = 31.769625
 

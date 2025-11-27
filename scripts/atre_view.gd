@@ -6,7 +6,25 @@ class_name ArteView extends Node3D
 @onready var input_icon_2: InputIcon = %InputIcon_2
 @onready var input_icon_3: InputIcon = %InputIcon_3
 
+@onready var strike_marker: Node3D = %StrikeMarker
+
 @export var extent_distance: float = 1.0
+
+@export var all_pressed: bool:
+	get:
+		return (input_icon_0.pressed or (input_icon_0.visible == false)) and (input_icon_1.pressed or (input_icon_1.visible == false)) and (input_icon_2.pressed or (input_icon_2.visible == false)) and (input_icon_3.pressed or (input_icon_3.visible == false))
+		
+func set_flags(flags: int) -> void:
+	input_icon_0.pressed = (flags & 1) == 1
+	input_icon_1.pressed = (flags & 2) == 2
+	input_icon_2.pressed = (flags & 4) == 4
+	input_icon_3.pressed = (flags & 8) == 8
+	
+func set_mask(mask: int) -> void:
+	input_icon_0.visible = (mask & 1) == 1
+	input_icon_1.visible = (mask & 2) == 2
+	input_icon_2.visible = (mask & 4) == 4
+	input_icon_3.visible = (mask & 8) == 8
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,9 +38,27 @@ func _ready() -> void:
 	input_icon_2.associated_key = Key.KEY_Q
 	input_icon_3.associated_key = Key.KEY_1
 
+func _physics_process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+		
+	if Input.is_action_just_pressed("arte_0"):
+		input_icon_0.pressed = !input_icon_0.pressed
+	
+	if Input.is_action_just_pressed("arte_1"):
+		input_icon_1.pressed = !input_icon_1.pressed
+	
+	if Input.is_action_just_pressed("arte_2"):
+		input_icon_2.pressed = !input_icon_2.pressed
+	
+	if Input.is_action_just_pressed("arte_3"):
+		input_icon_3.pressed = !input_icon_3.pressed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if strike_marker:
+		strike_marker.visible = all_pressed
+	
 	var current_viewport := get_viewport()
 	if current_viewport != null:
 		var current_camera := current_viewport.get_camera_3d()
