@@ -19,6 +19,7 @@ func _add_arte_view() -> void:
 	
 func _ready() -> void:
 	_add_arte_view()
+	arte_view.damaged.connect(queue_free)
 	
 func _process(_delta: float) -> void:
 	arte_view.set_mask(mask_flags)

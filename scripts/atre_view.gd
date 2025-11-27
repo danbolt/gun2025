@@ -1,6 +1,8 @@
 @tool
 class_name ArteView extends Node3D
 
+signal damaged()
+
 @onready var icons: Node3D = $Icons
 
 @onready var input_icon_0: InputIcon = %InputIcon_0
@@ -10,12 +12,21 @@ class_name ArteView extends Node3D
 
 @onready var strike_marker: Node3D = %StrikeMarker
 
+@onready var hitbox: Area3D = %Hitbox
+
 @export var extent_distance: float = 1.0
 @export var out_distance: float = 2.0
 
 @export var all_pressed: bool:
 	get:
 		return (input_icon_0.pressed or (input_icon_0.visible == false)) and (input_icon_1.pressed or (input_icon_1.visible == false)) and (input_icon_2.pressed or (input_icon_2.visible == false)) and (input_icon_3.pressed or (input_icon_3.visible == false))
+		
+func on_intruder_entered_hitbox(intruder: Node3D) -> void:
+	var player: PlayerController = intruder as PlayerController
+	if all_pressed:
+		damaged.emit()
+	else:
+		player.damaged(self)
 		
 func set_flags(flags: int) -> void:
 	input_icon_0.pressed = (flags & 1) == 1
@@ -35,6 +46,9 @@ func _ready() -> void:
 	input_icon_1.associated_button = JoyButton.JOY_BUTTON_B
 	input_icon_2.associated_button = JoyButton.JOY_BUTTON_X
 	input_icon_3.associated_button = JoyButton.JOY_BUTTON_Y
+	
+	if not Engine.is_editor_hint():
+		hitbox.body_entered.connect(on_intruder_entered_hitbox)
 	
 	input_icon_0.associated_key = Key.KEY_E
 	input_icon_1.associated_key = Key.KEY_3

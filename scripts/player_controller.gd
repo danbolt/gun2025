@@ -24,6 +24,10 @@ var _accumulated_input: Vector2 = Vector2.ZERO
 func update_fov(_new_fov: float) -> void:
 	character_camera.fov = Settings.fov
 
+func damaged(_damager: ArteView) -> void:
+	# TODO: knockback
+	pass
+
 func _input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return

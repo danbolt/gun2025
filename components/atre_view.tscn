@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn42uc3ccpsx5"]
+[gd_scene load_steps=4 format=3 uid="uid://cn42uc3ccpsx5"]
 
 [ext_resource type="PackedScene" uid="uid://bs1bw7ux2tlqb" path="res://components/input_icon.tscn" id="1_2433q"]
 [ext_resource type="Script" uid="uid://dr50dcreeedxy" path="res://scripts/atre_view.gd" id="1_jvvgj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jvvgj"]
 
 [node name="AtreView" type="Node3D"]
 script = ExtResource("1_jvvgj")
@@ -40,3 +42,11 @@ visible = false
 transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.02
 text = "Strike!"
+
+[node name="Hitbox" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("SphereShape3D_jvvgj")
