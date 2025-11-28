@@ -16,6 +16,7 @@ func _add_arte_view() -> void:
 		add_child(arte_view)
 		arte_view.set_flags(spawn_flags)
 		arte_view.set_mask(mask_flags)
+	arte_view.damaged.connect(on_damaged)
 	
 func on_damaged() -> void:
 	var tree := get_tree()
@@ -25,7 +26,6 @@ func on_damaged() -> void:
 	
 func _ready() -> void:
 	_add_arte_view()
-	arte_view.damaged.connect(on_damaged)
 	
 func _process(_delta: float) -> void:
 	arte_view.set_mask(mask_flags)

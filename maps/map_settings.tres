@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://rp72pl3cwur" path="res://scripts/spawn_point.gd" id="10_dbslg"]
 [ext_resource type="Script" uid="uid://38q6k0ctahjn" path="res://addons/func_godot/src/map/func_godot_map_settings.gd" id="10_ibbtw"]
 [ext_resource type="Script" uid="uid://cij36hpqc46c" path="res://addons/func_godot/src/import/quake_wad_file.gd" id="11_vctwl"]
-[ext_resource type="PackedScene" uid="uid://b2gltlvs8xnef" path="res://components/touch_object.tscn" id="11_yree8"]
+[ext_resource type="PackedScene" uid="uid://b2gltlvs8xnef" path="res://components/idler.tscn" id="11_yree8"]
 
 [sub_resource type="Resource" id="Resource_dbslg"]
 script = ExtResource("9_d5qfg")
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://cxsqwtsqd8w33"
 script = ExtResource("9_d5qfg")
 scene_file = ExtResource("11_yree8")
 apply_scale_on_map_build = false
-classname = "touch"
+classname = "idler"
 metadata/_custom_type_script = "uid://cxsqwtsqd8w33"
 
 [sub_resource type="Resource" id="Resource_8cely"]

@@ -200,6 +200,16 @@
 }
 // entity 2
 {
+"classname" "idler"
+"origin" "96 176 128"
+}
+// entity 3
+{
+"classname" "idler"
+"origin" "-48 -32 144"
+}
+// entity 4
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "inner"
@@ -333,74 +343,11 @@
 ( 304 -704 160 ) ( 304 -688 160 ) ( 304 -688 144 ) metal50a 128 480 0 0.1 0.1
 }
 }
-// entity 3
+// entity 5
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "enemies"
 "_tb_id" "2"
 "_tb_layer_sort_index" "1"
-}
-// entity 4
-{
-"classname" "touch"
-"origin" "-272 416 32"
-"3on" "99"
-"killtarget" ""
-"spawnflags" "1"
-"_tb_layer" "2"
-}
-// entity 5
-{
-"classname" "touch"
-"origin" "448 112 32"
-"3on" "99"
-"killtarget" ""
-"spawnflags" "1"
-"_tb_layer" "2"
-}
-// entity 6
-{
-"classname" "touch"
-"origin" "-448 176 32"
-"3on" "99"
-"killtarget" ""
-"spawnflags" "10"
-"_tb_layer" "2"
-}
-// entity 7
-{
-"classname" "touch"
-"origin" "-368 -368 32"
-"3on" "99"
-"killtarget" ""
-"spawnflags" "10"
-"_tb_layer" "2"
-}
-// entity 8
-{
-"classname" "touch"
-"origin" "384 288 32"
-"3on" "99"
-"killtarget" ""
-"spawnflags" "14"
-"_tb_layer" "2"
-}
-// entity 9
-{
-"classname" "touch"
-"origin" "176 -176 32"
-"3on" "99"
-"killtarget" ""
-"spawnflags" "12"
-"_tb_layer" "2"
-}
-// entity 10
-{
-"classname" "touch"
-"origin" "176 -480 32"
-"3on" "99"
-"killtarget" ""
-"spawnflags" "4"
-"_tb_layer" "2"
 }

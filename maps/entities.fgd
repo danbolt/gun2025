@@ -18,3 +18,9 @@
     ]
 ]
 
+@PointClass base(touch) = idler : "Idler" [
+]
+
+@PointClass base(touch) = chase : "A chase" [
+]
+
