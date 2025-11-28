@@ -47,6 +47,11 @@ const KEY_TEXTURES: Dictionary[Key, Texture2D] = {
 	Key.KEY_CTRL: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_ctrl.png"),
 	Key.KEY_ENTER: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_enter.png"),
 	Key.KEY_SPACE: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_enter.png"),
+	
+	Key.KEY_GREATER: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_bracket_greater.png"),
+	Key.KEY_LESS: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_bracket_less.png"),
+	Key.KEY_PERIOD: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_period.png"),
+	Key.KEY_APOSTROPHE: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_apostrophe.png"),
 }
 
 const BUTTON_TEXTURES_XBOX: Dictionary[JoyButton, Texture2D] = {
@@ -114,6 +119,11 @@ const KEY_TEXTURES_OUTLINE: Dictionary[Key, Texture2D] = {
 	Key.KEY_CTRL: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_ctrl_outline.png"),
 	Key.KEY_ENTER: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_enter_outline.png"),
 	Key.KEY_SPACE: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_enter_outline.png"),
+		
+	Key.KEY_GREATER: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_bracket_greater_outline.png"),
+	Key.KEY_LESS: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_bracket_less_outline.png"),
+	Key.KEY_PERIOD: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_period_outline.png"),
+	Key.KEY_APOSTROPHE: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_apostrophe_outline.png"),
 }
 
 const BUTTON_TEXTURES_XBOX_OUTLINE: Dictionary[JoyButton, Texture2D] = {
@@ -136,3 +146,29 @@ const BUTTON_TEXTURES_PLAYSTATION_OUTLINE: Dictionary[JoyButton, Texture2D] = {
 	JoyButton.JOY_BUTTON_X: preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_button_color_square_outline.png"),
 	JoyButton.JOY_BUTTON_Y: preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_button_color_triangle_outline.png"),
 }
+
+var ARTE_0_KEY: Key = KEY_A
+var ARTE_1_KEY: Key = KEY_A
+var ARTE_2_KEY: Key = KEY_A
+var ARTE_3_KEY: Key = KEY_A
+func _ready() -> void:
+	var arte_0_key_events := InputMap.action_get_events("arte_0")
+	for event in arte_0_key_events:
+		if event is InputEventKey:
+			ARTE_0_KEY = DisplayServer.keyboard_get_keycode_from_physical((event as InputEventKey).physical_keycode)
+	
+	var arte_1_key_events := InputMap.action_get_events("arte_1")
+	for event in arte_1_key_events:
+		if event is InputEventKey:
+			ARTE_1_KEY = DisplayServer.keyboard_get_keycode_from_physical((event as InputEventKey).physical_keycode)
+	
+	var arte_2_key_events := InputMap.action_get_events("arte_2")
+	for event in arte_2_key_events:
+		if event is InputEventKey:
+			ARTE_2_KEY = DisplayServer.keyboard_get_keycode_from_physical((event as InputEventKey).physical_keycode)
+	
+	var arte_3_key_events := InputMap.action_get_events("arte_3")
+	for event in arte_3_key_events:
+		if event is InputEventKey:
+			ARTE_3_KEY = DisplayServer.keyboard_get_keycode_from_physical((event as InputEventKey).physical_keycode)
+	

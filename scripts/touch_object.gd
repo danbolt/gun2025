@@ -28,7 +28,8 @@ func _ready() -> void:
 	_add_arte_view()
 	
 func _process(_delta: float) -> void:
-	arte_view.set_mask(mask_flags)
+	if arte_view != null:
+		arte_view.set_mask(mask_flags)
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():

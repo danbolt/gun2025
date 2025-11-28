@@ -210,6 +210,30 @@
 }
 // entity 4
 {
+"classname" "chase"
+"origin" "-400 352 32"
+"angle" "330"
+}
+// entity 5
+{
+"classname" "chase"
+"origin" "-496 -288 32"
+"angle" "30"
+}
+// entity 6
+{
+"classname" "chase"
+"origin" "528 -144 32"
+"angle" "150"
+}
+// entity 7
+{
+"classname" "chase"
+"origin" "304 128 32"
+"angle" "180"
+}
+// entity 8
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "inner"
@@ -343,7 +367,7 @@
 ( 304 -704 160 ) ( 304 -688 160 ) ( 304 -688 144 ) metal50a 128 480 0 0.1 0.1
 }
 }
-// entity 5
+// entity 9
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FuncGodotMapSettings" load_steps=18 format=3 uid="uid://cvtgbpsw27vq2"]
+[gd_resource type="Resource" script_class="FuncGodotMapSettings" load_steps=20 format=3 uid="uid://cvtgbpsw27vq2"]
 
 [ext_resource type="Material" uid="uid://cvex6toty8yn7" path="res://addons/func_godot/textures/default_material.tres" id="1_p5fjr"]
 [ext_resource type="Resource" uid="uid://nayxb8n7see2" path="res://addons/func_godot/fgd/phong_base.tres" id="2_d5qfg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://38q6k0ctahjn" path="res://addons/func_godot/src/map/func_godot_map_settings.gd" id="10_ibbtw"]
 [ext_resource type="Script" uid="uid://cij36hpqc46c" path="res://addons/func_godot/src/import/quake_wad_file.gd" id="11_vctwl"]
 [ext_resource type="PackedScene" uid="uid://b2gltlvs8xnef" path="res://components/idler.tscn" id="11_yree8"]
+[ext_resource type="PackedScene" uid="uid://bpm26fr0p0ifp" path="res://components/chaser.tscn" id="12_fj4ay"]
 
 [sub_resource type="Resource" id="Resource_dbslg"]
 script = ExtResource("9_d5qfg")
@@ -31,9 +32,15 @@ apply_scale_on_map_build = false
 classname = "idler"
 metadata/_custom_type_script = "uid://cxsqwtsqd8w33"
 
+[sub_resource type="Resource" id="Resource_8r6qn"]
+script = ExtResource("9_d5qfg")
+scene_file = ExtResource("12_fj4ay")
+classname = "chase"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"
+
 [sub_resource type="Resource" id="Resource_8cely"]
 script = ExtResource("9_spohq")
-entity_definitions = Array[Resource]([ExtResource("2_d5qfg"), ExtResource("3_dbslg"), ExtResource("4_yree8"), ExtResource("5_fj4ay"), ExtResource("6_8r6qn"), ExtResource("7_7nxfe"), ExtResource("8_2e3ic"), SubResource("Resource_dbslg"), SubResource("Resource_fj4ay")])
+entity_definitions = Array[Resource]([ExtResource("2_d5qfg"), ExtResource("3_dbslg"), ExtResource("4_yree8"), ExtResource("5_fj4ay"), ExtResource("6_8r6qn"), ExtResource("7_7nxfe"), ExtResource("8_2e3ic"), SubResource("Resource_dbslg"), SubResource("Resource_fj4ay"), SubResource("Resource_8r6qn")])
 
 [resource]
 script = ExtResource("10_ibbtw")

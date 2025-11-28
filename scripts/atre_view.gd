@@ -1,6 +1,7 @@
 @tool
 class_name ArteView extends Node3D
 
+signal attacked_player(player: PlayerController)
 signal damaged()
 
 @onready var icons: Node3D = $Icons
@@ -27,6 +28,7 @@ func on_intruder_entered_hitbox(intruder: Node3D) -> void:
 		player.struck(self)
 		damaged.emit()
 	else:
+		attacked_player.emit(player)
 		player.damaged(self)
 		
 func set_flags(flags: int) -> void:
@@ -51,25 +53,25 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		hitbox.body_entered.connect(on_intruder_entered_hitbox)
 	
-	input_icon_0.associated_key = Key.KEY_E
-	input_icon_1.associated_key = Key.KEY_3
-	input_icon_2.associated_key = Key.KEY_Q
-	input_icon_3.associated_key = Key.KEY_1
+	input_icon_0.associated_key = InputSpriteMappings.ARTE_0_KEY
+	input_icon_1.associated_key = InputSpriteMappings.ARTE_1_KEY
+	input_icon_2.associated_key = InputSpriteMappings.ARTE_2_KEY
+	input_icon_3.associated_key = InputSpriteMappings.ARTE_3_KEY
 
-func _physics_process(_delta: float) -> void:
+func mystic_arte(arte_index: int) -> void:
 	if Engine.is_editor_hint():
 		return
 		
-	if Input.is_action_just_pressed("arte_0"):
+	if arte_index == 0:
 		input_icon_0.pressed = !input_icon_0.pressed
 	
-	if Input.is_action_just_pressed("arte_1"):
+	if arte_index == 1:
 		input_icon_1.pressed = !input_icon_1.pressed
 	
-	if Input.is_action_just_pressed("arte_2"):
+	if arte_index == 2:
 		input_icon_2.pressed = !input_icon_2.pressed
 	
-	if Input.is_action_just_pressed("arte_3"):
+	if arte_index == 3:
 		input_icon_3.pressed = !input_icon_3.pressed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

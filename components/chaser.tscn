@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpm26fr0p0ifp"]
+
+[ext_resource type="Script" uid="uid://c5ifs7issjt5n" path="res://scripts/chaser.gd" id="1_wo5lf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0qp4x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wo5lf"]
+albedo_color = Color(0.90588236, 0.627451, 0.10980392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qp4x"]
+material = SubResource("StandardMaterial3D_wo5lf")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wo5lf"]
+points = PackedVector3Array(0, -1, 0, 30, -1, 25, 0, -8, 30, -30, -1, 25, 0, 1, 0, 30, 1, 25, 0, 8, 30, -30, 1, 25)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wo5lf"]
+radius = 8.749421
+
+[node name="Chaser" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_wo5lf")
+run_speed = null
+metadata/_custom_type_script = "uid://c5ifs7issjt5n"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0qp4x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0qp4x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.69734955, 0, 0, 0, 0.69734955, 0, 0, 0, 0.69734955, 0, 0.59901786, 0.5482779)
+mesh = SubResource("BoxMesh_0qp4x")
+
+[node name="FOVCone" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FOVCone"]
+shape = SubResource("ConvexPolygonShape3D_wo5lf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FOVCone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.694416)
+shape = SubResource("SphereShape3D_wo5lf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

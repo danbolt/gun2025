@@ -148,7 +148,25 @@ func process_motion(_delta: float) -> void:
 		velocity.x += knockback_direction.x * knockback_speed
 		velocity.z += knockback_direction.z * knockback_speed
 
+func _process_mystic_artes() -> void:
+	if Input.is_action_pressed("sprint"):
+		return
+		
+	if Input.is_action_just_pressed("arte_0"):
+		get_tree().call_group("mystic", "mystic_arte", 0)
+	
+	if Input.is_action_just_pressed("arte_1"):
+		get_tree().call_group("mystic", "mystic_arte", 1)
+	
+	if Input.is_action_just_pressed("arte_2"):
+		get_tree().call_group("mystic", "mystic_arte", 2)
+	
+	if Input.is_action_just_pressed("arte_3"):
+		get_tree().call_group("mystic", "mystic_arte", 3)
+
 func _physics_process(delta: float) -> void:
+	_process_mystic_artes()
+	
 	if is_knocked_back:
 		knockback_time -= delta
 		if knockback_time < 0.0:

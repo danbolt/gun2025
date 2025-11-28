@@ -17,7 +17,7 @@ func set_score_to_display(new_target: int) -> void:
 	target_score = new_target
 
 func on_player_struck_victim(_victim: ArteView) -> void:
-	const ARBITRARY_BONUS: float = 4.0
+	const ARBITRARY_BONUS: float = 8.0
 	hp = clamp(hp + ARBITRARY_BONUS, 0.0, max_hp)
 
 func remove_level() -> void:
