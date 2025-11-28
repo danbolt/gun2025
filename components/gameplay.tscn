@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cy8yfplkyme4s" path="res://hud/pause_screen.gd" id="11_he0yp"]
 [ext_resource type="PackedScene" uid="uid://d0pm37oocpcoo" path="res://hud/game_settings_panel.tscn" id="12_fwhjk"]
 
-[node name="Gameplay" type="Node3D"]
+[node name="Gameplay" type="Node3D" groups=["listen_for_score_events"]]
 process_mode = 1
 script = ExtResource("1_8r83d")
 
@@ -26,11 +26,6 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="PlayerController" parent="." instance=ExtResource("7_bev8n")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-camera_rotation_y = null
-move_speed = null
-jump_velocity = null
-sprint_modifier = null
-max_velocity = null
 
 [node name="GameplayHUD" type="AspectRatioContainer" parent="."]
 anchors_preset = 15
@@ -118,6 +113,35 @@ offset_top = 27.0
 offset_right = 149.0
 offset_bottom = 51.0
 grow_horizontal = 2
+
+[node name="HUDTopRight" type="Control" parent="GameplayHUD/Control"]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Control" type="Control" parent="GameplayHUD/Control/HUDTopRight"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="ScoreLabel" type="Label" parent="GameplayHUD/Control/HUDTopRight/Control"]
+layout_mode = 1
+offset_right = 42.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Score"
+
+[node name="ScoreDisplay" type="Label" parent="GameplayHUD/Control/HUDTopRight/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 20.0
+offset_right = 125.0
+offset_bottom = 54.0
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "00000000"
 
 [node name="Level" type="Node" parent="."]
 unique_name_in_owner = true

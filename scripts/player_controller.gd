@@ -11,14 +11,17 @@ signal struck_victim(victim: ArteView)
 
 
 @export var move_speed: float = 4.0
-@export var jump_velocity: float = 8.0
+@export var jump_velocity: float = 16.0
 @export var sprint_modifier: float = 2.0
 
 var is_knocked_back: bool = false
 var knockback_direction: Vector3 = Vector3.FORWARD
-var knockback_speed: float = 16
+var knockback_speed: float = 64
 var knockback_time: float = 0.0
 var knockback_duration: float = 1.0
+var in_air_from_knocked_back: bool = false
+
+var camera_rot_z: float = 0.0
 
 @export var max_velocity: Vector2 = Vector2(10.0, 10.0)
 
@@ -28,6 +31,19 @@ const GAMEPAD_SENSITIVITY_X: float = 3.0
 const GAMEPAD_SENSITIVITY_Y: float = 3.0
 
 var _accumulated_input: Vector2 = Vector2.ZERO
+
+func z_rot(dest_z: float, duration: float) -> void:
+	var tree := get_tree()
+	if tree == null:
+		return
+	
+	var z_tween = tree.create_tween()
+	z_tween.tween_property(self, "camera_rot_z", dest_z, duration * 0.5)
+	z_tween.set_ease(Tween.EASE_IN)
+	z_tween.set_trans(Tween.TRANS_CUBIC)
+	z_tween.tween_property(self, "camera_rot_z", 0.0, duration * 0.5)
+	z_tween.set_ease(Tween.EASE_OUT)
+	z_tween.set_trans(Tween.TRANS_CUBIC)
 
 func update_fov(_new_fov: float) -> void:
 	character_camera.fov = Settings.fov
@@ -41,10 +57,14 @@ func damaged(damager: ArteView) -> void:
 	
 	is_knocked_back = true
 	knockback_time = knockback_duration
-	knockback_direction = (global_position - damager.global_position + Vector3.UP * 0.5).normalized()
+	knockback_direction = (global_position - damager.global_position + Vector3.UP * 3.5).normalized()
+	
+	var dot_with_right := character_camera.basis.x.dot(knockback_direction)
+	
+	z_rot(PI * 0.125 * (-1.0 if dot_with_right < 0.0 else 1.0), knockback_duration)
 	
 	velocity = knockback_direction * knockback_speed
-		
+	in_air_from_knocked_back = true
 
 func _input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
@@ -56,6 +76,7 @@ func _ready() -> void:
 	_accumulated_input = Vector2.ZERO
 	
 	character_camera.fov = Settings.fov
+	camera_rot_z = 0.0
 	
 	character_camera.set_follow_target(self)
 
@@ -72,6 +93,8 @@ func _process_mouse_turning(delta: float) -> void:
 			character_camera.basis = Basis(camera_right, Vector3.DOWN.cross(camera_right), Vector3.DOWN)
 		else:
 			character_camera.basis = Basis(camera_right, Vector3.UP.cross(camera_right), Vector3.UP)
+			
+	character_camera.rotation.z = camera_rot_z
 			
 	_accumulated_input = Vector2.ZERO
 
@@ -90,6 +113,8 @@ func _process_gamepad_turning(delta: float) -> void:
 			character_camera.basis = Basis(camera_right, Vector3.DOWN.cross(camera_right), Vector3.DOWN)
 		else:
 			character_camera.basis = Basis(camera_right, Vector3.UP.cross(camera_right), Vector3.UP)
+			
+	character_camera.rotation.z = camera_rot_z
 
 func _process(delta: float) -> void:
 	character_camera.fov = Settings.fov
@@ -113,6 +138,13 @@ func process_motion(_delta: float) -> void:
 	var speed := move_speed * (sprint_modifier if Input.is_action_pressed("sprint") else 1.0)
 	velocity.x = oriented_input.x * speed
 	velocity.z = oriented_input.z * speed * -1.0
+	
+	if is_on_floor():
+		in_air_from_knocked_back = false
+	
+	if in_air_from_knocked_back:
+		velocity.x += knockback_direction.x * knockback_speed
+		velocity.z += knockback_direction.z * knockback_speed
 
 func _physics_process(delta: float) -> void:
 	if is_knocked_back:
@@ -124,13 +156,13 @@ func _physics_process(delta: float) -> void:
 		process_motion(delta)
 		
 		if not is_on_floor():
-			velocity.y += -8.0 * delta
+			velocity.y += get_gravity().y * delta
 		elif Input.is_action_just_pressed("jump"):
 			velocity.y = jump_velocity
 	else:
 
 		if not is_on_floor():
-			velocity.y += -8.0 * delta
+			velocity.y += get_gravity().y * delta
 		
 	velocity.x = clampf(velocity.x, -max_velocity.x, max_velocity.x)
 	velocity.y = clampf(velocity.y, -max_velocity.y, max_velocity.y)

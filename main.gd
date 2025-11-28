@@ -7,6 +7,9 @@ extends Node
 var curtains_value: float = 0.0
 @export var curtains_open: bool = false
 
+func set_score(score: int) -> void:
+	pass
+
 func new_level(next_level: String) -> void:
 	gameplay.remove_level()
 	gameplay.load_and_add_level("res://levels/%s.tscn" % next_level)

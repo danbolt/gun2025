@@ -9,6 +9,13 @@ class_name Gameplay extends Node3D
 @export var max_hp: float = 100
 @export var hp: float = max_hp
 
+var target_score: int = 0
+var currently_displayed_score: int = 0
+@onready var score_display: Label = %ScoreDisplay
+
+func set_score_to_display(new_target: int) -> void:
+	target_score = new_target
+
 func on_player_struck_victim(_victim: ArteView) -> void:
 	const ARBITRARY_BONUS: float = 4.0
 	hp = clamp(hp + ARBITRARY_BONUS, 0.0, max_hp)
@@ -51,6 +58,11 @@ func dialogue_finished() -> void:
 func _ready() -> void:
 	$Camera3D.process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	target_score = 0
+	currently_displayed_score = 0
+	
+	target_score = 2000
+	
 	player_controller.struck_victim.connect(on_player_struck_victim)
 	
 	Dialogic.signal_event.connect(on_dialogic_signal)
@@ -65,6 +77,10 @@ func _process_hp(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	_process_hp(delta)
 	
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	hp_bar.value = hp
 	hp_bar.max_value = max_hp
+	
+	var next_score: float = lerp(float(currently_displayed_score), float(target_score), delta * 2.0)
+	currently_displayed_score = int(next_score)
+	score_display.text = str(currently_displayed_score)
