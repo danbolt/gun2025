@@ -19,7 +19,7 @@ script = ExtResource("1_8r83d")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 999)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_mode = 3
@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PlayerController" parent="." instance=ExtResource("7_bev8n")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 999)
 
 [node name="GameplayHUD" type="AspectRatioContainer" parent="."]
 anchors_preset = 15

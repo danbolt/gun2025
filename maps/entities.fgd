@@ -24,3 +24,6 @@
 @PointClass base(touch) = chase : "A chase" [
 ]
 
+@PointClass base(touch) = shoot_type : "ShootType" [
+]
+

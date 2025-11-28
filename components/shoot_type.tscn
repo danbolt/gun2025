@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnxi6nnxxo01w"]
+
+[ext_resource type="Script" uid="uid://bubw8wdo845yb" path="res://scripts/shoot_type.gd" id="1_sq51j"]
+[ext_resource type="Material" uid="uid://b5yaquxfyc20s" path="res://materials/animated_objects.tres" id="2_2ain2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sq51j"]
+points = PackedVector3Array(0, -1, 0, 30, -1, 25, 0, -8, 30, -30, -1, 25, 0, 1, 0, 30, 1, 25, 0, 8, 30, -30, 1, 25)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ain2"]
+radius = 8.749421
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qncxj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_udftc"]
+material = ExtResource("2_2ain2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ain2"]
+material = ExtResource("2_2ain2")
+size = Vector3(0.4, 0.5, 0.5)
+
+[node name="ShootType" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_sq51j")
+no_gravity = null
+bonus = null
+metadata/_custom_type_script = "uid://bubw8wdo845yb"
+
+[node name="FOVCone" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FOVCone"]
+shape = SubResource("ConvexPolygonShape3D_sq51j")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FOVCone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.694416)
+shape = SubResource("SphereShape3D_2ain2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qncxj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_udftc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.659805, 0.7514369, 0, -0.6978883, 0.61278623, -0.37073573, -0.2785845, 0.24461329, 0.9287384, 0, 0.48897058, 0.48758447)
+mesh = SubResource("BoxMesh_2ain2")

@@ -4,6 +4,10 @@ class_name TouchObject extends CharacterBody3D
 @export_flags_2d_physics var spawn_flags: int = 0
 @export_flags_2d_physics var mask_flags: int = 15
 
+@export var no_gravity: bool = false
+
+@export var bonus: float = 4.0
+
 var arte_view: ArteView = null
 
 func _func_godot_apply_properties(properties: Dictionary) -> void:
@@ -35,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	if not is_on_floor():
+	if not is_on_floor() and not no_gravity:
 		velocity += get_gravity() * delta
 
 	move_and_slide()

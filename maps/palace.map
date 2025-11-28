@@ -375,3 +375,10 @@
 "_tb_id" "2"
 "_tb_layer_sort_index" "1"
 }
+// entity 10
+{
+"classname" "shoot_type"
+"origin" "-80 -544 32"
+"angle" "255"
+"_tb_layer" "2"
+}
