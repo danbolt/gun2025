@@ -10,6 +10,7 @@ script = ExtResource("1_jvvgj")
 extent_distance = 0.5
 
 [node name="Icons" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="InputIcon_0" parent="Icons" instance=ExtResource("1_2433q")]

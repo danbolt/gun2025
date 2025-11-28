@@ -79,7 +79,8 @@ func _process(delta: float) -> void:
 	if strike_marker:
 		strike_marker.visible = all_pressed
 	
-	if icons:
+	if icons and not Engine.is_editor_hint():
+		icons.visible = not Input.is_action_pressed("sprint")
 		icons.position = Vector3.BACK * out_distance
 	
 	var current_viewport := get_viewport()

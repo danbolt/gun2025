@@ -9,6 +9,8 @@ extends Control
 @onready var arte_icon2: TextureRect = %ArteIcon2
 @onready var arte_icon3: TextureRect = %ArteIcon3
 
+@onready var mystic_artes_input: Control = %"Mystic Artes Input"
+
 func update_key_icons() -> void:
 	if Settings.last_input_mode == Settings.LastUsedMode.KBD:
 		move_icon.texture = InputSpriteMappings.MOVE_KEYS
@@ -49,4 +51,6 @@ func update_key_icons() -> void:
 			arte_icon3.texture = InputSpriteMappings.BUTTON_TEXTURES_XBOX[JOY_BUTTON_Y]
 
 func _process(_delta: float) -> void:
+	mystic_artes_input.visible = not Input.is_action_pressed("sprint")
+	
 	update_key_icons()
