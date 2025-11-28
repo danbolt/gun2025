@@ -11,7 +11,7 @@ signal struck_victim(victim: ArteView)
 
 
 @export var move_speed: float = 4.0
-@export var jump_velocity: float = 16.0
+@export var jump_velocity: float = 64.0
 @export var sprint_modifier: float = 2.0
 
 var is_knocked_back: bool = false
@@ -50,6 +50,8 @@ func update_fov(_new_fov: float) -> void:
 
 func struck(victim: ArteView) -> void:
 	struck_victim.emit(victim)
+	if not is_on_floor():
+		get_tree().call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_MIDAIR_STRIKE)
 
 func damaged(damager: ArteView) -> void:
 	if is_knocked_back:

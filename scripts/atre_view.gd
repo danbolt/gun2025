@@ -52,11 +52,11 @@ func _ready() -> void:
 	
 	if not Engine.is_editor_hint():
 		hitbox.body_entered.connect(on_intruder_entered_hitbox)
-	
-	input_icon_0.associated_key = InputSpriteMappings.ARTE_0_KEY
-	input_icon_1.associated_key = InputSpriteMappings.ARTE_1_KEY
-	input_icon_2.associated_key = InputSpriteMappings.ARTE_2_KEY
-	input_icon_3.associated_key = InputSpriteMappings.ARTE_3_KEY
+		
+		input_icon_0.associated_key = InputSpriteMappings.ARTE_0_KEY
+		input_icon_1.associated_key = InputSpriteMappings.ARTE_1_KEY
+		input_icon_2.associated_key = InputSpriteMappings.ARTE_2_KEY
+		input_icon_3.associated_key = InputSpriteMappings.ARTE_3_KEY
 
 func mystic_arte(arte_index: int) -> void:
 	if Engine.is_editor_hint():

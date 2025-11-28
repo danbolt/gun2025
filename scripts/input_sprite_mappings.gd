@@ -46,7 +46,7 @@ const KEY_TEXTURES: Dictionary[Key, Texture2D] = {
 	Key.KEY_SHIFT: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_shift.png"),
 	Key.KEY_CTRL: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_ctrl.png"),
 	Key.KEY_ENTER: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_enter.png"),
-	Key.KEY_SPACE: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_enter.png"),
+	Key.KEY_SPACE: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_space.png"),
 	
 	Key.KEY_GREATER: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_bracket_greater.png"),
 	Key.KEY_LESS: preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_bracket_less.png"),
@@ -146,6 +146,26 @@ const BUTTON_TEXTURES_PLAYSTATION_OUTLINE: Dictionary[JoyButton, Texture2D] = {
 	JoyButton.JOY_BUTTON_X: preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_button_color_square_outline.png"),
 	JoyButton.JOY_BUTTON_Y: preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_button_color_triangle_outline.png"),
 }
+
+var MOVE_KEYS: Texture2D = preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_arrows.png")
+var AIM_MOUSE: Texture2D = preload("res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/mouse.png")
+
+var MOVE_STICK_SWITCH: Texture2D = preload("res://kenney_input-prompts_1.4/Nintendo Switch/Double/switch_stick_l.png")
+var MOVE_STICK_PLAYSTATION: Texture2D = preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_stick_l.png")
+var MOVE_STICK_XBOX: Texture2D = preload("res://kenney_input-prompts_1.4/Xbox Series/Double/xbox_stick_l.png")
+
+var AIM_STICK_SWITCH: Texture2D = preload("res://kenney_input-prompts_1.4/Nintendo Switch/Double/switch_stick_r.png")
+var AIM_STICK_PLAYSTATION: Texture2D = preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_stick_r.png")
+var AIM_STICK_XBOX: Texture2D = preload("res://kenney_input-prompts_1.4/Xbox Series/Double/xbox_stick_r.png")
+
+var JUMP_SWITCH: Texture2D = preload("res://kenney_input-prompts_1.4/Nintendo Switch/Double/switch_button_zr.png")
+var SPRINT_SWITCH: Texture2D = preload("res://kenney_input-prompts_1.4/Nintendo Switch/Double/switch_button_zl.png")
+
+var JUMP_XBOX: Texture2D = preload("res://kenney_input-prompts_1.4/Xbox Series/Double/xbox_rt.png")
+var SPRINT_XBOX: Texture2D = preload("res://kenney_input-prompts_1.4/Xbox Series/Double/xbox_lt.png")
+
+var JUMP_PLAYSTATION: Texture2D = preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_trigger_r2.png")
+var SPRINT_PLAYSTATION: Texture2D = preload("res://kenney_input-prompts_1.4/PlayStation Series/Double/playstation_trigger_l2.png")
 
 var ARTE_0_KEY: Key = KEY_A
 var ARTE_1_KEY: Key = KEY_A
