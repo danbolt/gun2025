@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b5yaquxfyc20s"]
+
+[ext_resource type="Texture2D" uid="uid://75b6hln4e3hm" path="res://textures/Mega_Drive_Palette.png" id="1_8ji3v"]
+[ext_resource type="Material" uid="uid://wiyqvogisknn" path="res://materials/outline_pass.tres" id="2_7jsgv"]
+
+[resource]
+next_pass = ExtResource("2_7jsgv")
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_8ji3v")
+texture_filter = 0
