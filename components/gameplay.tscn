@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=12 format=3 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://df7x4nbm2yb0" path="res://scripts/gameplay.gd" id="1_8r83d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
 [ext_resource type="Theme" uid="uid://ccpauq2da4rfu" path="res://themes/default_theme.tres" id="4_juyxp"]
 [ext_resource type="PackedScene" uid="uid://icjpxsgtudhd" path="res://components/player_controller.tscn" id="7_bev8n"]
 [ext_resource type="Script" uid="uid://cohpvf1uxns3q" path="res://hud/score_events_live_display.gd" id="8_bev8n"]
+[ext_resource type="Texture2D" uid="uid://b03iswii5fb2y" path="res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_arrows.png" id="9_atkp5"]
+[ext_resource type="Script" uid="uid://jjvc038o03xt" path="res://components/hud_bottom_right.gd" id="9_he0yp"]
+[ext_resource type="Texture2D" uid="uid://daje8ryrkklft" path="res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_a.png" id="9_p3dph"]
 [ext_resource type="Script" uid="uid://b3qvgg405ygo1" path="res://hud/hud_root.gd" id="10_atkp5"]
 [ext_resource type="Script" uid="uid://cy8yfplkyme4s" path="res://hud/pause_screen.gd" id="11_he0yp"]
 [ext_resource type="PackedScene" uid="uid://d0pm37oocpcoo" path="res://hud/game_settings_panel.tscn" id="12_fwhjk"]
@@ -42,6 +45,7 @@ metadata/_custom_type_script = "uid://b3qvgg405ygo1"
 layout_mode = 2
 
 [node name="PauseScreen" type="Control" parent="GameplayHUD/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,6 +154,131 @@ offset_top = 54.0
 offset_right = 60.0
 offset_bottom = 170.0
 script = ExtResource("8_bev8n")
+
+[node name="HUD Bottom Right" type="Control" parent="GameplayHUD/Control"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("9_he0yp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -245.0
+offset_top = -42.0
+offset_right = -13.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Move Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
+layout_mode = 2
+
+[node name="MoveIcon" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Move Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_atkp5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Move Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Move"
+
+[node name="Mystic Artes Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
+layout_mode = 2
+
+[node name="ArteIcon0" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Mystic Artes Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ArteIcon1" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Mystic Artes Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ArteIcon2" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Mystic Artes Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ArteIcon3" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Mystic Artes Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Mystic Artes Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Mystic Artes"
+
+[node name="Jump Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
+layout_mode = 2
+
+[node name="JumpIcon" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Jump Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Jump Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Sprint"
+
+[node name="Sprint Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
+layout_mode = 2
+
+[node name="SprintIcon" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Sprint Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Sprint Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Sprint"
 
 [node name="Level" type="Node" parent="."]
 unique_name_in_owner = true
