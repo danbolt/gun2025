@@ -61,15 +61,13 @@ func _ready() -> void:
 	target_score = 0
 	currently_displayed_score = 0
 	
-	target_score = 2000
-	
 	player_controller.struck_victim.connect(on_player_struck_victim)
 	
 	Dialogic.signal_event.connect(on_dialogic_signal)
 	Dialogic.timeline_ended.connect(dialogue_finished)
 	
 func _process_hp(delta: float) -> void:
-	const DEPLETE_SPEED: float = 4.0
+	const DEPLETE_SPEED: float = 2.0
 	hp -= delta * DEPLETE_SPEED
 	if hp < 0:
 		hp = 0
@@ -77,10 +75,12 @@ func _process_hp(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	_process_hp(delta)
 	
-func _process(delta: float) -> void:
+	var next_score: float = move_toward(float(currently_displayed_score), float(target_score), delta * 500.0)
+	currently_displayed_score = int(next_score)
+	score_display.text = "%06d" % (currently_displayed_score)
+	
+func _process(_delta: float) -> void:
 	hp_bar.value = hp
 	hp_bar.max_value = max_hp
 	
-	var next_score: float = lerp(float(currently_displayed_score), float(target_score), delta * 2.0)
-	currently_displayed_score = int(next_score)
-	score_display.text = str(currently_displayed_score)
+	

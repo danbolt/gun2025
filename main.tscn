@@ -8,7 +8,7 @@
 shader = ExtResource("3_h2yge")
 shader_parameter/t = 0.0
 
-[node name="Main" type="Node" groups=["listen_for_level_change"]]
+[node name="Main" type="Node" groups=["listen_for_level_change", "listen_for_score_events"]]
 process_mode = 3
 script = ExtResource("1_0xm2m")
 curtains_open = true

@@ -21,6 +21,7 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 Settings="*res://scripts/settings.gd"
 InputSpriteMappings="*res://scripts/input_sprite_mappings.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+ScoreTable="*res://scripts/score_table.gd"
 
 [dialogic]
 

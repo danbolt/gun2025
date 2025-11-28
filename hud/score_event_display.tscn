@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dou3fghi4g88s"]
+
+[ext_resource type="Theme" uid="uid://ccpauq2da4rfu" path="res://themes/default_theme.tres" id="1_hfxt3"]
+[ext_resource type="Script" uid="uid://bk368lndspojg" path="res://hud/score_event_display.gd" id="1_t7m2f"]
+
+[node name="ScoreEvent" type="MarginContainer"]
+theme = ExtResource("1_hfxt3")
+script = ExtResource("1_t7m2f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScoreText" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="ScoreValue" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 2
+visible_characters_behavior = 2

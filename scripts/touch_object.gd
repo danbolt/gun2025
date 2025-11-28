@@ -17,9 +17,15 @@ func _add_arte_view() -> void:
 		arte_view.set_flags(spawn_flags)
 		arte_view.set_mask(mask_flags)
 	
+func on_damaged() -> void:
+	var tree := get_tree()
+	if tree:
+		tree.call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_ENEMY_KILL)
+	queue_free()
+	
 func _ready() -> void:
 	_add_arte_view()
-	arte_view.damaged.connect(queue_free)
+	arte_view.damaged.connect(on_damaged)
 	
 func _process(_delta: float) -> void:
 	arte_view.set_mask(mask_flags)

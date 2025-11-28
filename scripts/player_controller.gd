@@ -55,6 +55,8 @@ func damaged(damager: ArteView) -> void:
 	if is_knocked_back:
 		return
 	
+	get_tree().call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_PLAYER_STRUCK)
+	
 	is_knocked_back = true
 	knockback_time = knockback_duration
 	knockback_direction = (global_position - damager.global_position + Vector3.UP * 3.5).normalized()

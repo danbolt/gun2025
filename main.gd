@@ -7,8 +7,16 @@ extends Node
 var curtains_value: float = 0.0
 @export var curtains_open: bool = false
 
-func set_score(score: int) -> void:
-	pass
+var current_score: int = 0
+
+func score_event(event: ScoreTable.ScoreEvent) -> void:
+	current_score += event.bonus
+	if current_score < 0:
+		current_score = 0
+	gameplay.set_score_to_display(current_score)
+
+func new_game_state() -> void:
+	current_score = 0
 
 func new_level(next_level: String) -> void:
 	gameplay.remove_level()
@@ -30,6 +38,8 @@ func _ready() -> void:
 	gameplay.load_and_add_level("res://levels/palace.tscn")
 	
 	curtains_open = true
+	
+	new_game_state()
 	
 	Dialogic.timeline_started.connect(on_timeline_started)
 	Dialogic.timeline_ended.connect(on_timeline_finished)
