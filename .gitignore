@@ -4,3 +4,7 @@
 
 # Trenchbroom autosave
 maps/autosave/*
+
+# Blender backup
+*.blend1
+
