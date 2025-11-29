@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_8d205"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_675rc"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_8d205"]
+[ext_resource type="PackedScene" uid="uid://bqi5i1gaw7s1a" path="res://source_mesh/mystic_hand.blend" id="5_675rc"]
+[ext_resource type="PackedScene" uid="uid://b8js38l8e1as8" path="res://source_mesh/knife_hand.blend" id="5_j41tn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y7be5"]
 
@@ -13,13 +15,6 @@ script = ExtResource("3_675rc")
 [sub_resource type="Resource" id="Resource_mocpu"]
 script = ExtResource("4_8d205")
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r83d"]
-use_fov_override = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_mocpu"]
-material = SubResource("StandardMaterial3D_8r83d")
-size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d205"]
 
@@ -49,9 +44,9 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="HandsRoot" type="Node3D" parent="CharacterCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39253712, -0.72376025)
 
-[node name="temp" type="MeshInstance3D" parent="CharacterCamera/HandsRoot"]
-mesh = SubResource("BoxMesh_mocpu")
-skeleton = NodePath("../..")
+[node name="mystic_hand" parent="CharacterCamera/HandsRoot" instance=ExtResource("5_675rc")]
+
+[node name="knife_hand2" parent="CharacterCamera/HandsRoot" instance=ExtResource("5_j41tn")]
 
 [node name="ShadowMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8d205")
