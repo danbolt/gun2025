@@ -2,6 +2,8 @@ class_name PlayerController extends CharacterBody3D
 
 signal struck_victim(victim: ArteView)
 
+@onready var knife_hand_animation_player := $CharacterCamera/HandsRoot/knife_hand2/AnimationPlayer
+
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 @export var camera_rotation_y: float:
 	get:
@@ -50,6 +52,8 @@ func update_fov(_new_fov: float) -> void:
 
 func struck(victim: ArteView) -> void:
 	struck_victim.emit(victim)
+	
+	knife_hand_animation_player.play("strike")
 	if not is_on_floor():
 		get_tree().call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_MIDAIR_STRIKE)
 
@@ -78,6 +82,9 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	_accumulated_input = Vector2.ZERO
+	
+	knife_hand_animation_player.play("idle")
+	knife_hand_animation_player.animation_finished.connect(_play_idle_on_strike_end)
 	
 	character_camera.fov = Settings.fov
 	camera_rot_z = 0.0
@@ -165,6 +172,10 @@ func _process_mystic_artes() -> void:
 	
 	if Input.is_action_just_pressed("arte_3"):
 		get_tree().call_group("mystic", "mystic_arte", 3)
+
+func _play_idle_on_strike_end(name: String) -> void:
+	if name == "strike":
+		knife_hand_animation_player.play("idle")
 
 func _physics_process(delta: float) -> void:
 	_process_mystic_artes()
