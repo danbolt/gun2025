@@ -1,6 +1,8 @@
 @tool
 class_name TouchObject extends CharacterBody3D
 
+signal damaged()
+
 @export_flags_2d_physics var spawn_flags: int = 0
 @export_flags_2d_physics var mask_flags: int = 15
 
@@ -23,6 +25,7 @@ func _add_arte_view() -> void:
 	arte_view.damaged.connect(on_damaged)
 	
 func on_damaged() -> void:
+	damaged.emit()
 	var tree := get_tree()
 	if tree:
 		tree.call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_ENEMY_KILL)

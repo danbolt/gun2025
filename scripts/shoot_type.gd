@@ -8,6 +8,9 @@ var aggro_target: PlayerController = null
 var shoot_time: float = 0.0
 var shoot_period: float = 2.5
 
+func on_projectile_struck() -> void:
+	get_tree().call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_HIT_PROJECTILE)
+
 func _ready() -> void:
 	super._ready()
 	shoot_time = shoot_period * 0.5
@@ -40,6 +43,7 @@ func _physics_process(delta: float) -> void:
 			new_projectile.bonus = 0.8
 			new_projectile.position = position
 			new_projectile.no_gravity = true
+			new_projectile.damaged.connect(on_projectile_struck)
 	
 	super._physics_process(delta)
 	

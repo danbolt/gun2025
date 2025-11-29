@@ -3,6 +3,7 @@ class_name PlayerController extends CharacterBody3D
 signal struck_victim(victim: ArteView)
 
 @onready var knife_hand_animation_player := $CharacterCamera/HandsRoot/knife_hand2/AnimationPlayer
+@onready var mystic_hand_animation_player := $CharacterCamera/HandsRoot/mystic_hand/AnimationPlayer
 
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 @export var camera_rotation_y: float:
@@ -82,6 +83,8 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	_accumulated_input = Vector2.ZERO
+	
+	mystic_hand_animation_player.play("idle")
 	
 	knife_hand_animation_player.play("idle")
 	knife_hand_animation_player.animation_finished.connect(_play_idle_on_strike_end)

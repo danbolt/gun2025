@@ -21,8 +21,6 @@ size = Vector3(0.4, 0.5, 0.5)
 [node name="ShootType" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_sq51j")
-no_gravity = null
-bonus = null
 metadata/_custom_type_script = "uid://bubw8wdo845yb"
 
 [node name="FOVCone" type="Area3D" parent="."]
