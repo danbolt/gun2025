@@ -9,6 +9,16 @@
 script = ExtResource("1_jvvgj")
 extent_distance = 0.5
 
+[node name="StrikeMarker" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9702485)
+visible = false
+
+[node name="Label3D" type="Label3D" parent="StrikeMarker"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 0, 0, 0)
+pixel_size = 0.02
+text = "Strike!"
+
 [node name="Icons" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
@@ -26,25 +36,15 @@ associated_key = 51
 
 [node name="InputIcon_2" parent="Icons" instance=ExtResource("1_2433q")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50000006, -1e-45, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99999994, 0.49999997, 0)
 associated_key = 81
 associated_button = 2
 
 [node name="InputIcon_3" parent="Icons" instance=ExtResource("1_2433q")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50000006, 0.50000006, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1e-45, 0.50000006, 0)
 associated_key = 49
 associated_button = 3
-
-[node name="StrikeMarker" type="Node3D" parent="Icons"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.97024846)
-visible = false
-
-[node name="Label3D" type="Label3D" parent="Icons/StrikeMarker"]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 0, 0, 0)
-pixel_size = 0.02
-text = "Strike!"
 
 [node name="Hitbox" type="Area3D" parent="."]
 unique_name_in_owner = true

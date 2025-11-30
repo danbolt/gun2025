@@ -228,6 +228,44 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Mystic Artes"
 
+[node name="Sprint Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SprintIcon" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Sprint Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Sprint Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Focus"
+
+[node name="Jump Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="JumpIcon" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Jump Input"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 13
+texture = ExtResource("9_p3dph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Jump Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Jump"
+
 [node name="Move Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
 layout_mode = 2
 
@@ -265,42 +303,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Aim
 "
 vertical_alignment = 1
-
-[node name="Sprint Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
-layout_mode = 2
-
-[node name="SprintIcon" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Sprint Input"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_vertical = 13
-texture = ExtResource("9_p3dph")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Sprint Input"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Sprint"
-
-[node name="Jump Input" type="HBoxContainer" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer"]
-layout_mode = 2
-
-[node name="JumpIcon" type="TextureRect" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Jump Input"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_vertical = 13
-texture = ExtResource("9_p3dph")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="GameplayHUD/Control/HUD Bottom Right/HBoxContainer/Jump Input"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Jump"
 
 [node name="Level" type="Node" parent="."]
 unique_name_in_owner = true

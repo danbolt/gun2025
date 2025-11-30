@@ -13,9 +13,9 @@ signal struck_victim(victim: ArteView)
 		character_camera.rotation.y = value
 
 
-@export var move_speed: float = 4.0
+@export var move_speed: float = 8.0
 @export var jump_velocity: float = 64.0
-@export var sprint_modifier: float = 2.0
+@export var sprint_modifier: float = 0.125
 
 var is_knocked_back: bool = false
 var knockback_direction: Vector3 = Vector3.FORWARD
@@ -162,7 +162,7 @@ func process_motion(_delta: float) -> void:
 		velocity.z += knockback_direction.z * knockback_speed
 
 func _process_mystic_artes() -> void:
-	if Input.is_action_pressed("sprint"):
+	if not Input.is_action_pressed("sprint"):
 		return
 		
 	if Input.is_action_just_pressed("arte_0"):
@@ -202,7 +202,7 @@ func _physics_process(delta: float) -> void:
 		
 		if not is_on_floor():
 			velocity.y += get_gravity().y * delta
-		elif Input.is_action_just_pressed("jump"):
+		elif Input.is_action_just_pressed("jump") and not Input.is_action_pressed("sprint"):
 			velocity.y = jump_velocity
 	else:
 
