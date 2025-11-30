@@ -62,6 +62,27 @@ func level_cleared(next_level: String) -> void:
 	gameplay.level_clear()
 	wait_then_next.call_deferred(next_level)
 
+func show_title_screen() -> void:
+	var new_title_screen: TitleScreen = preload("res://hud/title_screen.tscn").instantiate()
+	add_child(new_title_screen)
+	move_child(curtains, get_child_count() - 1)
+	new_title_screen.new_game_selected.connect(start_new_game.call_deferred)
+	
+func start_new_game() -> void:
+	curtains_open = false
+	await get_tree().create_timer(1.1, true, true).timeout
+	
+	for child: Node in get_children():
+		if child is TitleScreen:
+			child.queue_free()
+			remove_child(child)
+			break
+	
+	new_game_state()
+	new_level("palace")
+	await get_tree().create_timer(0.2, true, true).timeout
+	curtains_open = true
+
 func on_timeline_started() -> void:
 	var tree := get_tree()
 	if tree != null:
@@ -80,8 +101,7 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(on_timeline_finished)
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	new_game_state()
-	new_level("palace")
+	show_title_screen()
 	
 	curtains_open = true
 
@@ -119,4 +139,4 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and can_pause:
 		tree.paused = !tree.paused
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if (!tree.paused or gameplay == null) else Input.MOUSE_MODE_VISIBLE
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if (!tree.paused and gameplay != null) else Input.MOUSE_MODE_VISIBLE

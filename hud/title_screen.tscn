@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0a2lmk435uvy"]
+
+[ext_resource type="Theme" uid="uid://ccpauq2da4rfu" path="res://themes/default_theme.tres" id="1_atq12"]
+[ext_resource type="Script" uid="uid://n57m33vkyv4u" path="res://hud/title_screen.gd" id="1_ysuqt"]
+[ext_resource type="PackedScene" uid="uid://d0pm37oocpcoo" path="res://hud/game_settings_panel.tscn" id="3_wxvdp"]
+
+[node name="TitleScreen" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_atq12")
+script = ExtResource("1_ysuqt")
+metadata/_custom_type_script = "uid://b3qvgg405ygo1"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Backing" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[node name="GameSettingsPanel" parent="Control" instance=ExtResource("3_wxvdp")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -490.0
+offset_top = -327.0
+offset_right = -18.0
+offset_bottom = -46.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -202.0
+offset_right = 70.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -30.0
+offset_right = 55.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGameButton" type="Button" parent="Control/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitToDesktopButton")
+text = "New Game"
+
+[node name="ExitToDesktopButton" type="Button" parent="Control/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../NewGameButton")
+text = "Exit To Desktop"
