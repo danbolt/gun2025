@@ -31,6 +31,12 @@ var one_display_t_goal_value: float = 0.0
 
 var seconds_passed_in_game_time: float = 0.0
 
+@onready var idle_portrait: Texture2D = preload("res://textures/portrait_idle.png")
+@onready var damaged_portrait: Texture2D = preload("res://textures/portrait_damaged.png")
+@onready var dead_portrait: Texture2D = preload("res://textures/portrait_dead.png")
+@onready var strike_portrait: Texture2D = preload("res://textures/portrait_strike.png")
+@onready var portrait_rect: TextureRect = %PortraitRect
+
 func level_clear() -> void:
 	if arrived_at_exit:
 		return
@@ -119,8 +125,21 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(on_dialogic_signal)
 	Dialogic.timeline_ended.connect(dialogue_finished)
 	
+func _process_portrait() -> void:
+	if player_has_died:
+		portrait_rect.texture = dead_portrait
+	elif player_controller.is_knocked_back:
+		portrait_rect.texture = damaged_portrait
+	elif player_controller.is_striking:
+		portrait_rect.texture = strike_portrait
+	else:
+		portrait_rect.texture = idle_portrait
+	
 func _process_hp(delta: float) -> void:
 	if arrived_at_exit:
+		return
+		
+	if player_has_died:
 		return
 	
 	const DEPLETE_SPEED: float = 2.0
@@ -133,6 +152,7 @@ func _process_hp(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	_process_hp(delta)
+	_process_portrait()
 	
 	var next_score: float = move_toward(float(currently_displayed_score), float(target_score), delta * 500.0)
 	currently_displayed_score = int(next_score)
@@ -161,7 +181,13 @@ func _process(delta: float) -> void:
 	
 	one_display_t_value = lerp(one_display_t_value, one_display_t_goal_value, 1.0 - pow(0.5, delta * lerp_speed))
 	
-	onep_material.set_shader_parameter("black", not Input.is_action_pressed("sprint") or not player_has_died)
+	var black_value: bool = false
+	if player_controller.is_knocked_back:
+		black_value = true
+	if player_has_died:
+		black_value = true
+	
+	onep_material.set_shader_parameter("black", black_value)
 	onep_material.set_shader_parameter("t", one_display_t_value)
 	
 	

@@ -37,6 +37,10 @@ const GAMEPAD_SENSITIVITY_Y: float = 3.0
 
 var _accumulated_input: Vector2 = Vector2.ZERO
 
+var is_striking: bool:
+	get:
+		return knife_hand_animation_player.current_animation == "strike"
+
 func z_rot(dest_z: float, duration: float) -> void:
 	var tree := get_tree()
 	if tree == null:
