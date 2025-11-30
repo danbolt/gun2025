@@ -85,6 +85,7 @@ func _ready() -> void:
 	_accumulated_input = Vector2.ZERO
 	
 	mystic_hand_animation_player.play("idle")
+	mystic_hand_animation_player.animation_finished.connect(_revert_mystic_hand_on_end)
 	
 	knife_hand_animation_player.play("idle")
 	knife_hand_animation_player.animation_finished.connect(_play_idle_on_strike_end)
@@ -166,19 +167,27 @@ func _process_mystic_artes() -> void:
 		
 	if Input.is_action_just_pressed("arte_0"):
 		get_tree().call_group("mystic", "mystic_arte", 0)
+		mystic_hand_animation_player.play("arte_0")
 	
 	if Input.is_action_just_pressed("arte_1"):
 		get_tree().call_group("mystic", "mystic_arte", 1)
+		mystic_hand_animation_player.play("arte_1")
 	
 	if Input.is_action_just_pressed("arte_2"):
 		get_tree().call_group("mystic", "mystic_arte", 2)
+		mystic_hand_animation_player.play("arte_2")
 	
 	if Input.is_action_just_pressed("arte_3"):
 		get_tree().call_group("mystic", "mystic_arte", 3)
+		mystic_hand_animation_player.play("arte_3")
 
-func _play_idle_on_strike_end(name: String) -> void:
-	if name == "strike":
+func _play_idle_on_strike_end(anim_name: String) -> void:
+	if anim_name == "strike":
 		knife_hand_animation_player.play("idle")
+
+func _revert_mystic_hand_on_end(_name: String) -> void:
+	await get_tree().create_timer(1.0, false).timeout
+	mystic_hand_animation_player.play("idle")
 
 func _physics_process(delta: float) -> void:
 	_process_mystic_artes()
