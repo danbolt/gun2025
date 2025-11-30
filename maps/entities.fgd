@@ -27,3 +27,6 @@
 @PointClass base(touch) = shoot_type : "ShootType" [
 ]
 
+@PointClass size(-128 -128 -128, 128 128 128) color(0 150 150) = exit []
+
+

@@ -343,8 +343,8 @@ run_speed = 6.0
 
 [node name="entity_8_shoot_type" parent="NavigationRegion3D/LightmapGI/FuncGodotMap" instance=ExtResource("11_n83nb")]
 transform = Transform3D(0.25881913, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881913, -17, 1, -2.5)
-no_gravity = false
-bonus = 4.0
+no_score_on_kill = false
+queue_free_on_collision = false
 
 [node name="Lighting" type="Node" parent="NavigationRegion3D/LightmapGI"]
 

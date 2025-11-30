@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4dchn3pmn837"]
+
+[ext_resource type="Script" uid="uid://n0sxk7hqvtfx" path="res://scripts/exit_zone.gd" id="1_mds4d"]
+[ext_resource type="Shader" uid="uid://bjoieg4r4277i" path="res://exit_zone.gdshader" id="2_j4b5q"]
+[ext_resource type="FontFile" uid="uid://dqel37d8p7uiu" path="res://fonts/luxi/luxisb.ttf" id="3_tmlya"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8obn5"]
+size = Vector3(8, 8, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tmlya"]
+render_priority = 0
+shader = ExtResource("2_j4b5q")
+
+[sub_resource type="BoxMesh" id="BoxMesh_mds4d"]
+material = SubResource("ShaderMaterial_tmlya")
+size = Vector3(8, 8, 8)
+
+[node name="ExitZone" type="Area3D"]
+script = ExtResource("1_mds4d")
+metadata/_custom_type_script = "uid://n0sxk7hqvtfx"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_8obn5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mds4d")
+
+[node name="Label3D" type="Label3D" parent="."]
+pixel_size = 0.08
+modulate = Color(0.4837276, 1.1979778, 1.4577051, 1)
+text = "EXIT"
+font = ExtResource("3_tmlya")
+outline_size = 0

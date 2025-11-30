@@ -561,30 +561,14 @@
 }
 // entity 2
 {
+"classname" "exit"
+"origin" "880 128 -208"
+}
+// entity 3
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "objects"
 "_tb_id" "1"
 "_tb_layer_sort_index" "0"
-}
-// entity 3
-{
-"classname" "touch"
-"origin" "32 -32 -104"
-"_tb_layer" "1"
-}
-// entity 4
-{
-"classname" "touch"
-"origin" "32 -176 -88"
-"angle" "285"
-"_tb_layer" "1"
-}
-// entity 5
-{
-"classname" "touch"
-"origin" "32 -320 -88"
-"1" "0"
-"2" "0"
-"_tb_layer" "1"
 }

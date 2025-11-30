@@ -2,6 +2,8 @@ class_name ExitZone extends Area3D
 
 @export var next_level: String = "wood_obsidian"
 
+@onready var label: Label3D = $Label3D
+
 func wait_then_emit() -> void:
 	await get_tree().create_timer(4.0, false, true).timeout
 	
@@ -19,3 +21,6 @@ func _ready() -> void:
 	collision_mask = 2 # Player layer
 	
 	body_entered.connect(on_body_entered)
+	
+func _process(delta: float) -> void:
+	label.rotate_y(delta * 3.161)
