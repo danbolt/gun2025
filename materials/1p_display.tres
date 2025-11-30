@@ -6,5 +6,5 @@
 [resource]
 shader = ExtResource("1_4k3fe")
 shader_parameter/noise_tex = ExtResource("2_x8phd")
-shader_parameter/t = 1.085
+shader_parameter/t = 0.0
 shader_parameter/black = false

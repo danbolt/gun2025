@@ -17,6 +17,8 @@ signal struck_victim(victim: ArteView)
 @export var jump_velocity: float = 64.0
 @export var sprint_modifier: float = 0.125
 
+@export var stop_movement: bool = false
+
 var is_knocked_back: bool = false
 var knockback_direction: Vector3 = Vector3.FORWARD
 var knockback_speed: float = 64
@@ -83,6 +85,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	_accumulated_input = Vector2.ZERO
+	stop_movement = false
 	
 	mystic_hand_animation_player.play("idle")
 	mystic_hand_animation_player.animation_finished.connect(_revert_mystic_hand_on_end)
@@ -95,6 +98,10 @@ func _ready() -> void:
 	character_camera.set_follow_target(self)
 
 func _process_mouse_turning(delta: float) -> void:
+	if stop_movement:
+		_accumulated_input = Vector2.ZERO
+		return
+	
 	character_camera.rotate_y(_accumulated_input.x * MOUSE_SENSITIVITY_X * Settings.x_sensitivity * delta * -1.0  * (1.0 if not Settings.x_invert else -1.0))
 	character_camera.rotate(character_camera.basis.x.normalized(), _accumulated_input.y * MOUSE_SENSITIVITY_Y * Settings.y_sensitivity * delta * -1.0 * (1.0 if not Settings.y_invert else -1.0))
 	
@@ -113,6 +120,9 @@ func _process_mouse_turning(delta: float) -> void:
 	_accumulated_input = Vector2.ZERO
 
 func _process_gamepad_turning(delta: float) -> void:
+	if stop_movement:
+		return
+		
 	var input_horizontal := Input.get_axis("turn_left", "turn_right") * (1.0 if not Settings.x_invert else -1.0)
 	var input_vertical := Input.get_axis("turn_down", "turn_up") * (1.0 if not Settings.y_invert else -1.0)
 	character_camera.rotate_y(input_horizontal * delta * -1.0 * GAMEPAD_SENSITIVITY_X * Settings.x_sensitivity)
@@ -137,6 +147,9 @@ func _process(delta: float) -> void:
 	_process_gamepad_turning(delta)
 
 func process_motion(_delta: float) -> void:
+	if stop_movement:
+		return
+		
 	var current_viewport := get_viewport()
 	if current_viewport == null:
 		return

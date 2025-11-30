@@ -1,5 +1,7 @@
 class_name Gameplay extends Node3D
 
+signal player_death()
+
 @onready var level := %Level
 
 @onready var player_controller: PlayerController = %PlayerController
@@ -17,6 +19,10 @@ var arrived_at_exit: bool = false
 @onready var level_clear_root: Control = %LevelClear
 @onready var clear_label: Label = %ClearLabel
 
+var player_has_died: bool = false
+@onready var death_clear_root: Control = %DeathScreen
+@onready var death_label: Label = %DeathLabel
+
 var onep_material: ShaderMaterial = null
 var one_display_t_value: float = 0.0
 var one_display_t_goal_value: float = 0.0
@@ -33,6 +39,19 @@ func level_clear() -> void:
 	var t :=  get_tree().create_tween()
 	t.tween_property(clear_label, "visible_ratio", 1.0, 0.516)
 	t.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+
+func kill_player() -> void:
+	player_has_died = true
+	death_clear_root.visible = true
+	death_label.visible_ratio = 0.0
+	
+	player_controller.stop_movement = true
+	
+	var t :=  get_tree().create_tween()
+	t.tween_property(death_label, "visible_ratio", 1.0, 0.965116)
+	t.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	
+	player_death.emit()
 
 func set_score_to_display(new_target: int) -> void:
 	target_score = new_target
@@ -82,6 +101,7 @@ func _ready() -> void:
 	one_display_t_goal_value = 0.0
 	
 	arrived_at_exit = false
+	player_has_died = false
 	
 	target_score = 0
 	currently_displayed_score = 0
@@ -99,6 +119,9 @@ func _process_hp(delta: float) -> void:
 	hp -= delta * DEPLETE_SPEED
 	if hp < 0:
 		hp = 0
+		
+	if is_zero_approx(hp) and (not player_has_died):
+		kill_player()
 
 func _physics_process(delta: float) -> void:
 	_process_hp(delta)
@@ -121,9 +144,13 @@ func _process(delta: float) -> void:
 	else:
 		one_display_t_goal_value = 0.0
 	
+	if player_has_died:
+		one_display_t_goal_value = 20.0
+		lerp_speed = 12.81717
+	
 	one_display_t_value = lerp(one_display_t_value, one_display_t_goal_value, 1.0 - pow(0.5, delta * lerp_speed))
 	
-	onep_material.set_shader_parameter("black", not Input.is_action_pressed("sprint"))
+	onep_material.set_shader_parameter("black", not Input.is_action_pressed("sprint") or not player_has_died)
 	onep_material.set_shader_parameter("t", one_display_t_value)
 	
 	
