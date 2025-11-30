@@ -44,8 +44,13 @@ func _physics_process(delta: float) -> void:
 		var direction_to_target := (next_path_position - position).normalized()
 		velocity.x = direction_to_target.x * run_speed
 		velocity.z = direction_to_target.z * run_speed
-		
 		look_at(next_path_position, Vector3.UP, true)
+	else:
+		velocity.x = 0
+		velocity.z = 0 
+		
+		if aggro_target != null:
+			look_at(aggro_target.position, Vector3.UP, true)
 	
 	super._physics_process(delta)
 	
