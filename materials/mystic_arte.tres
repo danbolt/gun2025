@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ubpgadxpp53h"]
+
+[ext_resource type="Shader" uid="uid://cdpepxowbgbrc" path="res://shaders/strike.gdshader" id="1_dytnl"]
+[ext_resource type="Texture2D" uid="uid://c6dk4qnnmsbyv" path="res://textures/mystic_noise.tres" id="1_mkg0x"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_dytnl")
+shader_parameter/albedo = Color(0.89681125, 0.1515783, 0.114013396, 1)
+shader_parameter/texture_albedo = ExtResource("1_mkg0x")
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)

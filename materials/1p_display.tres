@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bfh7p6eyppmub"]
+
+[ext_resource type="Shader" uid="uid://dud27gixru3tq" path="res://shaders/1p_borders.gdshader" id="1_4k3fe"]
+[ext_resource type="Texture2D" uid="uid://c6dk4qnnmsbyv" path="res://textures/mystic_noise.tres" id="2_x8phd"]
+
+[resource]
+shader = ExtResource("1_4k3fe")
+shader_parameter/noise_tex = ExtResource("2_x8phd")
+shader_parameter/t = 0.0
+shader_parameter/black = false

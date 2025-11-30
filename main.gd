@@ -58,7 +58,7 @@ func _ready() -> void:
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	new_game_state()
-	new_level("indoor")
+	new_level("palace")
 	
 	curtains_open = true
 

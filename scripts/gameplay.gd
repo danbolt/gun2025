@@ -17,6 +17,10 @@ var arrived_at_exit: bool = false
 @onready var level_clear_root: Control = %LevelClear
 @onready var clear_label: Label = %ClearLabel
 
+var onep_material: ShaderMaterial = null
+var one_display_t_value: float = 0.0
+var one_display_t_goal_value: float = 0.0
+
 func level_clear() -> void:
 	if arrived_at_exit:
 		return
@@ -73,6 +77,9 @@ func dialogue_finished() -> void:
 	
 func _ready() -> void:
 	$Camera3D.process_mode = Node.PROCESS_MODE_ALWAYS
+	onep_material = ((%onep_display as CanvasItem).material as ShaderMaterial)
+	one_display_t_value = 0.0
+	one_display_t_goal_value = 0.0
 	
 	arrived_at_exit = false
 	
@@ -100,8 +107,23 @@ func _physics_process(delta: float) -> void:
 	currently_displayed_score = int(next_score)
 	score_display.text = "%06d" % (currently_displayed_score)
 	
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	hp_bar.value = hp
 	hp_bar.max_value = max_hp
+	
+	var lerp_speed: float = 7.0
+	if player_controller.is_knocked_back:
+		one_display_t_goal_value = 2.0
+		lerp_speed = 20.0
+	elif Input.is_action_pressed("sprint"):
+		one_display_t_goal_value = 0.85
+		lerp_speed = 10.4161
+	else:
+		one_display_t_goal_value = 0.0
+	
+	one_display_t_value = lerp(one_display_t_value, one_display_t_goal_value, 1.0 - pow(0.5, delta * lerp_speed))
+	
+	onep_material.set_shader_parameter("black", not Input.is_action_pressed("sprint"))
+	onep_material.set_shader_parameter("t", one_display_t_value)
 	
 	
