@@ -76,7 +76,18 @@ func _process(delta: float) -> void:
 		if gameplay.arrived_at_exit:
 			zone_cleared = true
 		
-	if Input.is_action_just_pressed("pause") and (Dialogic.current_timeline == null) and not zone_cleared:
+	var can_pause: bool = true
+	
+	if (Dialogic.current_timeline != null):
+		can_pause = false
+		
+	if zone_cleared:
+		can_pause = false
+		
+	if gameplay != null and gameplay.player_has_died:
+		can_pause = false
+		
+	if Input.is_action_just_pressed("pause") and can_pause:
 		tree.paused = !tree.paused
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if !tree.paused else Input.MOUSE_MODE_VISIBLE

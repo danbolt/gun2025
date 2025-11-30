@@ -11,6 +11,8 @@ signal player_death()
 @export var max_hp: float = 100
 @export var hp: float = max_hp
 
+@onready var hud_bottom_right: Node = %"HUD Bottom Right"
+
 var target_score: int = 0
 var currently_displayed_score: int = 0
 @onready var score_display: Label = %ScoreDisplay
@@ -44,6 +46,8 @@ func kill_player() -> void:
 	player_has_died = true
 	death_clear_root.visible = true
 	death_label.visible_ratio = 0.0
+	
+	hud_bottom_right.queue_free()
 	
 	player_controller.stop_movement = true
 	

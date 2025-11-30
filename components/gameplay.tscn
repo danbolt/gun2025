@@ -170,6 +170,7 @@ offset_bottom = 170.0
 script = ExtResource("8_bev8n")
 
 [node name="HUD Bottom Right" type="Control" parent="GameplayHUD/Control"]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 1
 anchors_preset = 3
