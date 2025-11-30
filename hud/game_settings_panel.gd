@@ -16,8 +16,12 @@ class_name GameSettingsPanel extends Control
 @onready var refresh_rate_select := %RefreshRateSelect
 @onready var vsync_check := %VSyncCheck
 
+@onready var gamer_mode: CheckButton = %GamerModeCheckBox
+
 func _ready() -> void:
 	fullscreen_toggle.pressed.connect(func() -> void: Settings.fullscreen = fullscreen_toggle.button_pressed)
+	
+	gamer_mode.button_pressed = get_viewport().use_taa
 	
 	for key: String in Settings.RESOLUTION_SCALE_OPTIONS:
 		resolution_scale.add_item(key)
@@ -57,6 +61,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var current_vsync_mode := DisplayServer.window_get_vsync_mode()
 	vsync_check.button_pressed = current_vsync_mode != DisplayServer.VSyncMode.VSYNC_DISABLED
+	
+	if is_visible_in_tree():
+		get_viewport().use_taa = gamer_mode.button_pressed
 	
 	fullscreen_toggle.button_pressed = Settings.fullscreen
 	var window := get_window()
