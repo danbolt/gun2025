@@ -42,16 +42,20 @@ layout_mode = 2
 
 [node name="FullscreenToggle" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Toggles exclusive fullscreen."
 text = "Fullscreen"
 
 [node name="ResolutionScale" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Sets the resolution scale. A lower scale can give better performance."
 
 [node name="ResolutionScaleMode" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Sets the upscaling when Resolution Scale is under 100%."
 
 [node name="HUDAspectRatio" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Sets the aspect ratio of the HUD. Apologies if I never tested ultrawide."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -142,6 +146,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Sets the framerate cap. Lower caps use less power."
 
 [node name="VSyncCheck" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/RefreshRate"]
 unique_name_in_owner = true
@@ -160,3 +165,4 @@ vertical_alignment = 1
 [node name="GamerModeCheckBox" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Cool PC gamers only."
