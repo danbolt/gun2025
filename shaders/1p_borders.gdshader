@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D noise_tex;
+uniform sampler2D noise_tex :repeat_enable;
 
 uniform float t;
 uniform bool black;
@@ -20,7 +20,7 @@ void fragment() {
 		COLOR = vec4(0.0, 0.0, 0.0, distance_from_center * ratio);
 	}
 	else {
-		vec4 noise_val = texture(noise_tex, SCREEN_UV);
+		vec4 noise_val = texture(noise_tex, SCREEN_UV + vec2(1.0, TIME));
 		COLOR = vec4(1.0, 0.0, 0.0, ratio * noise_val.r);
 	}
 	
