@@ -181,7 +181,9 @@ func _process(delta: float) -> void:
 	
 	one_display_t_value = lerp(one_display_t_value, one_display_t_goal_value, 1.0 - pow(0.5, delta * lerp_speed))
 	
-	var black_value: bool = false
+	var black_value: bool = true
+	if Input.is_action_pressed("sprint"):
+		black_value = false
 	if player_controller.is_knocked_back:
 		black_value = true
 	if player_has_died:
