@@ -13,6 +13,23 @@ var target_score: int = 0
 var currently_displayed_score: int = 0
 @onready var score_display: Label = %ScoreDisplay
 
+var arrived_at_exit: bool = false
+@onready var level_clear_root: Control = %LevelClear
+@onready var clear_label: Label = %ClearLabel
+
+func level_clear() -> void:
+	if arrived_at_exit:
+		return
+	
+	arrived_at_exit = true
+	
+	level_clear_root.visible = true
+	clear_label.visible_ratio = 0.0
+	
+	var t :=  get_tree().create_tween()
+	t.tween_property(clear_label, "visible_ratio", 1.0, 0.516)
+	t.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+
 func set_score_to_display(new_target: int) -> void:
 	target_score = new_target
 
@@ -57,6 +74,8 @@ func dialogue_finished() -> void:
 func _ready() -> void:
 	$Camera3D.process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	arrived_at_exit = false
+	
 	target_score = 0
 	currently_displayed_score = 0
 	
@@ -66,6 +85,9 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(dialogue_finished)
 	
 func _process_hp(delta: float) -> void:
+	if arrived_at_exit:
+		return
+	
 	const DEPLETE_SPEED: float = 2.0
 	hp -= delta * DEPLETE_SPEED
 	if hp < 0:

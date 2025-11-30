@@ -90,7 +90,6 @@ func _ready() -> void:
 	knife_hand_animation_player.play("idle")
 	knife_hand_animation_player.animation_finished.connect(_play_idle_on_strike_end)
 	
-	character_camera.fov = Settings.fov
 	camera_rot_z = 0.0
 	
 	character_camera.set_follow_target(self)
