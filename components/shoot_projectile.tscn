@@ -12,6 +12,7 @@ radius = 0.3
 [node name="ShootProjectile" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_x2cyo")
+no_score_on_kill = null
 metadata/_custom_type_script = "uid://b22qcc11k4itl"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

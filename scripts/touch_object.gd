@@ -10,6 +10,8 @@ signal damaged()
 
 @export var bonus: float = 4.0
 
+@export var no_score_on_kill: bool = false
+
 var arte_view: ArteView = null
 
 func _func_godot_apply_properties(properties: Dictionary) -> void:
@@ -27,7 +29,7 @@ func _add_arte_view() -> void:
 func on_damaged() -> void:
 	damaged.emit()
 	var tree := get_tree()
-	if tree:
+	if tree and not no_score_on_kill:
 		tree.call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_ENEMY_KILL)
 	queue_free()
 	

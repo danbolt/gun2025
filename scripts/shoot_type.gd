@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 			new_projectile.position = position
 			new_projectile.no_gravity = true
 			new_projectile.damaged.connect(on_projectile_struck)
+			new_projectile.no_score_on_kill = true
 	
 	super._physics_process(delta)
 	
