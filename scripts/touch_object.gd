@@ -12,6 +12,9 @@ signal damaged()
 
 @export var no_score_on_kill: bool = false
 
+## Used for projectiles when they collide with walls
+@export var queue_free_on_collision: bool = false
+
 var arte_view: ArteView = null
 
 func _func_godot_apply_properties(properties: Dictionary) -> void:
@@ -47,4 +50,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor() and not no_gravity:
 		velocity += get_gravity() * delta
 
-	move_and_slide()
+	var move_result := move_and_slide()
+	if queue_free_on_collision and move_result:
+		queue_free()

@@ -22,6 +22,7 @@ size = Vector3(0.4, 0.5, 0.5)
 collision_layer = 0
 script = ExtResource("1_sq51j")
 no_score_on_kill = null
+queue_free_on_collision = null
 metadata/_custom_type_script = "uid://bubw8wdo845yb"
 
 [node name="FOVCone" type="Area3D" parent="."]
