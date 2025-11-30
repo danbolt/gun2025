@@ -5,9 +5,10 @@
 
 [resource]
 next_pass = ExtResource("2_kspxx")
-shading_mode = 0
+shading_mode = 2
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_kspxx")
+roughness = 0.2
 texture_filter = 0
 use_fov_override = true
