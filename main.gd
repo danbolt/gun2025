@@ -19,21 +19,44 @@ func score_event(event: ScoreTable.ScoreEvent) -> void:
 func new_game_state() -> void:
 	current_score = 0
 
-func new_level(next_level: String) -> void:
+
+func clear_old_level() -> void:
 	if gameplay != null:
 		gameplay.remove_level()
 		gameplay.queue_free()
 		remove_child(gameplay)
 		gameplay = null
-	
+
+func new_level(next_level: String) -> void:
 	gameplay = gameplay_prefab.instantiate()
 	add_child(gameplay)
+	move_child(curtains, get_child_count() - 1)
 	gameplay.load_and_add_level("res://levels/%s.tscn" % next_level)
 
 func wait_then_next(next_level: String) -> void:
-	await get_tree().create_timer(3.0, true, true).timeout
-	
+	await get_tree().create_timer(1.5, true, true).timeout
+	curtains_open = false
+	await get_tree().create_timer(1.5, true, true).timeout
+	var time_passed_in_gameplay := gameplay.seconds_passed_in_game_time
+	var player_hp := gameplay.hp
+	var time_bonus := maxi(int(time_passed_in_gameplay - 120), 0)
+	clear_old_level()
+	var new_results_screen: EndLevelScreen = preload("res://hud/end_level_screen.tscn").instantiate()
+	add_child(new_results_screen)
+	move_child(curtains, get_child_count() - 1)
+	curtains_open = true
+	curtains_value = 1.9
+	new_results_screen.populate(current_score, time_bonus, int(player_hp))
+	current_score = current_score + time_bonus + int(player_hp)
+	await new_results_screen.continued
+	curtains_open = false
+	curtains_value = 0.0
+	new_results_screen.queue_free()
+	remove_child(new_results_screen)
 	new_level(next_level)
+	await get_tree().create_timer(0.5, true, true).timeout
+	curtains_open = true
+	gameplay.set_score_to_display(current_score)
 
 func level_cleared(next_level: String) -> void:
 	gameplay.level_clear()
@@ -87,7 +110,13 @@ func _process(delta: float) -> void:
 	if gameplay != null and gameplay.player_has_died:
 		can_pause = false
 		
+	if gameplay != null and gameplay.arrived_at_exit:
+		can_pause = false
+		
+	if gameplay == null:
+		can_pause = false
+		
 	if Input.is_action_just_pressed("pause") and can_pause:
 		tree.paused = !tree.paused
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if !tree.paused else Input.MOUSE_MODE_VISIBLE
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if (!tree.paused or gameplay == null) else Input.MOUSE_MODE_VISIBLE

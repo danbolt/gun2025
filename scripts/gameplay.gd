@@ -29,6 +29,8 @@ var onep_material: ShaderMaterial = null
 var one_display_t_value: float = 0.0
 var one_display_t_goal_value: float = 0.0
 
+var seconds_passed_in_game_time: float = 0.0
+
 func level_clear() -> void:
 	if arrived_at_exit:
 		return
@@ -104,6 +106,8 @@ func _ready() -> void:
 	one_display_t_value = 0.0
 	one_display_t_goal_value = 0.0
 	
+	seconds_passed_in_game_time = 0.0
+	
 	arrived_at_exit = false
 	player_has_died = false
 	
@@ -135,6 +139,9 @@ func _physics_process(delta: float) -> void:
 	score_display.text = "%06d" % (currently_displayed_score)
 	
 func _process(delta: float) -> void:
+	if not player_has_died and not arrived_at_exit:
+		seconds_passed_in_game_time += delta
+	
 	hp_bar.value = hp
 	hp_bar.max_value = max_hp
 	

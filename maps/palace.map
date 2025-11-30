@@ -234,6 +234,12 @@
 }
 // entity 8
 {
+"classname" "exit"
+"origin" "96 176 144"
+"next_level" "indoor"
+}
+// entity 9
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "inner"
@@ -367,7 +373,7 @@
 ( 304 -704 160 ) ( 304 -688 160 ) ( 304 -688 144 ) metal50a 128 480 0 0.1 0.1
 }
 }
-// entity 9
+// entity 10
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -375,7 +381,7 @@
 "_tb_id" "2"
 "_tb_layer_sort_index" "1"
 }
-// entity 10
+// entity 11
 {
 "classname" "shoot_type"
 "origin" "-80 -544 32"
