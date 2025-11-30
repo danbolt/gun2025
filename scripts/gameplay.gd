@@ -165,7 +165,7 @@ func _process(delta: float) -> void:
 	hp_bar.value = hp
 	hp_bar.max_value = max_hp
 	
-	var lerp_speed: float = 7.0
+	var lerp_speed: float = 10.0
 	if player_controller.is_knocked_back:
 		one_display_t_goal_value = 2.0
 		lerp_speed = 20.0
@@ -176,7 +176,7 @@ func _process(delta: float) -> void:
 		one_display_t_goal_value = 0.0
 	
 	if player_has_died:
-		one_display_t_goal_value = 20.0
+		one_display_t_goal_value = 6.0
 		lerp_speed = 12.81717
 	
 	one_display_t_value = lerp(one_display_t_value, one_display_t_goal_value, 1.0 - pow(0.5, delta * lerp_speed))

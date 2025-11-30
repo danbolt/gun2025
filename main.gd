@@ -10,6 +10,14 @@ var curtains_value: float = 0.0
 
 var current_score: int = 0
 
+func on_player_death() -> void:
+	await get_tree().create_timer(2.0, true, true).timeout
+	curtains_open = false
+	await get_tree().create_timer(1.5, true, true).timeout
+	clear_old_level()
+	show_title_screen()
+	curtains_open = true
+
 func score_event(event: ScoreTable.ScoreEvent) -> void:
 	current_score += event.bonus
 	if current_score < 0:
@@ -31,6 +39,7 @@ func new_level(next_level: String) -> void:
 	gameplay = gameplay_prefab.instantiate()
 	add_child(gameplay)
 	move_child(curtains, get_child_count() - 1)
+	gameplay.player_death.connect(on_player_death.call_deferred)
 	gameplay.load_and_add_level("res://levels/%s.tscn" % next_level)
 
 func wait_then_next(next_level: String) -> void:
