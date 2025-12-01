@@ -8,7 +8,7 @@ signal damaged()
 
 @export var no_gravity: bool = false
 
-@export var bonus: float = 4.0
+@export var bonus: float = 10.0
 
 @export var no_score_on_kill: bool = false
 

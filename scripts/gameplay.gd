@@ -11,6 +11,8 @@ signal player_death()
 @export var max_hp: float = 100
 @export var hp: float = max_hp
 
+const DEPLETE_SPEED: float = 4.561
+
 @onready var hud_bottom_right: Node = %"HUD Bottom Right"
 
 var target_score: int = 0
@@ -162,7 +164,6 @@ func _process_hp(delta: float) -> void:
 	if player_has_died:
 		return
 	
-	const DEPLETE_SPEED: float = 2.0
 	hp -= delta * DEPLETE_SPEED
 	if hp < 0:
 		hp = 0

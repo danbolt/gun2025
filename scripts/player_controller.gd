@@ -15,7 +15,7 @@ signal struck_victim(victim: ArteView)
 
 @export var move_speed: float = 8.0
 @export var jump_velocity: float = 64.0
-@export var sprint_modifier: float = 0.125
+@export var sprint_modifier: float = 0.2125
 
 @export var stop_movement: bool = false
 

@@ -103,7 +103,7 @@ func start_new_game() -> void:
 			break
 	
 	new_game_state()
-	await new_level("palace")
+	await new_level("first_stage")
 	await get_tree().create_timer(0.2, true, true).timeout
 	curtains_open = true
 
