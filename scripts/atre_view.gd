@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 	if Settings.last_input_mode == Settings.LastUsedMode.KBD:
 		input_icon_0.position = lerp(input_icon_0.position, Vector3.RIGHT * extent_distance, 1.0 - pow(0.131, delta * 2.131))
 		input_icon_1.position = lerp(input_icon_1.position, Vector3.UP * extent_distance + Vector3.RIGHT * extent_distance, 1.0 - pow(0.131, delta * 2.131))
-		input_icon_2.position = lerp(input_icon_2.position, Vector3.LEFT * extent_distance * 2 + Vector3.UP * extent_distance, 1.0 - pow(0.131, delta * 2.131))
+		input_icon_2.position = lerp(input_icon_2.position, Vector3.LEFT * extent_distance + Vector3.UP * extent_distance, 1.0 - pow(0.131, delta * 2.131))
 		input_icon_3.position = lerp(input_icon_3.position, Vector3.UP * extent_distance, 1.0 - pow(0.131, delta * 2.131))
 	else:
 		input_icon_0.position = lerp(input_icon_0.position, Vector3.DOWN * extent_distance, 1.0 - pow(0.131, delta * 2.131))
