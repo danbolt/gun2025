@@ -8,3 +8,6 @@ maps/autosave/*
 # Blender backup
 *.blend1
 
+# Krita backup files
+*.kra~
+
