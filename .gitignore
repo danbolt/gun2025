@@ -10,4 +10,5 @@ maps/autosave/*
 
 # Krita backup files
 *.kra~
+*.png~
 

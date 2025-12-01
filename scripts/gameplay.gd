@@ -36,6 +36,8 @@ var seconds_passed_in_game_time: float = 0.0
 @onready var dead_portrait: Texture2D = preload("res://textures/portrait_dead.png")
 @onready var strike_portrait: Texture2D = preload("res://textures/portrait_strike.png")
 @onready var portrait_rect: TextureRect = %PortraitRect
+const DEFAULT_PORTRAIT_RECT_POSITION: Vector2 = Vector2(-66, -66)
+const WALK_AMPLITUDE: float = 16
 
 func level_clear() -> void:
 	if arrived_at_exit:
@@ -125,15 +127,33 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(on_dialogic_signal)
 	Dialogic.timeline_ended.connect(dialogue_finished)
 	
-func _process_portrait() -> void:
+func _process_portrait(delta: float) -> void:
+	var target_offset := Vector2.ZERO
+	var lerp_speed := 10.0
 	if player_has_died:
 		portrait_rect.texture = dead_portrait
 	elif player_controller.is_knocked_back:
 		portrait_rect.texture = damaged_portrait
+		
+		target_offset = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * 30.0
+		lerp_speed = 20.0
 	elif player_controller.is_striking:
 		portrait_rect.texture = strike_portrait
+		
+		target_offset = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * 15.0
+		lerp_speed = 10.0
 	else:
 		portrait_rect.texture = idle_portrait
+		
+		var player_velocity := player_controller.velocity
+		player_velocity.y = 0
+		if player_controller.is_on_floor() and not player_velocity.is_zero_approx():
+			target_offset = Vector2(0.0, sin(seconds_passed_in_game_time * 18.5610) * 10.0)
+			lerp_speed = 20.0
+		else:
+			target_offset = Vector2.ZERO if player_controller.is_on_floor() else Vector2.DOWN * 32.0
+			
+	portrait_rect.position = lerp(portrait_rect.position, DEFAULT_PORTRAIT_RECT_POSITION + target_offset,  1.0 - pow(0.5, delta * lerp_speed))
 	
 func _process_hp(delta: float) -> void:
 	if arrived_at_exit:
@@ -152,7 +172,7 @@ func _process_hp(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	_process_hp(delta)
-	_process_portrait()
+	_process_portrait(delta)
 	
 	var next_score: float = move_toward(float(currently_displayed_score), float(target_score), delta * 500.0)
 	currently_displayed_score = int(next_score)

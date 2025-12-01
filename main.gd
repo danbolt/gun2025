@@ -35,20 +35,21 @@ func clear_old_level() -> void:
 		remove_child(gameplay)
 		gameplay = null
 
-func new_level(next_level: String) -> void:
-	var title_card: LevelTitleCard = preload("res://hud/level_title_card.tscn").instantiate()
-	add_child(title_card)
-	move_child(curtains, get_child_count() - 1)
-	title_card.populate(TitleMap.pre_titles.get(next_level, ""), TitleMap.titles.get(next_level, next_level))
-	
-	curtains_open = true
-	
-	await title_card.done
-	
-	curtains_open = false
-	await get_tree().create_timer(1.0, true, true).timeout
-	title_card.queue_free()
-	remove_child(title_card)
+func new_level(next_level: String, skip_title_card: bool = false) -> void:
+	if not skip_title_card:
+		var title_card: LevelTitleCard = preload("res://hud/level_title_card.tscn").instantiate()
+		add_child(title_card)
+		move_child(curtains, get_child_count() - 1)
+		title_card.populate(TitleMap.pre_titles.get(next_level, ""), TitleMap.titles.get(next_level, next_level))
+		
+		curtains_open = true
+		
+		await title_card.done
+		
+		curtains_open = false
+		await get_tree().create_timer(1.0, true, true).timeout
+		title_card.queue_free()
+		remove_child(title_card)
 	
 	gameplay = gameplay_prefab.instantiate()
 	add_child(gameplay)
