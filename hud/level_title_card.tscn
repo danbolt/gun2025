@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl6xnungtg35"]
+
+[ext_resource type="Theme" uid="uid://ccpauq2da4rfu" path="res://themes/default_theme.tres" id="1_yhir3"]
+[ext_resource type="Script" uid="uid://bhil0l7mhd3fe" path="res://hud/level_title_card.gd" id="2_yhir3"]
+[ext_resource type="FontFile" uid="uid://dqel37d8p7uiu" path="res://fonts/luxi/luxisb.ttf" id="3_pcdkl"]
+
+[node name="LevelTitleCard" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yhir3")
+script = ExtResource("2_yhir3")
+metadata/_custom_type_script = "uid://b3qvgg405ygo1"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.43371314, 0.7631965, 0.84260714, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -22.0
+offset_right = 28.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreTitle" type="Label" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Part Six"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="Title" type="Label" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_yhir3")
+theme_type_variation = &"HeaderSmall"
+theme_override_fonts/font = ExtResource("3_pcdkl")
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0

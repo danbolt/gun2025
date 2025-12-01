@@ -36,6 +36,20 @@ func clear_old_level() -> void:
 		gameplay = null
 
 func new_level(next_level: String) -> void:
+	var title_card: LevelTitleCard = preload("res://hud/level_title_card.tscn").instantiate()
+	add_child(title_card)
+	move_child(curtains, get_child_count() - 1)
+	title_card.populate(TitleMap.pre_titles.get(next_level, ""), TitleMap.titles.get(next_level, next_level))
+	
+	curtains_open = true
+	
+	await title_card.done
+	
+	curtains_open = false
+	await get_tree().create_timer(1.0, true, true).timeout
+	title_card.queue_free()
+	remove_child(title_card)
+	
 	gameplay = gameplay_prefab.instantiate()
 	add_child(gameplay)
 	move_child(curtains, get_child_count() - 1)
@@ -62,7 +76,7 @@ func wait_then_next(next_level: String) -> void:
 	curtains_value = 0.0
 	new_results_screen.queue_free()
 	remove_child(new_results_screen)
-	new_level(next_level)
+	await new_level(next_level)
 	await get_tree().create_timer(0.5, true, true).timeout
 	curtains_open = true
 	gameplay.set_score_to_display(current_score)
@@ -88,7 +102,7 @@ func start_new_game() -> void:
 			break
 	
 	new_game_state()
-	new_level("palace")
+	await new_level("palace")
 	await get_tree().create_timer(0.2, true, true).timeout
 	curtains_open = true
 

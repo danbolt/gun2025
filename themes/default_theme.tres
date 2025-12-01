@@ -25,6 +25,7 @@ CheckButton/colors/font_focus_color = Color(0.18431373, 0.18431373, 0.5803922, 1
 CheckButton/colors/font_hover_color = Color(0.54509807, 0.5647059, 0.85882354, 1)
 CheckButton/colors/font_hover_pressed_color = Color(0.54509807, 0.5647059, 0.85882354, 1)
 CheckButton/colors/font_pressed_color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+HeaderSmall/font_sizes/font_size = 64
 Label/colors/font_color = Color(0, 0, 0, 1)
 OptionButton/styles/normal = null
 Panel/styles/panel = ExtResource("1_het5a")
