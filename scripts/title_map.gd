@@ -10,6 +10,6 @@ extends Node
 @export var titles : Dictionary[String, String] = {
 	"palace": "The Palace",
 	"indoor": "Indoor",
-	"first_stage": "An Assasination Attempt\bon the\nAnemic Prince",
+	"first_stage": "An Assasination Attempt\non the\nMiddling Prince",
 	"stage_two": "The Start of\nan Escape",
 }
