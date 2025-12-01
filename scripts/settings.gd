@@ -33,7 +33,9 @@ const HUD_ASPECT_RATIOS: Dictionary[String, float] = {
 }
 
 const RESOLUTION_SCALE_OPTIONS: Dictionary[String, float] = {
-	"100%": 1.0,
+	"Full Resolution": 1.0,
+	"99%": 0.99,
+	"80%": 0.85,
 	"75%": 0.75,
 	"50%": 0.5,
 	"25%": 0.25,

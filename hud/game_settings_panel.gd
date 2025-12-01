@@ -1,7 +1,7 @@
 class_name GameSettingsPanel extends Control
 
 @onready var fullscreen_toggle := $PanelContainer/MarginContainer/VBoxContainer/FullscreenToggle
-@onready var resolution_scale := $PanelContainer/MarginContainer/VBoxContainer/ResolutionScale
+@onready var resolution_scale : OptionButton = $PanelContainer/MarginContainer/VBoxContainer/ResolutionScale
 @onready var resolution_scale_mode := $PanelContainer/MarginContainer/VBoxContainer/ResolutionScaleMode
 @onready var hud_aspect_ratio := $PanelContainer/MarginContainer/VBoxContainer/HUDAspectRatio
 @onready var fov_text: Label = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FOVText
@@ -78,3 +78,10 @@ func _process(_delta: float) -> void:
 	
 	x_invert_button.button_pressed = Settings.x_invert
 	y_invert_button.button_pressed = Settings.y_invert
+	
+	if resolution_scale.is_hovered():
+		var current_viewport := get_viewport()
+		if current_viewport != null:
+			var current_window := current_viewport.get_window()
+			if current_window:
+				resolution_scale.tooltip_text = "Currently %dx%d upscaled to %dx%d" % [ int(current_window.size.x * current_viewport.scaling_3d_scale), int(current_window.size.y * current_viewport.scaling_3d_scale), current_window.size.x, current_window.size.y ]
