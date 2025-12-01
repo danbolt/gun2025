@@ -9,7 +9,7 @@
 material = ExtResource("2_0qp4x")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wo5lf"]
-points = PackedVector3Array(0, -1, 0, 30, -1, 25, 0, -8, 30, -30, -1, 25, 0, 1, 0, 30, 1, 25, 0, 8, 30, -30, 1, 25)
+points = PackedVector3Array(0, -1, 0, 19, -1, 15, 0, -8, 20, -10, -1, 15, 0, 1, 0, 10, 1, 15, 0, 8, 20, -10, 1, 15)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wo5lf"]
 radius = 8.749421
@@ -17,7 +17,6 @@ radius = 8.749421
 [node name="Chaser" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_wo5lf")
-run_speed = null
 metadata/_custom_type_script = "uid://c5ifs7issjt5n"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

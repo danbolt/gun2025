@@ -619,5 +619,6 @@
 {
 "classname" "exit"
 "origin" "-576 -896 176"
+"next_level" "stage_two"
 "_tb_layer" "1"
 }

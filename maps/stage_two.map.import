@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cxbpoke887i6m"
+path="res://.godot/imported/stage_two.map-13f28c03946f87e2324b2b786122ee6b.tres"
+
+[deps]
+
+source_file="res://maps/stage_two.map"
+dest_files=["res://.godot/imported/stage_two.map-13f28c03946f87e2324b2b786122ee6b.tres"]
+
+[params]
+

@@ -1,7 +1,7 @@
 @tool
 class_name Chaser extends TouchObject
 
-@export var run_speed: float = 6.0
+@export var run_speed: float = 4.0
 
 @onready var fov_cone: Area3D = %FOVCone
 
@@ -29,6 +29,14 @@ func _physics_process(delta: float) -> void:
 	if fov_cone:
 		if fov_cone.has_overlapping_bodies():
 			for intruder: Node3D in fov_cone.get_overlapping_bodies():
+				
+				## TODO: optimize this
+				var query := PhysicsRayQueryParameters3D.create(position, intruder.position, 1, [self])
+				var space_state := get_world_3d().direct_space_state
+				var result := space_state.intersect_ray(query)
+				if result.has("collider"):
+					continue
+				
 				nav_tick = randi_range(1, 40)
 				aggro_target = intruder
 				
@@ -44,7 +52,8 @@ func _physics_process(delta: float) -> void:
 		var direction_to_target := (next_path_position - position).normalized()
 		velocity.x = direction_to_target.x * run_speed
 		velocity.z = direction_to_target.z * run_speed
-		look_at(next_path_position, Vector3.UP, true)
+		if not next_path_position.is_equal_approx(position):
+			look_at(next_path_position, Vector3.UP, true)
 	else:
 		velocity.x = 0
 		velocity.z = 0 
