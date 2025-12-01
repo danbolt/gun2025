@@ -12,3 +12,6 @@ maps/autosave/*
 *.kra~
 *.png~
 
+# LMMS backups
+*.mmpz.bak
+
