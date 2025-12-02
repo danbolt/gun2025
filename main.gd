@@ -136,9 +136,16 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(on_timeline_finished)
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	show_title_screen()
+	var level_override: String = ""
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with("--level="):
+			level_override = arg.split("=")[1]
 	
-	curtains_open = true
+	if not level_override.is_empty():
+		new_level(level_override, true)
+	else:
+		show_title_screen()
+		curtains_open = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
