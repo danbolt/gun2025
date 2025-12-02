@@ -16,6 +16,8 @@ class_name GameSettingsPanel extends Control
 @onready var refresh_rate_select := %RefreshRateSelect
 @onready var vsync_check := %VSyncCheck
 
+@onready var fps_label: Label = %FPSText
+
 @onready var gamer_mode: CheckButton = %GamerModeCheckBox
 
 func _ready() -> void:
@@ -64,6 +66,9 @@ func _process(_delta: float) -> void:
 	
 	if is_visible_in_tree():
 		get_viewport().use_taa = gamer_mode.button_pressed
+		
+		var current_fps := Engine.get_frames_per_second()
+		fps_label.text = "FPS: %d" % int(current_fps)
 	
 	fullscreen_toggle.button_pressed = Settings.fullscreen
 	var window := get_window()
