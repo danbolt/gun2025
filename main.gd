@@ -18,11 +18,22 @@ func on_player_death() -> void:
 	show_title_screen()
 	curtains_open = true
 
+func get_combo_multiplier() -> float:
+	if gameplay == null:
+		return 1.0
+		
+	var multiplier := gameplay.COMBO_MULTIPLIERS[gameplay.current_combo_index]
+	return multiplier
+
 func score_event(event: ScoreTable.ScoreEvent) -> void:
 	current_score += event.bonus
 	if current_score < 0:
 		current_score = 0
 	gameplay.set_score_to_display(current_score)
+	
+	if event.bonus > 0.0:
+		gameplay.current_combo_index = min(gameplay.current_combo_index + 1, gameplay.COMBO_MULTIPLIERS.size() - 1)
+		gameplay.combo_time = gameplay.COMBO_TIER_DURATIONS[gameplay.current_combo_index]
 
 func new_game_state() -> void:
 	current_score = 0

@@ -33,6 +33,15 @@ var one_display_t_goal_value: float = 0.0
 
 var seconds_passed_in_game_time: float = 0.0
 
+const COMBO_MULTIPLIERS: Array[float] = [ 1.0, 2.0, 3.0, 5.0, 6.0, 8.0 ]
+const COMBO_TIER_DURATIONS: Array[float] = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ]
+const COMBO_DEPLETE_SPEED: Array[float] = [ 0.30, 0.25, 0.20, 0.15, 0.12, 0.9 ]
+var current_combo_index: int = 0
+var combo_time: float = 0.0
+
+@onready var combo_bar: TextureProgressBar = %ComboBar
+@onready var combo_mutliplier_label: Label = %ComboMultiplier
+
 @onready var idle_portrait: Texture2D = preload("res://textures/portrait_idle.png")
 @onready var damaged_portrait: Texture2D = preload("res://textures/portrait_damaged.png")
 @onready var dead_portrait: Texture2D = preload("res://textures/portrait_dead.png")
@@ -116,6 +125,9 @@ func _ready() -> void:
 	one_display_t_value = 0.0
 	one_display_t_goal_value = 0.0
 	
+	current_combo_index = 0
+	combo_time = 0
+	
 	seconds_passed_in_game_time = 0.0
 	
 	arrived_at_exit = false
@@ -171,9 +183,21 @@ func _process_hp(delta: float) -> void:
 	if is_zero_approx(hp) and (not player_has_died):
 		kill_player()
 
+func _process_combo(delta: float) -> void:
+	combo_time -= delta * COMBO_DEPLETE_SPEED[current_combo_index]
+	if current_combo_index > 0 and combo_time <= 0.0:
+		current_combo_index = maxi(current_combo_index - 1, 0)
+		combo_time = COMBO_TIER_DURATIONS[current_combo_index]
+		
+	ScoreTable.current_multiplier = COMBO_MULTIPLIERS[current_combo_index]
+		
+	combo_bar.value = combo_time / COMBO_TIER_DURATIONS[current_combo_index]
+	combo_mutliplier_label.text = "%.1fx" % COMBO_MULTIPLIERS[current_combo_index]
+
 func _physics_process(delta: float) -> void:
 	_process_hp(delta)
 	_process_portrait(delta)
+	_process_combo(delta)
 	
 	var next_score: float = move_toward(float(currently_displayed_score), float(target_score), delta * 500.0)
 	currently_displayed_score = int(next_score)

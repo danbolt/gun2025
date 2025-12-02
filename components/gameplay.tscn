@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=18 format=3 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://df7x4nbm2yb0" path="res://scripts/gameplay.gd" id="1_8r83d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
@@ -14,6 +14,16 @@
 [ext_resource type="Script" uid="uid://cy8yfplkyme4s" path="res://hud/pause_screen.gd" id="11_he0yp"]
 [ext_resource type="PackedScene" uid="uid://d0pm37oocpcoo" path="res://hud/game_settings_panel.tscn" id="12_fwhjk"]
 [ext_resource type="Texture2D" uid="uid://b4pri5jk1n2m" path="res://textures/portrait_idle.png" id="14_mocpu"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mocpu"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_mocpu"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8r83d"]
+gradient = SubResource("Gradient_mocpu")
+width = 128
+height = 128
 
 [node name="Gameplay" type="Node3D" groups=["listen_for_score_events"]]
 process_mode = 1
@@ -169,6 +179,52 @@ offset_top = 54.0
 offset_right = 60.0
 offset_bottom = 170.0
 script = ExtResource("8_bev8n")
+
+[node name="HUDTopLeft" type="Control" parent="GameplayHUD/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="Control" type="Control" parent="GameplayHUD/Control/HUDTopLeft"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="ComboBar" type="TextureProgressBar" parent="GameplayHUD/Control/HUDTopLeft/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 144.0
+grow_horizontal = 0
+max_value = 1.0
+step = 0.01
+value = 0.5
+fill_mode = 4
+texture_under = SubResource("PlaceholderTexture2D_mocpu")
+texture_progress = SubResource("GradientTexture2D_8r83d")
+
+[node name="ComboMultiplier" type="Label" parent="GameplayHUD/Control/HUDTopLeft/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -159.0
+offset_top = 35.0
+offset_right = -80.0
+offset_bottom = 55.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "<COMBO>"
 
 [node name="HUD Bottom Right" type="Control" parent="GameplayHUD/Control"]
 unique_name_in_owner = true
