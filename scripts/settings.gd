@@ -42,7 +42,7 @@ const RESOLUTION_SCALE_OPTIONS: Dictionary[String, float] = {
 	"12.5%": 0.125,
 }
 
-const SCALING_OPTIONS: Dictionary[String, Viewport.Scaling3DMode] = {
+var SCALING_OPTIONS: Dictionary[String, Viewport.Scaling3DMode] = {
 	"Bilinear":  Viewport.Scaling3DMode.SCALING_3D_MODE_BILINEAR,
 	"FSR": Viewport.Scaling3DMode.SCALING_3D_MODE_FSR,
 	"FSR2": Viewport.Scaling3DMode.SCALING_3D_MODE_FSR2,
@@ -88,3 +88,8 @@ func _process(_delta: float) -> void:
 	if not is_equal_approx(fov, _prev_fov):
 		get_tree().call_group("listen_for_fov_updates", "update_fov", fov)
 		_prev_fov = fov
+
+func _ready() -> void:
+	if RenderingServer.get_current_rendering_driver_name() == "metal":
+		SCALING_OPTIONS["MetalFX Spatial"] = Viewport.Scaling3DMode.SCALING_3D_MODE_METALFX_SPATIAL
+		SCALING_OPTIONS["MetalFX Temporal"] = Viewport.Scaling3DMode.SCALING_3D_MODE_METALFX_TEMPORAL
