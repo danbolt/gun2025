@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crfkrqfa0svvl"
 path.s3tc="res://.godot/imported/woodfloor51_normal.png-020aa2490064b64d7f05c8b80b090f1a.s3tc.ctex"
+path.etc2="res://.godot/imported/woodfloor51_normal.png-020aa2490064b64d7f05c8b80b090f1a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/textures/woodfloor51/woodfloor51_normal.png"
-dest_files=["res://.godot/imported/woodfloor51_normal.png-020aa2490064b64d7f05c8b80b090f1a.s3tc.ctex"]
+dest_files=["res://.godot/imported/woodfloor51_normal.png-020aa2490064b64d7f05c8b80b090f1a.s3tc.ctex", "res://.godot/imported/woodfloor51_normal.png-020aa2490064b64d7f05c8b80b090f1a.etc2.ctex"]
 
 [params]
 

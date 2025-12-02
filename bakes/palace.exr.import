@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://d0nc7x3wuamy4"
 path.bptc="res://.godot/imported/palace.exr-86458d06a6fea234eaab5f95e5d3edb4.bptc.ctexarray"
+path.astc="res://.godot/imported/palace.exr-86458d06a6fea234eaab5f95e5d3edb4.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bakes/palace.exr"
-dest_files=["res://.godot/imported/palace.exr-86458d06a6fea234eaab5f95e5d3edb4.bptc.ctexarray"]
+dest_files=["res://.godot/imported/palace.exr-86458d06a6fea234eaab5f95e5d3edb4.bptc.ctexarray", "res://.godot/imported/palace.exr-86458d06a6fea234eaab5f95e5d3edb4.astc.ctexarray"]
 
 [params]
 

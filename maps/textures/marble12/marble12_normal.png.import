@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt36g507g46y5"
 path.s3tc="res://.godot/imported/marble12_normal.png-abad44c274c33be8941b1839fe776f8d.s3tc.ctex"
+path.etc2="res://.godot/imported/marble12_normal.png-abad44c274c33be8941b1839fe776f8d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/textures/marble12/marble12_normal.png"
-dest_files=["res://.godot/imported/marble12_normal.png-abad44c274c33be8941b1839fe776f8d.s3tc.ctex"]
+dest_files=["res://.godot/imported/marble12_normal.png-abad44c274c33be8941b1839fe776f8d.s3tc.ctex", "res://.godot/imported/marble12_normal.png-abad44c274c33be8941b1839fe776f8d.etc2.ctex"]
 
 [params]
 

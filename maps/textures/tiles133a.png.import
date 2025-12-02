@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkrwodjqsh2s8"
 path.s3tc="res://.godot/imported/tiles133a.png-ec1ba02b687ed3263051eb60c58127ca.s3tc.ctex"
+path.etc2="res://.godot/imported/tiles133a.png-ec1ba02b687ed3263051eb60c58127ca.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/textures/tiles133a.png"
-dest_files=["res://.godot/imported/tiles133a.png-ec1ba02b687ed3263051eb60c58127ca.s3tc.ctex"]
+dest_files=["res://.godot/imported/tiles133a.png-ec1ba02b687ed3263051eb60c58127ca.s3tc.ctex", "res://.godot/imported/tiles133a.png-ec1ba02b687ed3263051eb60c58127ca.etc2.ctex"]
 
 [params]
 

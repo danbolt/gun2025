@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dputt0slq2lxo"
 path.s3tc="res://.godot/imported/xbox_button_color_a.png-be09683af18699cc3247664c062f7706.s3tc.ctex"
+path.etc2="res://.godot/imported/xbox_button_color_a.png-be09683af18699cc3247664c062f7706.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://kenney_input-prompts_1.4/Xbox Series/Double/xbox_button_color_a.png"
-dest_files=["res://.godot/imported/xbox_button_color_a.png-be09683af18699cc3247664c062f7706.s3tc.ctex"]
+dest_files=["res://.godot/imported/xbox_button_color_a.png-be09683af18699cc3247664c062f7706.s3tc.ctex", "res://.godot/imported/xbox_button_color_a.png-be09683af18699cc3247664c062f7706.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4ivg3uo2gcma"
 path.s3tc="res://.godot/imported/keyboard_e_outline.png-800f3ac74dd0cc6d5d00ff5b01e9e8bf.s3tc.ctex"
+path.etc2="res://.godot/imported/keyboard_e_outline.png-800f3ac74dd0cc6d5d00ff5b01e9e8bf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_e_outline.png"
-dest_files=["res://.godot/imported/keyboard_e_outline.png-800f3ac74dd0cc6d5d00ff5b01e9e8bf.s3tc.ctex"]
+dest_files=["res://.godot/imported/keyboard_e_outline.png-800f3ac74dd0cc6d5d00ff5b01e9e8bf.s3tc.ctex", "res://.godot/imported/keyboard_e_outline.png-800f3ac74dd0cc6d5d00ff5b01e9e8bf.etc2.ctex"]
 
 [params]
 

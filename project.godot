@@ -75,7 +75,6 @@ layout/default_style="res://styles/test_style.tres"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -212,6 +211,8 @@ common/physics_interpolation=true
 
 [rendering]
 
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
 lightmapping/bake_performance/region_size=64

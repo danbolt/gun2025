@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://g3x1gsgrhli6"
 path.s3tc="res://.godot/imported/keyboard_o.png-ad8db894371732ebadb4cbd8b8225548.s3tc.ctex"
+path.etc2="res://.godot/imported/keyboard_o.png-ad8db894371732ebadb4cbd8b8225548.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://kenney_input-prompts_1.4/Keyboard & Mouse/Double/keyboard_o.png"
-dest_files=["res://.godot/imported/keyboard_o.png-ad8db894371732ebadb4cbd8b8225548.s3tc.ctex"]
+dest_files=["res://.godot/imported/keyboard_o.png-ad8db894371732ebadb4cbd8b8225548.s3tc.ctex", "res://.godot/imported/keyboard_o.png-ad8db894371732ebadb4cbd8b8225548.etc2.ctex"]
 
 [params]
 

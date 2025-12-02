@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c42fgos71048y"
 path.s3tc="res://.godot/imported/moss002_height.png-c261465d08b1bce789cc91dcde90d473.s3tc.ctex"
+path.etc2="res://.godot/imported/moss002_height.png-c261465d08b1bce789cc91dcde90d473.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/textures/moss002/moss002_height.png"
-dest_files=["res://.godot/imported/moss002_height.png-c261465d08b1bce789cc91dcde90d473.s3tc.ctex"]
+dest_files=["res://.godot/imported/moss002_height.png-c261465d08b1bce789cc91dcde90d473.s3tc.ctex", "res://.godot/imported/moss002_height.png-c261465d08b1bce789cc91dcde90d473.etc2.ctex"]
 
 [params]
 

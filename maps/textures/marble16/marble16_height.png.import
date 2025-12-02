@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://e7sbimv81i0j"
 path.s3tc="res://.godot/imported/marble16_height.png-5b10a299a967f7d23f76aa656142a599.s3tc.ctex"
+path.etc2="res://.godot/imported/marble16_height.png-5b10a299a967f7d23f76aa656142a599.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/textures/marble16/marble16_height.png"
-dest_files=["res://.godot/imported/marble16_height.png-5b10a299a967f7d23f76aa656142a599.s3tc.ctex"]
+dest_files=["res://.godot/imported/marble16_height.png-5b10a299a967f7d23f76aa656142a599.s3tc.ctex", "res://.godot/imported/marble16_height.png-5b10a299a967f7d23f76aa656142a599.etc2.ctex"]
 
 [params]
 

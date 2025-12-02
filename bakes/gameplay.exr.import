@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://k3ra1jn1cdgm"
 path.bptc="res://.godot/imported/gameplay.exr-2e1b27a542557ddb476633db431cef03.bptc.ctexarray"
+path.astc="res://.godot/imported/gameplay.exr-2e1b27a542557ddb476633db431cef03.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bakes/gameplay.exr"
-dest_files=["res://.godot/imported/gameplay.exr-2e1b27a542557ddb476633db431cef03.bptc.ctexarray"]
+dest_files=["res://.godot/imported/gameplay.exr-2e1b27a542557ddb476633db431cef03.bptc.ctexarray", "res://.godot/imported/gameplay.exr-2e1b27a542557ddb476633db431cef03.astc.ctexarray"]
 
 [params]
 

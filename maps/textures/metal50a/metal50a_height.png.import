@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh07rqj13x73b"
 path.s3tc="res://.godot/imported/metal50a_height.png-4eded4d6e98539cdf04ad84e8db30ccf.s3tc.ctex"
+path.etc2="res://.godot/imported/metal50a_height.png-4eded4d6e98539cdf04ad84e8db30ccf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/textures/metal50a/metal50a_height.png"
-dest_files=["res://.godot/imported/metal50a_height.png-4eded4d6e98539cdf04ad84e8db30ccf.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal50a_height.png-4eded4d6e98539cdf04ad84e8db30ccf.s3tc.ctex", "res://.godot/imported/metal50a_height.png-4eded4d6e98539cdf04ad84e8db30ccf.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://eia1bit5e5ij"
 path.s3tc="res://.godot/imported/generic_button_square_outline.png-9b2b43e5b3040de15569714cbf95f44a.s3tc.ctex"
+path.etc2="res://.godot/imported/generic_button_square_outline.png-9b2b43e5b3040de15569714cbf95f44a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://kenney_input-prompts_1.4/Generic/Double/generic_button_square_outline.png"
-dest_files=["res://.godot/imported/generic_button_square_outline.png-9b2b43e5b3040de15569714cbf95f44a.s3tc.ctex"]
+dest_files=["res://.godot/imported/generic_button_square_outline.png-9b2b43e5b3040de15569714cbf95f44a.s3tc.ctex", "res://.godot/imported/generic_button_square_outline.png-9b2b43e5b3040de15569714cbf95f44a.etc2.ctex"]
 
 [params]
 

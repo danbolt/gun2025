@@ -15,3 +15,16 @@ maps/autosave/*
 # LMMS backups
 *.mmpz.bak
 
+build/*
+
+export_templates/*.tpz
+
+automation/**/*.x86_64
+automation/**/*.zip
+automation/**/butler
+automation/**/*.so
+automation/**/*.tar.xz
+
+blender
+
+

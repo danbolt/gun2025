@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crfju5husbad0"
 path.s3tc="res://.godot/imported/marble16_roughness.png-12622996fe004939723f3f3f90ab5bc6.s3tc.ctex"
+path.etc2="res://.godot/imported/marble16_roughness.png-12622996fe004939723f3f3f90ab5bc6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/textures/marble16/marble16_roughness.png"
-dest_files=["res://.godot/imported/marble16_roughness.png-12622996fe004939723f3f3f90ab5bc6.s3tc.ctex"]
+dest_files=["res://.godot/imported/marble16_roughness.png-12622996fe004939723f3f3f90ab5bc6.s3tc.ctex", "res://.godot/imported/marble16_roughness.png-12622996fe004939723f3f3f90ab5bc6.etc2.ctex"]
 
 [params]
 
