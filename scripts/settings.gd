@@ -15,7 +15,7 @@ enum LastUsedGamepadType {
 
 @export var hud_aspect_ratio: float = -1.0
 
-@export var fullscreen: bool = true
+@onready var fullscreen: bool = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 
 @export var x_invert: bool = false
 @export var y_invert: bool = false
