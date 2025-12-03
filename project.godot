@@ -87,6 +87,10 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/func
 
 default_map_settings="uid://cvtgbpsw27vq2"
 
+[global_group]
+
+mystic=""
+
 [input]
 
 ui_accept={
