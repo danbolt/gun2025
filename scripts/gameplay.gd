@@ -35,7 +35,7 @@ var seconds_passed_in_game_time: float = 0.0
 
 const COMBO_MULTIPLIERS: Array[float] = [ 1.0, 2.0, 3.0, 5.0, 6.0, 8.0 ]
 const COMBO_TIER_DURATIONS: Array[float] = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ]
-const COMBO_DEPLETE_SPEED: Array[float] = [ 0.30, 0.25, 0.20, 0.15, 0.12, 0.9 ]
+const COMBO_DEPLETE_SPEED: Array[float] = [ 0.30, 0.20, 0.17, 0.13, 0.10, 0.9 ]
 var current_combo_index: int = 0
 var combo_time: float = 0.0
 

@@ -45,7 +45,7 @@ associated_key = 51
 
 [node name="InputIcon_2" parent="Icons" instance=ExtResource("1_2433q")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99999994, 0.49999997, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50000006, 0.49999997, 0)
 associated_key = 81
 associated_button = 2
 

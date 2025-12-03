@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://brbq6msv5wfcl"
+path="res://.godot/imported/stage_three.map-93a44aba6f8577955503c3cddf5574a2.tres"
+
+[deps]
+
+source_file="res://maps/stage_three.map"
+dest_files=["res://.godot/imported/stage_three.map-93a44aba6f8577955503c3cddf5574a2.tres"]
+
+[params]
+
