@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 			nav_tick = 40
 			navigation_agent.target_position = aggro_target.position
 			next_path_position = navigation_agent.get_next_path_position()
+			next_path_position.y = position.y
 		var direction_to_target := (next_path_position - position).normalized()
 		velocity.x = direction_to_target.x * run_speed
 		velocity.z = direction_to_target.z * run_speed
