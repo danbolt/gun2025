@@ -7,14 +7,11 @@
         2 : "B" : 0 
         4 : "C" : 0 
         8 : "D" : 0 
-    ]
-
-    maskflags(flags) =
-    [
-        1 : "A Enabled" : 1
-        2 : "B Enabled" : 1
-        4 : "C Enabled" : 1 
-        8 : "D Enabled" : 1 
+        16 : "A Enabled" : 1
+        32 : "B Enabled" : 1
+        64 : "C Enabled" : 1 
+        128 : "D Enabled" : 1 
+ 
     ]
 ]
 

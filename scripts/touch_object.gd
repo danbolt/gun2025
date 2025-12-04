@@ -15,11 +15,14 @@ signal damaged()
 ## Used for projectiles when they collide with walls
 @export var queue_free_on_collision: bool = false
 
+const foo: int = 15 << 4
+
 var arte_view: ArteView = null
 
 func _func_godot_apply_properties(properties: Dictionary) -> void:
-	spawn_flags = int(properties.get("spawnflags", 0))
-	mask_flags = int(properties.get("maskflags", 15))
+	var flags: int = int(properties.get("spawnflags", 240))
+	spawn_flags = flags & 15
+	mask_flags = flags >> 4
 
 func _add_arte_view() -> void:
 	if arte_view == null:
