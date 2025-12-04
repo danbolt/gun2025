@@ -114,7 +114,7 @@ func start_new_game() -> void:
 			break
 	
 	new_game_state()
-	await new_level("first_stage")
+	await new_level("stadium")
 	await get_tree().create_timer(0.2, true, true).timeout
 	curtains_open = true
 
@@ -140,6 +140,8 @@ func _ready() -> void:
 	for arg: String in OS.get_cmdline_user_args():
 		if arg.begins_with("--level="):
 			level_override = arg.split("=")[1]
+	
+	level_override = "stadium"
 	
 	if not level_override.is_empty():
 		new_level(level_override, true)
