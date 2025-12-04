@@ -3,21 +3,19 @@
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://ce34tvlhb4q2b"
-path.bptc="res://.godot/imported/stage_two.exr-890b9df37098e61e6f707135490bcf31.bptc.ctexarray"
-path.astc="res://.godot/imported/stage_two.exr-890b9df37098e61e6f707135490bcf31.astc.ctexarray"
+path="res://.godot/imported/stage_two.exr-890b9df37098e61e6f707135490bcf31.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://bakes/stage_two.exr"
-dest_files=["res://.godot/imported/stage_two.exr-890b9df37098e61e6f707135490bcf31.bptc.ctexarray", "res://.godot/imported/stage_two.exr-890b9df37098e61e6f707135490bcf31.astc.ctexarray"]
+dest_files=["res://.godot/imported/stage_two.exr-890b9df37098e61e6f707135490bcf31.ctexarray"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
