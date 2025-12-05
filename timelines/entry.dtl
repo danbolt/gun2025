@@ -1,6 +1,10 @@
 We've entered an area.
+join protag left
+protag: how about that
 Want to see the ramp?
 - Yes
+	protag: ...
+	protag: sure...
 	[signal arg_type="dict" arg="{"Camera":"StairsCamera","Priority":15}"]
 	Okay, look here!
 	See it?
@@ -9,5 +13,8 @@ Want to see the ramp?
 	Pretty cool, right?
 	[signal arg_type="dict" arg="{"Camera":"StairsCamera","Priority":0}"]
 	[signal arg_type="dict" arg="{"Camera":"StairsCamera2","Priority":0}"]
+	protag: ugh...
 - No
+	protag: ugh no
 	Suit yourself!
+leave protag
