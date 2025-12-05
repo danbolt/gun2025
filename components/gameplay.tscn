@@ -1192,17 +1192,57 @@ offset_left = -20.0
 offset_right = -20.0
 grow_horizontal = 2
 
-[node name="HPBar" type="ProgressBar" parent="GameplayHUD/Control/HUDTopCenter"]
-unique_name_in_owner = true
+[node name="HPDisplay" type="PanelContainer" parent="GameplayHUD/Control/HUDTopCenter"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -155.0
-offset_top = 27.0
-offset_right = 149.0
-offset_bottom = 51.0
+offset_left = -86.0
+offset_top = 16.0
+offset_right = 86.0
+offset_bottom = 83.0
 grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayHUD/Control/HUDTopCenter/HPDisplay"]
+layout_mode = 2
+
+[node name="HPNumberLabel" type="Label" parent="GameplayHUD/Control/HUDTopCenter/HPDisplay/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "999"
+
+[node name="UntilDeath" type="Label" parent="GameplayHUD/Control/HUDTopCenter/HPDisplay/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Until Death"
+
+[node name="BonusAnims" type="Control" parent="GameplayHUD/Control/HUDTopCenter"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="TimeBonusLabel" type="Label" parent="GameplayHUD/Control/HUDTopCenter/BonusAnims"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.0
+offset_right = 82.0
+offset_bottom = 59.0
+grow_horizontal = 2
+pivot_offset = Vector2(82, 0)
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "+10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUDTopRight" type="Control" parent="GameplayHUD/Control"]
 layout_mode = 1
@@ -1233,13 +1273,6 @@ theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "00000000"
 
-[node name="ScoreEventsLiveDisplay" type="VBoxContainer" parent="GameplayHUD/Control/HUDTopRight/Control" groups=["listen_for_score_events"]]
-layout_mode = 0
-offset_top = 54.0
-offset_right = 60.0
-offset_bottom = 170.0
-script = ExtResource("8_bev8n")
-
 [node name="HUDTopLeft" type="Control" parent="GameplayHUD/Control"]
 layout_mode = 1
 anchors_preset = 1
@@ -1266,7 +1299,7 @@ offset_right = -16.0
 offset_bottom = 144.0
 grow_horizontal = 0
 max_value = 1.0
-step = 0.01
+step = 0.0
 value = 0.5
 fill_mode = 4
 texture_under = SubResource("PlaceholderTexture2D_mocpu")
@@ -1532,6 +1565,24 @@ grow_vertical = 0
 texture = ExtResource("14_mocpu")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="HUDCenter" type="Control" parent="GameplayHUD/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreEventsLiveDisplay" type="VBoxContainer" parent="GameplayHUD/Control/HUDCenter" groups=["listen_for_score_events"]]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 109.0
+offset_bottom = 130.0
+script = ExtResource("8_bev8n")
 
 [node name="Level" type="Node" parent="."]
 unique_name_in_owner = true

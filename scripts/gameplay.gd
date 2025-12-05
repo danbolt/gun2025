@@ -6,12 +6,13 @@ signal player_death()
 
 @onready var player_controller: PlayerController = %PlayerController
 
-@onready var hp_bar: ProgressBar = %HPBar
+@onready var hp_number_label: Label = %HPNumberLabel
+@onready var time_bonus_label: Label = %TimeBonusLabel
+@onready var time_bonus_label_original_position: Vector2 = time_bonus_label.position
 
-@export var max_hp: float = 100
-@export var hp: float = max_hp
+@export var hp: float = 25
 
-const DEPLETE_SPEED: float = 4.561
+const DEPLETE_SPEED: float = 1.0
 
 @onready var hud_bottom_right: Node = %"HUD Bottom Right"
 
@@ -82,7 +83,28 @@ func set_score_to_display(new_target: int) -> void:
 	target_score = new_target
 
 func on_player_struck_victim(victim: ArteView) -> void:
-	hp = clamp(hp + (victim.get_parent_node_3d() as TouchObject).bonus, 0.0, max_hp)
+	hp = hp + (victim.get_parent_node_3d() as TouchObject).bonus
+	
+	time_bonus_label.visible = true
+	time_bonus_label.position = time_bonus_label_original_position
+	time_bonus_label.modulate = Color.WHITE
+	
+	var pos_tween := get_tree().create_tween()
+	pos_tween.tween_property(time_bonus_label, "position", time_bonus_label_original_position + Vector2(0.0, 32.0), 0.6)
+	pos_tween.set_trans(Tween.TRANS_CUBIC)
+	pos_tween.set_ease(Tween.EASE_IN)
+	
+	var scale_tween := get_tree().create_tween()
+	scale_tween.tween_property(time_bonus_label, "scale", Vector2(1.2, 1.2), 0.6 * 0.5)
+	scale_tween.set_trans(Tween.TRANS_CUBIC)
+	scale_tween.set_ease(Tween.EASE_IN)
+	scale_tween.tween_property(time_bonus_label, "scale", Vector2(1.0, 1.0), 0.6 * 0.5)
+	
+	var alpha_tween := get_tree().create_tween()
+	alpha_tween.tween_property(time_bonus_label, "modulate", Color.TRANSPARENT, 0.6)
+	alpha_tween.set_trans(Tween.TRANS_CUBIC)
+	alpha_tween.set_ease(Tween.EASE_IN)
+	alpha_tween.finished.connect(func() -> void: time_bonus_label.visible = false)
 
 func remove_level() -> void:
 	for child: Node in level.get_children():
@@ -207,8 +229,7 @@ func _process(delta: float) -> void:
 	if not player_has_died and not arrived_at_exit:
 		seconds_passed_in_game_time += delta
 	
-	hp_bar.value = hp
-	hp_bar.max_value = max_hp
+	hp_number_label.text = "%3d" % hp
 	
 	var lerp_speed: float = 10.0
 	if player_controller.is_knocked_back:
