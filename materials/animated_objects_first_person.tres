@@ -6,7 +6,6 @@
 [resource]
 render_priority = 5
 next_pass = ExtResource("2_kspxx")
-no_depth_test = true
 shading_mode = 2
 diffuse_mode = 3
 specular_mode = 1
