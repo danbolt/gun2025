@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpm26fr0p0ifp"]
+[gd_scene load_steps=6 format=3 uid="uid://bpm26fr0p0ifp"]
 
 [ext_resource type="Script" uid="uid://c5ifs7issjt5n" path="res://scripts/chaser.gd" id="1_wo5lf"]
-[ext_resource type="Material" uid="uid://b5yaquxfyc20s" path="res://materials/animated_objects.tres" id="2_0qp4x"]
+[ext_resource type="PackedScene" uid="uid://ceo3mr6c7lu6r" path="res://source_mesh/chase_gremlin.blend" id="2_0qp4x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0qp4x"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_0qp4x"]
-material = ExtResource("2_0qp4x")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wo5lf"]
 points = PackedVector3Array(0, -1, 0, 19, -1, 15, 0, -8, 20, -10, -1, 15, 0, 1, 0, 10, 1, 15, 0, 8, 20, -10, 1, 15)
@@ -22,14 +19,8 @@ bonus = 8.0
 metadata/_custom_type_script = "uid://c5ifs7issjt5n"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49468267, 0)
 shape = SubResource("SphereShape3D_0qp4x")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_0qp4x")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.69734955, 0, 0, 0, 0.69734955, 0, 0, 0, 0.69734955, 0, 0.59901786, 0.5482779)
-mesh = SubResource("BoxMesh_0qp4x")
 
 [node name="FOVCone" type="Area3D" parent="."]
 unique_name_in_owner = true
@@ -44,3 +35,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.694416)
 shape = SubResource("SphereShape3D_wo5lf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="chase_gremlin" parent="." instance=ExtResource("2_0qp4x")]

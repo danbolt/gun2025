@@ -2,7 +2,7 @@
 class_name ArteView extends Node3D
 
 signal attacked_player(player: PlayerController)
-signal damaged()
+signal damaged(intruder: Node3D)
 
 @onready var icons: Node3D = $Icons
 
@@ -26,7 +26,7 @@ func on_intruder_entered_hitbox(intruder: Node3D) -> void:
 	var player: PlayerController = intruder as PlayerController
 	if all_pressed:
 		player.struck(self)
-		damaged.emit()
+		damaged.emit(intruder)
 	else:
 		attacked_player.emit(player)
 		player.damaged(self)

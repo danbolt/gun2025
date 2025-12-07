@@ -32,7 +32,7 @@ func _add_arte_view() -> void:
 		arte_view.set_mask(mask_flags)
 	arte_view.damaged.connect(on_damaged)
 	
-func on_damaged() -> void:
+func on_damaged(_intruder: Node3D) -> void:
 	damaged.emit()
 	var tree := get_tree()
 	if tree and not no_score_on_kill:
