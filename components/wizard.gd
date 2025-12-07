@@ -6,6 +6,7 @@ class_name Wizard extends TouchObject
 func _ready() -> void:
 	super._ready()
 	animation_player.play("idle")
+	animation_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	arte_view.damaged.connect(on_wizard_damaged)
 	

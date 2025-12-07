@@ -27,11 +27,13 @@ TitleMap="*res://scripts/title_map.gd"
 [dialogic]
 
 directories/dch_directory={
-"protag": "res://characters/protag.dch"
+"protag": "res://characters/protag.dch",
+"wizard": "res://characters/wizard.dch"
 }
 directories/dtl_directory={
 "entry": "res://timelines/entry.dtl",
-"test": "res://timelines/test.dtl"
+"test": "res://timelines/test.dtl",
+"wizard_laugh": "res://timelines/wizard_laugh.dtl"
 }
 layout/style_directory={
 "": "res://styles/test_style.tres",
@@ -72,6 +74,7 @@ audio/channel_defaults={
 }
 layout/style_list=["res://styles/test_style.tres"]
 layout/default_style="res://styles/test_style.tres"
+glossary/default_case_sensitive=true
 
 [display]
 
