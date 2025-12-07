@@ -5,6 +5,8 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_xlm87"]
 material = ExtResource("2_euaf0")
+radial_segments = 10
+rings = 10
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_euaf0"]
 radius = 0.3
@@ -12,8 +14,6 @@ radius = 0.3
 [node name="ShootProjectile" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_x2cyo")
-no_score_on_kill = null
-queue_free_on_collision = null
 metadata/_custom_type_script = "uid://b22qcc11k4itl"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
