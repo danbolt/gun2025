@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=4 uid="uid://cgps4mup8vp2i"]
+[gd_scene load_steps=133 format=4 uid="uid://cgps4mup8vp2i"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_tiqbq"]
 [ext_resource type="Resource" uid="uid://cvtgbpsw27vq2" path="res://maps/map_settings.tres" id="2_e406y"]
@@ -431,9 +431,30 @@ points = PackedVector3Array(-304, 144.5, 100, -304, -20.5, 100, -348.5, 144.5, 9
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_64dwt"]
 points = PackedVector3Array(-348.5, 144.5, 269.9518, -289.99997, 144.5, 277.00003, -348.5, -20.5, 269.9518, -289.99997, -20.5, 277.00003, -348.5, 144.5, 241.92067, -312.00003, 144.5, 246.5, -348.5, -20.5, 241.92067, -312.00003, -20.5, 246.5)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yut1b"]
+sky_top_color = Color(0.31398177, 0.42132676, 0.774418, 1)
+sky_horizon_color = Color(0.85942495, 0.58537, 0.35130408, 1)
+sky_curve = 0.17230472
+ground_bottom_color = Color(0.22370785, 0.16239688, 0.06900729, 1)
+sun_angle_max = 19.95
+sun_curve = 0.06529135
+
+[sub_resource type="Sky" id="Sky_fdfdg"]
+sky_material = SubResource("ProceduralSkyMaterial_yut1b")
+radiance_size = 1
+
 [sub_resource type="Environment" id="Environment_jg6ue"]
+background_mode = 2
+sky = SubResource("Sky_fdfdg")
+ambient_light_source = 3
+ambient_light_color = Color(0.61339027, 0.61339027, 0.61339027, 1)
+glow_enabled = true
+glow_intensity = 2.3
 fog_enabled = true
+fog_light_color = Color(0.51720905, 0.421189, 0.29804072, 1)
 fog_density = 0.0025
+fog_aerial_perspective = 0.185
+fog_sky_affect = 0.053
 
 [node name="Stadium" type="Node3D"]
 
@@ -850,8 +871,22 @@ transform = Transform3D(0.25881913, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.2588
 
 [node name="Node" type="Node" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node"]
-transform = Transform3D(0.83062506, -0.42798525, 0.3562171, 0, 0.63972086, 0.76860744, -0.5568322, -0.6384246, 0.5313682, 0, 0, 0)
+[node name="Sun" type="DirectionalLight3D" parent="Node"]
+transform = Transform3D(0.6218962, 0.1691292, -0.7646176, -0.027573409, 0.98052293, 0.19445954, 0.78261405, -0.09985059, 0.6144469, -23.586277, 0, 21.079075)
+light_color = Color(0.741132, 0.46963322, 0.38730446, 1)
+light_energy = 11.78
+light_specular = 0.382
+directional_shadow_mode = 0
+sky_mode = 2
+
+[node name="Sunlight" type="DirectionalLight3D" parent="Node"]
+transform = Transform3D(0.62189627, 0.2983235, -0.7240495, -0.027573409, 0.9323632, 0.3604698, 0.78261405, -0.20421036, 0.5880589, -23.586277, 0, 21.079075)
+light_color = Color(0.741132, 0.46963322, 0.38730446, 1)
+light_energy = 11.78
+light_specular = 0.382
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jg6ue")
