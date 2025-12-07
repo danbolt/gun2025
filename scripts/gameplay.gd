@@ -36,7 +36,7 @@ var seconds_passed_in_game_time: float = 0.0
 
 const COMBO_MULTIPLIERS: Array[float] = [ 1.0, 2.0, 3.0, 5.0, 6.0, 8.0 ]
 const COMBO_TIER_DURATIONS: Array[float] = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ]
-const COMBO_DEPLETE_SPEED: Array[float] = [ 0.30, 0.20, 0.17, 0.13, 0.10, 0.9 ]
+const COMBO_DEPLETE_SPEED: Array[float] = [ 0.10, 0.3, 0.4, 0.53, 0.6, 0.9 ]
 var current_combo_index: int = 0
 var combo_time: float = 0.0
 
@@ -83,11 +83,13 @@ func set_score_to_display(new_target: int) -> void:
 	target_score = new_target
 
 func on_player_struck_victim(victim: ArteView) -> void:
-	hp = hp + (victim.get_parent_node_3d() as TouchObject).bonus
+	var bonus := (victim.get_parent_node_3d() as TouchObject).bonus
+	hp = hp + bonus
 	
 	time_bonus_label.visible = true
 	time_bonus_label.position = time_bonus_label_original_position
 	time_bonus_label.modulate = Color.WHITE
+	time_bonus_label.text = "%+d" % bonus
 	
 	var pos_tween := get_tree().create_tween()
 	pos_tween.tween_property(time_bonus_label, "position", time_bonus_label_original_position + Vector2(0.0, 32.0), 0.6)

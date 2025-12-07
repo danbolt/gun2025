@@ -1,7 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://drv3a3dfex8eg"]
 
 [resource]
+render_priority = 2
 cull_mode = 1
+no_depth_test = true
 shading_mode = 0
 albedo_color = Color(0.033853278, 0.033853278, 0.033853274, 1)
 grow = true

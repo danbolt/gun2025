@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://40kmsw1w5a1g"]
+
+[ext_resource type="Material" uid="uid://wiyqvogisknn" path="res://materials/outline_pass.tres" id="2_r4lv5"]
+
+[resource]
+next_pass = ExtResource("2_r4lv5")
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.21401891, 0.25917912, 0.21717766, 1)
+metallic = 0.67
+metallic_specular = 0.81
+roughness = 0.18
+texture_filter = 0

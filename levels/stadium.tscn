@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=4 uid="uid://cgps4mup8vp2i"]
+[gd_scene load_steps=134 format=4 uid="uid://cgps4mup8vp2i"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_tiqbq"]
 [ext_resource type="Resource" uid="uid://cvtgbpsw27vq2" path="res://maps/map_settings.tres" id="2_e406y"]
@@ -456,7 +456,10 @@ fog_aerial_perspective = 0.185
 fog_sky_affect = 0.053
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h85j8"]
-size = Vector3(22.291016, 4.524292, 17.028809)
+size = Vector3(17, 3, 26.785034)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yut1b"]
+size = Vector3(17.220642, 3, 29.264252)
 
 [node name="Stadium" type="Node3D"]
 
@@ -831,15 +834,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -23,
 mask_flags = 1
 
 [node name="entity_4_idler" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("7_c0d48")]
-transform = Transform3D(-0.9659257, 0, 0.25881943, 0, 1, 0, -0.25881943, 0, -0.9659257, -26, -17.5, 27.5)
-spawn_flags = 1
-mask_flags = 1
-
-[node name="entity_5_idler" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("7_c0d48")]
 transform = Transform3D(-0.9659257, 0, 0.25881943, 0, 1, 0, -0.25881943, 0, -0.9659257, -23.5, -17.5, 41.5)
 mask_flags = 6
 
-[node name="entity_6_idler" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("7_c0d48")]
+[node name="entity_5_idler" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("7_c0d48")]
 transform = Transform3D(-0.9659257, 0, 0.25881943, 0, 1, 0, -0.25881943, 0, -0.9659257, -31, -17.5, 32.5)
 spawn_flags = 4
 mask_flags = 6
@@ -868,15 +866,41 @@ environment = SubResource("Environment_jg6ue")
 
 [node name="SpawnZones" type="Node" parent="."]
 
-[node name="SpawnZone" type="Area3D" parent="SpawnZones"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.881924, -7.662798, 59.911743)
-collision_layer = 0
-collision_mask = 0
-monitoring = false
-monitorable = false
+[node name="PopcornA" type="CollisionShape3D" parent="SpawnZones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.5, -16.5, 24.240662)
+shape = SubResource("BoxShape3D_h85j8")
 script = ExtResource("12_h85j8")
+spawn_ratio = 0.12
+idle_val = 0.73
+chase_val = 0.27
+metadata/_custom_type_script = "uid://uk6pr41x3034"
+
+[node name="PopcornB" type="CollisionShape3D" parent="SpawnZones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.864586, -16.5, 60.05854)
+shape = SubResource("BoxShape3D_yut1b")
+script = ExtResource("12_h85j8")
+spawn_ratio = 0.12
 idle_val = 1.0
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnZones/SpawnZone"]
-shape = SubResource("BoxShape3D_h85j8")
+[node name="PopcornC" type="CollisionShape3D" parent="SpawnZones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.10685, -16.5, 52.99187)
+shape = SubResource("BoxShape3D_yut1b")
+script = ExtResource("12_h85j8")
+spawn_ratio = 0.12
+idle_val = 1.0
+metadata/_custom_type_script = "uid://uk6pr41x3034"
+
+[node name="Probes" type="Node3D" parent="."]
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Probes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.244064, -8, 42.5)
+size = Vector3(15.466309, 20, 29)
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="Probes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.610245, -8, 27.36899)
+size = Vector3(15.466309, 20, 29)
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="Probes"]
+transform = Transform3D(0.711094, 0, -0.7030969, 0, 1, 0, 0.7030969, 0, 0.711094, -47.047264, -7.999998, 50.01366)
+size = Vector3(31.447937, 20, 14.537842)

@@ -1,5 +1,5 @@
 @tool
-class_name SpawnZone extends Area3D
+class_name SpawnZone extends CollisionShape3D
 
 @export_range(0.0, 0.6, 0.01) var spawn_ratio: float = 0.5 
 
@@ -33,17 +33,12 @@ func populate_with_monsters() -> void:
 	# Ensure scale is proper
 	scale = Vector3.ONE
 	
-	for child in get_children():
-		if child is CollisionShape3D:
-			var collision_shape := (child as CollisionShape3D)
-			collision_shape.position = Vector3.ZERO
-			if collision_shape.shape is BoxShape3D:
-				var box_shape := (collision_shape.shape as BoxShape3D)
-				min_extents = box_shape.size / -2.0
-				max_extents = box_shape.size / 2.0
-				xz_area = int(box_shape.size.x * box_shape.size.z)
-				size_found = true
-				break
+	if shape:
+		var box_shape := (shape as BoxShape3D)
+		min_extents = box_shape.size / -2.0
+		max_extents = box_shape.size / 2.0
+		xz_area = int(box_shape.size.x * box_shape.size.z)
+		size_found = true
 				
 	if size_found:
 		var desired_count := int(sqrt(xz_area) * spawn_ratio)
@@ -59,7 +54,7 @@ func populate_with_monsters() -> void:
 				new_monster = IDLE_PREFAB.instantiate()
 			
 			var random_position_to_spawn := Vector3(randf_range(min_extents.x, max_extents.x), max_extents.y, randf_range(min_extents.z, max_extents.z))
-			new_monster.position = position + random_position_to_spawn
+			new_monster.position = position + (random_position_to_spawn * global_basis)
 			new_monster.rotate_y(randf() * TAU)
 			new_monster.mask_flags = randi_range(1, 15)
 			new_monster.spawn_flags = randi_range(0, 15)
@@ -106,10 +101,9 @@ func populate_with_monsters() -> void:
 		_shoot_val = value
 
 func _ready_editor() -> void:
-	monitorable = false
-	monitoring = false
-	collision_layer = 0
-	collision_mask = 0
+	if shape == null:
+		shape = BoxShape3D.new()
+		shape.size = Vector3(10.0, 3.0, 10.0)
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
