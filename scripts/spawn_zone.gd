@@ -53,8 +53,8 @@ func populate_with_monsters() -> void:
 			else:
 				new_monster = IDLE_PREFAB.instantiate()
 			
-			var random_position_to_spawn := Vector3(randf_range(min_extents.x, max_extents.x), max_extents.y, randf_range(min_extents.z, max_extents.z))
-			new_monster.position = global_position + (random_position_to_spawn * global_basis)
+			var random_position_to_spawn := Vector3(randf_range(min_extents.x, max_extents.x), max_extents.y, -1.0 * randf_range(min_extents.z, max_extents.z))
+			new_monster.position = global_position + (basis * random_position_to_spawn)
 			new_monster.rotate_y(randf() * TAU)
 			new_monster.mask_flags = randi_range(1, 15)
 			new_monster.spawn_flags = randi_range(0, 15)
