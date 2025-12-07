@@ -876,7 +876,7 @@ size = Vector3(17, 3, 26.785034)
 size = Vector3(17.220642, 3, 29.264252)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdfdg"]
-size = Vector3(16.997803, 3, 84.82715)
+size = Vector3(7.1674194, 3, 84.82715)
 
 [node name="Stadium" type="Node3D"]
 
@@ -1702,11 +1702,11 @@ metadata/_custom_type_script = "uid://uk6pr41x3034"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.50728, 10.418268, 83.98347)
 
 [node name="SpawnZone" type="CollisionShape3D" parent="SpawnZones/ZoneB1"]
-transform = Transform3D(0.72255707, 0, -0.6913113, 0, 1, 0, 0.6913113, 0, 0.72255707, -0.03139496, 0, -3.5420074)
+transform = Transform3D(0.72255707, 0, -0.6913113, 0, 1, 0, 0.6913113, 0, 0.72255707, 0.5417633, -24.918264, -2.9936295)
 shape = SubResource("BoxShape3D_fdfdg")
 script = ExtResource("12_h85j8")
-spawn_ratio = 0.15
-idle_val = 1.0
+spawn_ratio = 0.05
+chase_val = 1.0
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
 [node name="Probes" type="Node3D" parent="."]

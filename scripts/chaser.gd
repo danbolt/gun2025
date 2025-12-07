@@ -1,7 +1,7 @@
 @tool
 class_name Chaser extends TouchObject
 
-@export var run_speed: float = 4.0
+@export var run_speed: float = 6.0
 
 @onready var fov_cone: Area3D = %FOVCone
 
