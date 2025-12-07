@@ -8,12 +8,17 @@ var aggro_target: PlayerController = null
 var shoot_time: float = 0.0
 var shoot_period: float = 2.5
 
+@onready var animation_player: AnimationPlayer = $shoot_gremlin/AnimationPlayer
+
 func on_projectile_struck() -> void:
 	get_tree().call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_HIT_PROJECTILE)
 
 func _ready() -> void:
 	super._ready()
 	shoot_time = shoot_period * 0.5
+	
+	animation_player.play("idle")
+	animation_player.animation_finished.connect(func(anim_name: String) -> void: if anim_name == "shoot": animation_player.play("idle") )
 	
 func _process(delta: float) -> void:
 	super._process(delta)
@@ -46,6 +51,9 @@ func _physics_process(delta: float) -> void:
 			new_projectile.damaged.connect(on_projectile_struck)
 			new_projectile.no_score_on_kill = true
 			new_projectile.queue_free_on_collision = true
+			
+			animation_player.play("shoot")
+			
 	
 	super._physics_process(delta)
 	
