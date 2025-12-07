@@ -223,3 +223,4 @@ textures/vram_compression/import_etc2_astc=true
 shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
 lightmapping/bake_performance/region_size=64
+occlusion_culling/use_occlusion_culling=true
