@@ -9,5 +9,5 @@ shading_mode = 2
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_8ji3v")
-roughness = 0.2
+roughness = 0.06
 texture_filter = 0
