@@ -1,10 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca60a66qlvv5c"]
+[gd_scene load_steps=7 format=3 uid="uid://ca60a66qlvv5c"]
 
 [ext_resource type="Script" uid="uid://b22qcc11k4itl" path="res://scripts/touch_object.gd" id="1_x2cyo"]
-[ext_resource type="Material" uid="uid://b5yaquxfyc20s" path="res://materials/animated_objects.tres" id="2_euaf0"]
+[ext_resource type="Texture2D" uid="uid://75b6hln4e3hm" path="res://textures/Mega_Drive_Palette.png" id="2_xlm87"]
+[ext_resource type="Material" uid="uid://wiyqvogisknn" path="res://materials/outline_pass.tres" id="3_feexc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjamm"]
+next_pass = ExtResource("3_feexc")
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_xlm87")
+uv1_scale = Vector3(0.01, 0.01, 0.01)
+uv1_offset = Vector3(0.38, 0.53, 0)
+texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xlm87"]
-material = ExtResource("2_euaf0")
+material = SubResource("StandardMaterial3D_wjamm")
 radial_segments = 10
 rings = 10
 
