@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			
 			var direction_to_target: Vector3 = (aggro_target.position - global_bone_pos).normalized()
 			var new_projectile: TouchObject = preload("res://components/shoot_projectile.tscn").instantiate()
-			get_parent_node_3d().add_child(new_projectile)
+			get_parent().add_child(new_projectile)
 			var mask: int = 1
 			var count := randi_range(0, 3)
 			mask = mask << count
