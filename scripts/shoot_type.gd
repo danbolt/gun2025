@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 			mask = mask << count
 			new_projectile.mask_flags = mask
 			new_projectile.velocity = direction_to_target * 20.0
-			new_projectile.bonus = 0.8
+			new_projectile.bonus = 5.0
 			new_projectile.position =global_bone_pos
 			new_projectile.no_gravity = true
 			new_projectile.damaged.connect(on_projectile_struck)

@@ -1,22 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpm26fr0p0ifp"]
+[gd_scene load_steps=5 format=3 uid="uid://bpm26fr0p0ifp"]
 
 [ext_resource type="Script" uid="uid://c5ifs7issjt5n" path="res://scripts/chaser.gd" id="1_wo5lf"]
 [ext_resource type="PackedScene" uid="uid://ceo3mr6c7lu6r" path="res://source_mesh/chase_gremlin.blend" id="2_0qp4x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0qp4x"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wo5lf"]
-points = PackedVector3Array(0, -1, 0, 19, -1, 15, 0, -8, 20, -10, -1, 15, 0, 1, 0, 10, 1, 15, 0, 8, 20, -10, 1, 15)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_wo5lf"]
-radius = 8.749421
+radius = 30.0
 
 [node name="Chaser" type="CharacterBody3D"]
+transform = Transform3D(0.70491534, 0, 0.7092914, 0, 1, 0, -0.7092914, 0, 0.70491534, 0, 0, 0)
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_wo5lf")
-run_speed = 4.0
-bonus = 5.0
+bonus = 3.0
 metadata/_custom_type_script = "uid://c5ifs7issjt5n"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -28,11 +25,8 @@ unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FOVCone"]
-shape = SubResource("ConvexPolygonShape3D_wo5lf")
-
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="FOVCone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.694416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.030155)
 shape = SubResource("SphereShape3D_wo5lf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

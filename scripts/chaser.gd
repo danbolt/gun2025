@@ -1,7 +1,7 @@
 @tool
 class_name Chaser extends TouchObject
 
-@export var run_speed: float = 6.0
+@export var run_speed: float = 10.0
 
 @onready var fov_cone: Area3D = %FOVCone
 
@@ -13,6 +13,8 @@ var nav_tick: int = 0
 var next_path_position: Vector3 = Vector3.ZERO
 
 var aggro_target: PlayerController = null
+
+var turn_t: float = 0.0
 
 func on_attacked_player(player: PlayerController) -> void:
 	aggro_target = player
@@ -67,6 +69,8 @@ func _ready() -> void:
 	super._ready()
 	arte_view.attacked_player.connect(on_attacked_player)
 	
+	turn_t = randf_range(6.0, 12.0)
+	
 	arte_view.damaged.connect(on_chaser_damaged)
 	
 	animation_player.play("idle")
@@ -93,6 +97,12 @@ func _physics_process(delta: float) -> void:
 				
 				navigation_agent.target_position = intruder.position
 				next_path_position = intruder.position
+	
+	if aggro_target == null:
+		turn_t -= delta
+		if turn_t <= 0.0:
+			turn_t = randf_range(6.0, 12.0)
+			rotation.y = randf() * TAU
 	
 	if aggro_target != null and not aggro_target.is_knocked_back:
 		nav_tick -= 1
