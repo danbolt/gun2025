@@ -1,4 +1,4 @@
-[gd_scene load_steps=609 format=4 uid="uid://cgps4mup8vp2i"]
+[gd_scene load_steps=613 format=4 uid="uid://cgps4mup8vp2i"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_tiqbq"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_4p2ec"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://4ogh120ffha" path="res://components/wizard.tscn" id="15_ucj1u"]
 [ext_resource type="Script" uid="uid://drbo7717sjohn" path="res://scripts/dialogue_trigger.gd" id="18_nu6a2"]
 [ext_resource type="Resource" uid="uid://d3s5meigpqj80" path="res://timelines/wizard_laugh.dtl" id="19_dvrif"]
+[ext_resource type="Resource" uid="uid://bpxb6ee1bcuk2" path="res://timelines/mom_tutorial.dtl" id="22_buq5j"]
 
 [sub_resource type="Resource" id="Resource_khi4v"]
 script = ExtResource("3_nu6a2")
@@ -31,6 +32,19 @@ ease = 0
 script = ExtResource("4_dvrif")
 amplitude = 0.3
 randomize_noise_seed = 1
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="Resource" id="Resource_buq5j"]
+script = ExtResource("3_nu6a2")
+transition = 7
+ease = 0
+
+[sub_resource type="Resource" id="Resource_rosg5"]
+script = ExtResource("4_dvrif")
+amplitude = 2.0
+randomize_noise_seed = 1
+positional_noise = true
+positional_multiplier_y = 0.3
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_h85j8"]
@@ -1905,8 +1919,11 @@ size = Vector3(28.828602, 3, 24.504044)
 [sub_resource type="BoxShape3D" id="BoxShape3D_snokl"]
 size = Vector3(24.129395, 3, 64.43573)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_dvrif"]
-radius = 22.401978
+[sub_resource type="BoxShape3D" id="BoxShape3D_f550n"]
+size = Vector3(86.27247, 6.0092773, 10.553711)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvst1"]
+size = Vector3(2.206543, 3.7739258, 8.219116)
 
 [node name="Stadium" type="Node3D"]
 
@@ -1916,12 +1933,28 @@ process_mode = 3
 transform = Transform3D(-0.5651542, 0, 0.82498527, 0, 1, 0, -0.82498527, 0, -0.5651542, -301.0564, 65, 214.40184)
 
 [node name="WizardCamera" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.9460951, -0.045521695, 0.32067025, -1.8626426e-09, 0.99007314, 0.1405489, -0.32388481, 0.13297275, -0.93670505, -297.80743, 66.42401, 204.91135)
+transform = Transform3D(-0.9460951, -0.045521695, 0.32067028, -1.8626426e-09, 0.99007314, 0.14054891, -0.32388481, 0.13297275, -0.9367051, -297.80743, 66.42401, 204.91135)
 script = ExtResource("2_4p2ec")
 look_at_mode = 2
 look_at_target = NodePath("../Wizard")
 tween_resource = SubResource("Resource_khi4v")
 noise = SubResource("Resource_7wtnf")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="WizardCamera2" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(-0.6769707, 0.20490682, 0.7069101, -7.4505677e-09, 0.9604638, -0.27840278, -0.73600745, -0.18847081, -0.6502073, -297.7051, 63.68016, 211.31937)
+script = ExtResource("2_4p2ec")
+look_at_mode = 2
+look_at_target = NodePath("../Wizard")
+tween_resource = SubResource("Resource_khi4v")
+noise = SubResource("Resource_7wtnf")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="TutorialCamera" type="Node3D" parent="."]
+transform = Transform3D(-0.9592647, 0, 0.28250882, 0.09343838, 0.94372016, 0.317272, -0.26660928, 0.330745, -0.90527743, -21.648127, -16.283092, 18.26003)
+script = ExtResource("2_4p2ec")
+tween_resource = SubResource("Resource_buq5j")
+noise = SubResource("Resource_rosg5")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
@@ -3756,8 +3789,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6817627, 4.5, -1)
 shape = SubResource("BoxShape3D_buq5j")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.37
-idle_val = 0.6154243938190888
-chase_val = 0.043301720830592756
+idle_val = 0.6302021403293
+chase_val = 0.028523974320381548
 shoot_val = 0.34127388535031844
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3774,8 +3807,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.20716, -6.0544434, 171.6
 shape = SubResource("BoxShape3D_t1ni4")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.29
-idle_val = 0.24155990667195096
-chase_val = 4.0093328048962856e-05
+idle_val = 0.2415903134519433
 shoot_val = 0.7584000000000001
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3923,8 +3955,8 @@ transform = Transform3D(0.83680254, 0, 0.5475048, 0, 1, 0, -0.5475048, 0, 0.8368
 shape = SubResource("BoxShape3D_sg8eu")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.2
-idle_val = 0.33599999999999997
-chase_val = 0.504
+idle_val = 0.41663999999999995
+chase_val = 0.42336
 shoot_val = 0.16
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3933,8 +3965,8 @@ transform = Transform3D(0.83680254, 0, 0.5475048, 0, 1, 0, -0.5475048, 0, 0.8368
 shape = SubResource("BoxShape3D_afcbe")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.3
-idle_val = 0.425
-chase_val = 0.075
+idle_val = 0.4625
+chase_val = 0.0375
 shoot_val = 0.5
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3943,8 +3975,8 @@ transform = Transform3D(0.4991534, 0, -0.86651385, 0, 1, 0, 0.86651385, 0, 0.499
 shape = SubResource("BoxShape3D_afcbe")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.4
-idle_val = 0.4625
-chase_val = 0.0375
+idle_val = 0.48125
+chase_val = 0.01875
 shoot_val = 0.5
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3953,8 +3985,8 @@ transform = Transform3D(-0.46123767, 0, 0.88727677, 0, 1, 0, -0.88727677, 0, -0.
 shape = SubResource("BoxShape3D_f52ma")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.25
-idle_val = 0.79696435
-chase_val = 0.11303565000000003
+idle_val = 0.8071375585
+chase_val = 0.10286244150000003
 shoot_val = 0.09
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3963,8 +3995,8 @@ transform = Transform3D(-0.46123767, 0, 0.88727677, 0, 1, 0, -0.88727677, 0, -0.
 shape = SubResource("BoxShape3D_f52ma")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.25
-idle_val = 0.8071375585
-chase_val = 0.10286244150000003
+idle_val = 0.816395178235
+chase_val = 0.09360482176500003
 shoot_val = 0.09
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3973,23 +4005,13 @@ transform = Transform3D(-0.46123767, 0, 0.88727677, 0, 1, 0, -0.88727677, 0, -0.
 shape = SubResource("BoxShape3D_f52ma")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.25
-idle_val = 0.816395178235
-chase_val = 0.09360482176500003
-shoot_val = 0.09
-metadata/_custom_type_script = "uid://uk6pr41x3034"
-
-[node name="SpawnZone8" type="CollisionShape3D" parent="SpawnZones/MiddleHall"]
-transform = Transform3D(-0.5759759, 0, 0.81746686, 0, 1, 0, -0.81746686, 0, -0.5759759, -98.18616, 59.725384, -50.88896)
-shape = SubResource("BoxShape3D_qhgil")
-script = ExtResource("12_h85j8")
-spawn_ratio = 0.25
 idle_val = 0.82481961219385
 chase_val = 0.08518038780615002
 shoot_val = 0.08999999999999998
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
-[node name="SpawnZone9" type="CollisionShape3D" parent="SpawnZones/MiddleHall"]
-transform = Transform3D(-0.5759759, 0, 0.81746686, 0, 1, 0, -0.81746686, 0, -0.5759759, -67.69913, 59.725384, -10.016602)
+[node name="SpawnZone8" type="CollisionShape3D" parent="SpawnZones/MiddleHall"]
+transform = Transform3D(-0.5759759, 0, 0.81746686, 0, 1, 0, -0.81746686, 0, -0.5759759, -98.18616, 59.725384, -50.88896)
 shape = SubResource("BoxShape3D_qhgil")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.25
@@ -3998,13 +4020,23 @@ chase_val = 0.07751415290359652
 shoot_val = 0.08999999999999998
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
+[node name="SpawnZone9" type="CollisionShape3D" parent="SpawnZones/MiddleHall"]
+transform = Transform3D(-0.5759759, 0, 0.81746686, 0, 1, 0, -0.81746686, 0, -0.5759759, -67.69913, 59.725384, -10.016602)
+shape = SubResource("BoxShape3D_qhgil")
+script = ExtResource("12_h85j8")
+spawn_ratio = 0.25
+idle_val = 0.8394621208577272
+chase_val = 0.07053787914227283
+shoot_val = 0.08999999999999998
+metadata/_custom_type_script = "uid://uk6pr41x3034"
+
 [node name="SpawnZone2" type="CollisionShape3D" parent="SpawnZones/MiddleHall"]
 transform = Transform3D(0.83680254, 0, 0.5475048, 0, 1, 0, -0.5475048, 0, 0.83680254, -24.59375, 24.009193, 9.476334)
 shape = SubResource("BoxShape3D_snokl")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.3
-idle_val = 0.16999999999999998
-chase_val = 0.25729999999999986
+idle_val = 0.31735571
+chase_val = 0.10994428999999992
 shoot_val = 0.5727000000000001
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -4058,10 +4090,21 @@ size = Vector3(98.8699, 33.12024, 17.849121)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.177906, 4.1505084, 33.59113)
 
 [node name="WizardLaugh" type="Area3D" parent="Cutscenes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.651173, -27.637373, 7.874546)
+transform = Transform3D(0.6938293, 0, -0.7201395, 0, 1, 0, 0.7201395, 0, 0.6938293, 35.0091, -19.145868, -3.399084)
 script = ExtResource("18_nu6a2")
 timeline = ExtResource("19_dvrif")
 metadata/_custom_type_script = "uid://drbo7717sjohn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/WizardLaugh"]
-shape = SubResource("SphereShape3D_dvrif")
+transform = Transform3D(0.9688301, 0, 0.2477262, 0, 1, 0, -0.2477262, 0, 0.9688301, 4.615, 0, -1.4576874)
+shape = SubResource("BoxShape3D_f550n")
+
+[node name="MomDialogue" type="Area3D" parent="Cutscenes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.74498, -19.14587, -14.569345)
+script = ExtResource("18_nu6a2")
+timeline = ExtResource("22_buq5j")
+metadata/_custom_type_script = "uid://drbo7717sjohn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/MomDialogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12619781, -1.3869629, -1.0588989)
+shape = SubResource("BoxShape3D_rvst1")

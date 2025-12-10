@@ -1,14 +1,29 @@
 join phone right [extra_data="set Screen/IncomingCall, set Person/Wizard"]
-RING RING
+RING RING RING
 - Pick up the phone
+	*click*
 	join protag left 
+	protag: Hello?
 	update phone [extra_data="set Screen/CallPresent"]
 	[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":15}"]
-	wizard: Ahahahahahah!
-	wizard: Well now!
-	wizard: This is a real treat!
-	wizard: This curse is going to make quick work of you, Green-Haired Fool!
+	wizard: Mwahahaha!
 	[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":0}"]
-	protag: Ugh! This sucks!
-	wizard: Don't expect to leave alive!
+	[signal arg_type="dict" arg="{"Camera":"WizardCamera2","Priority":15}"]
+	wizard: Well now! This is a real treat!
+	wizard: With my army of Gremlins, this town belongs to me now!
+	protag: What?
+	wizard: And you!
+	wizard: This curse is going to make quick work of you, kid!
+	wizard: In just a few seconds, you'll perish as long as I'm around.
+	- Fuck you!
+		protag: Fuck you!
+		protag: I'm coming for you, Gremlin Wizard!
+		[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":0}"]
+		leave protag 
+		wizard: Good luck, loser!
+	- Hang up the phone
+		[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":0}"]
+		leave protag 
+	leave phone 
+	wizard: Mwuahahahahah!
 - Ignore

@@ -78,8 +78,10 @@ func get_mapping_for_device_name(device_name: String) -> LastUsedGamepadType:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey or event is InputEventMouseButton or event is InputEventMouseMotion:
 		last_input_mode = LastUsedMode.KBD
+		Dialogic.VAR.using_gamepad = false
 	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		last_input_mode = LastUsedMode.GAMEPAD
+		Dialogic.VAR.using_gamepad = true
 		
 		last_used_gamepad_type = get_mapping_for_device_name(Input.get_joy_name(event.device))
 		

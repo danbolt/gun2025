@@ -1,0 +1,53 @@
+join phone right [extra_data="set Screen/IncomingCall, set Person/Mom"]
+RING RING RING
+join protag left
+protag: Ugh...
+protag: I feel like garbage...
+protag: It's like there's a timer in my head and I'm going to die if it hits zero.
+- Pick up the phone
+	*click*
+	protag: Hello?
+	update phone [extra_data="set Screen/CallPresent"]
+	mom: Hey! It's me!
+	mom: How's it going?
+	protag: I feel kind of gross Mom.
+	mom: Hmmm...
+	mom: Like there's a timer in your head and you're going to die if it hits zero?
+	- Uh, yeah!
+		protag: Yeah!
+		protag: Exactly like that.
+	- Maybe...
+		protag: I dunno...
+	mom: You're probably cursed by some Wizard.
+	protag: What?
+	mom: Definetly runs in our family. I had it too.
+	mom: It's [i]idiopathic[/i].
+	protag: What am I supposed to do?
+	[signal arg_type="dict" arg="{"Camera":"TutorialCamera","Priority":15}"]
+	mom: Do you see any Gremlins?
+	protag: Uh, yeah. I do.
+	label tut
+	mom: Try killing those Gremlins with the Mystic Artes.
+	if {using_gamepad} == true:
+		mom: Try holding down the left trigger, then press the face buttons to light up the Gremlin.
+	else:
+		mom: Try holding down the shift key, then pressing the onscreen keys to light up the Gremlin.
+	mom: Once it's all lit up and flashing red, you can probably just walk up and stab it with your knife.
+	mom: It's as easy as touching one!
+	protag: What if I touch it when it's not lit up all red?
+	mom: [b]Don't do that![/b]
+	[signal arg_type="dict" arg="{"Camera":"TutorialCamera","Priority":0}"]
+	mom: Does that make sense?
+	- Yes
+		protag: Uh, yeah, I think so.
+	- Please explain it again
+		[signal arg_type="dict" arg="{"Camera":"TutorialCamera","Priority":15}"]
+		jump tut
+	if {using_gamepad} == true:
+		protag: Sounds like I just need to hold the left trigger and mash the face buttons until gremlins light up.
+	else:
+		protag: Sounds like I just need to hold shift and mash the face buttons until gremlins light up.
+	mom: You'll get more time on the clock once you absorb their essence.
+	mom: Just don't run out, okay?
+	mom: We'll see you at Christmas!
+- Ignore

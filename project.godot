@@ -27,12 +27,14 @@ TitleMap="*res://scripts/title_map.gd"
 [dialogic]
 
 directories/dch_directory={
+"mom": "res://characters/mom.dch",
 "phone": "res://characters/phone.dch",
 "protag": "res://characters/protag.dch",
 "wizard": "res://characters/wizard.dch"
 }
 directories/dtl_directory={
 "entry": "res://timelines/entry.dtl",
+"mom_tutorial": "res://timelines/mom_tutorial.dtl",
 "test": "res://timelines/test.dtl",
 "wizard_laugh": "res://timelines/wizard_laugh.dtl"
 }
@@ -49,11 +51,11 @@ text/autoadvance_per_character_delay=0.1
 text/autoadvance_ignored_characters_enabled=true
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
-animations/join_default_length=0.5
+animations/join_default_length=0.3
 animations/join_default_wait=true
-animations/leave_default_length=0.5
+animations/leave_default_length=0.3
 animations/leave_default_wait=true
-animations/cross_fade_default_length=0.5
+animations/cross_fade_default_length=0.3
 choices/autofocus_first=true
 choices/delay=0.2
 choices/reveal_delay=0
@@ -76,7 +78,10 @@ audio/channel_defaults={
 layout/style_list=["res://styles/test_style.tres"]
 layout/default_style="res://styles/test_style.tres"
 glossary/default_case_sensitive=true
-variables={}
+variables={
+"using_gamepad": true
+}
+animations/leave_default="Fade Out Down"
 
 [display]
 
