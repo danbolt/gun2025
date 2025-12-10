@@ -19,6 +19,8 @@ const foo: int = 15 << 4
 
 var arte_view: ArteView = null
 
+var animation_players: Array[AnimationPlayer] = []
+
 func _func_godot_apply_properties(properties: Dictionary) -> void:
 	var flags: int = int(properties.get("spawnflags", 240))
 	spawn_flags = flags & 15
@@ -42,7 +44,18 @@ func on_damaged(_intruder: Node3D) -> void:
 func _ready() -> void:
 	_add_arte_view()
 	
+	animation_players = []
+	var found_players := find_children("", "AnimationPlayer", true, false)
+	animation_players.assign(found_players)
+	
 func _process(_delta: float) -> void:
+	var viewport := get_viewport()
+	if viewport:
+		var camera := viewport.get_camera_3d()
+		if camera:
+			for player: AnimationPlayer in animation_players:
+				player.active = camera.is_position_in_frustum(global_position) and (camera.global_position.distance_squared_to(global_position) < (100 * 100))
+			
 	if arte_view != null:
 		arte_view.set_mask(mask_flags)
 
@@ -53,6 +66,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor() and not no_gravity:
 		velocity += get_gravity() * delta
 
-	var move_result := move_and_slide()
-	if queue_free_on_collision and move_result:
-		queue_free()
+	var viewport := get_viewport()
+	var camera: Camera3D = null
+	if viewport:
+		camera = viewport.get_camera_3d()
+		
+	if camera and camera.global_position.distance_squared_to(global_position) < 70 * 70:
+		var move_result := move_and_slide()
+		if queue_free_on_collision and move_result:
+			queue_free()
