@@ -75,3 +75,5 @@ func _physics_process(delta: float) -> void:
 		var move_result := move_and_slide()
 		if queue_free_on_collision and move_result:
 			queue_free()
+	elif queue_free_on_collision:
+		queue_free()
