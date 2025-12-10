@@ -1,4 +1,4 @@
-[gd_scene load_steps=547 format=4 uid="uid://cgps4mup8vp2i"]
+[gd_scene load_steps=548 format=4 uid="uid://cgps4mup8vp2i"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_tiqbq"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_4p2ec"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://bvtlpjrcbr36g" path="res://maps/textures/emit_white.tres" id="4_ucj1u"]
 [ext_resource type="Script" uid="uid://rp72pl3cwur" path="res://scripts/spawn_point.gd" id="5_2on1o"]
 [ext_resource type="Material" uid="uid://bfrpip07ko13t" path="res://maps/textures/tiles133a.tres" id="5_2oxio"]
+[ext_resource type="ArrayOccluder3D" uid="uid://b1ua8u3ii33ww" path="res://occluders/stadium.occ" id="5_7wtnf"]
 [ext_resource type="Material" uid="uid://ddakk0e584lke" path="res://maps/textures/bricks099.tres" id="5_h85j8"]
 [ext_resource type="Material" uid="uid://bwnlgoksj6ca7" path="res://maps/textures/woodfloor51.tres" id="6_x8k5k"]
 [ext_resource type="Material" uid="uid://kmsh0y2jd3sm" path="res://maps/textures/moss002.tres" id="6_yut1b"]
@@ -1729,13 +1730,17 @@ unique_name_in_owner = true
 transform = Transform3D(-0.5651542, 0, 0.82498527, 0, 1, 0, -0.82498527, 0, -0.5651542, -302.2514, 65, 214.40184)
 
 [node name="WizardCamera" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.90563047, -0.057100017, 0.4202042, 0, 0.99089277, 0.13464889, -0.42406583, 0.1219422, -0.8973837, -297.80743, 66.42401, 204.91135)
+transform = Transform3D(-0.9056303, -0.057100017, 0.4202042, 0, 0.99089277, 0.13464889, -0.42406574, 0.1219422, -0.8973837, -297.80743, 66.42401, 204.91135)
 script = ExtResource("2_4p2ec")
 look_at_mode = 2
 look_at_target = NodePath("../Wizard")
 tween_resource = SubResource("Resource_khi4v")
 noise = SubResource("Resource_7wtnf")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("5_7wtnf")
+bake_mask = 4294966273
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_h85j8")
@@ -3400,8 +3405,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6817627, 4.5, -1)
 shape = SubResource("BoxShape3D_buq5j")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.37
-idle_val = 0.1287261146496815
-chase_val = 0.53
+idle_val = 0.3096012738853503
+chase_val = 0.34912484076433126
 shoot_val = 0.34127388535031844
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3418,8 +3423,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.20716, -6.0544434, 171.6
 shape = SubResource("BoxShape3D_t1ni4")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.35
-idle_val = 0.04
-chase_val = 0.20159999999999992
+idle_val = 0.19289343999999997
+chase_val = 0.04870655999999997
 shoot_val = 0.7584000000000001
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 
@@ -3428,8 +3433,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.29138, 38.663963, 264.42
 shape = SubResource("BoxShape3D_rfno4")
 script = ExtResource("12_h85j8")
 spawn_ratio = 0.35
-idle_val = 0.35
-chase_val = 0.2688952266163277
+idle_val = 0.4524772544035668
+chase_val = 0.16641797221276092
 shoot_val = 0.3811047733836724
 metadata/_custom_type_script = "uid://uk6pr41x3034"
 

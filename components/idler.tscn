@@ -8,6 +8,7 @@
 [node name="Idler" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_qdllt")
+bonus = 1.0
 metadata/_custom_type_script = "uid://dmg8b1xovgbv6"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -15,3 +16,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49737352, 0)
 shape = SubResource("SphereShape3D_7adkr")
 
 [node name="idle_gremlin" parent="." instance=ExtResource("2_qdllt")]
+
+[node name="Skeleton3D" parent="idle_gremlin/chaser_armature" index="0"]
+bones/0/rotation = Quaternion(-0.17417206, -4.2001006e-25, -3.8673966e-17, 0.9847152)
+bones/1/position = Vector3(1.7267395e-23, 0.30000007, -7.4505806e-08)
+bones/1/rotation = Quaternion(-0.029782187, 2.0688693e-25, -6.6129707e-18, 0.9995564)
+bones/2/position = Vector3(1.4289187e-14, 0.7706653, 0.06859479)
+bones/2/rotation = Quaternion(0.015909836, 2.0771051e-07, 1.6463923e-07, 0.99987346)
+bones/3/rotation = Quaternion(-0.2471067, -1.10045995e-07, -5.97113e-08, 0.96898836)
+bones/4/rotation = Quaternion(-0.0041829553, -0.008365562, 0.89438814, -0.44719395)
+bones/5/rotation = Quaternion(0.0041827476, -0.0083656795, 0.89438814, 0.44719395)
+bones/6/rotation = Quaternion(-0.065360166, -0.034979723, -0.47055957, 0.8792487)
+bones/7/position = Vector3(0.12514246, 0.2771268, -0.1321348)
+bones/7/rotation = Quaternion(-0.3098902, -0.08902811, -0.39605507, 0.85975724)
+bones/8/rotation = Quaternion(-0.105778664, -0.75445664, 0.07036596, 0.64393705)
+bones/9/rotation = Quaternion(0.04466911, -0.03901066, 0.14863199, 0.9871127)
+bones/10/rotation = Quaternion(0.43131685, 0.061913453, -0.024124753, 0.8997503)
+bones/11/rotation = Quaternion(-0.06536016, 0.03497971, 0.47055957, 0.8792487)
+bones/12/position = Vector3(-0.12514244, 0.27712682, -0.1321348)
+bones/12/rotation = Quaternion(-0.27325642, -0.053491883, -0.0010459758, 0.9604522)
+bones/13/rotation = Quaternion(0.20178676, 0.6159076, -0.1964957, 0.7357509)
+bones/14/rotation = Quaternion(0.11779974, 0.109139755, 0.093333535, 0.98259896)
+bones/15/rotation = Quaternion(0.21302839, 0.009564194, -0.074881196, 0.97412544)
+bones/16/position = Vector3(0.1, 0.29999983, 7.5495166e-15)
+bones/16/rotation = Quaternion(-0.24894401, -0.2978556, -0.70712286, 0.5910044)
+bones/17/rotation = Quaternion(0.519156, -0.6027523, -0.2533015, 0.550459)
+bones/18/rotation = Quaternion(0.15223476, -0.11484226, -0.014408363, 0.98154384)
+bones/19/position = Vector3(-0.1, 0.29999983, 7.5495166e-15)
+bones/19/rotation = Quaternion(-0.24894401, 0.2978556, 0.70712286, 0.5910044)
+bones/20/rotation = Quaternion(0.33208275, 0.34718433, 0.39623204, 0.7824222)
+bones/21/rotation = Quaternion(-0.41899323, -0.11659399, 0.041023, 0.8995375)
+
+[node name="chaser_mesh" parent="idle_gremlin/chaser_armature/Skeleton3D" index="0"]
+layers = 2
+
+[editable path="idle_gremlin"]
