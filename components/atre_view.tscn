@@ -26,6 +26,7 @@ visible = false
 transform = Transform3D(0.16630773, 0, 0, 0, 0.16630773, 0, 0, 0, 0.16630773, 0, 0, -0.49397528)
 layers = 2
 cast_shadow = 0
+visibility_range_end = 100.0
 mesh = SubResource("SphereMesh_jvvgj")
 skeleton = NodePath("../..")
 

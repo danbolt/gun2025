@@ -8,7 +8,6 @@
 [node name="Idler" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_qdllt")
-bonus = 1.0
 metadata/_custom_type_script = "uid://dmg8b1xovgbv6"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -49,5 +48,6 @@ bones/21/rotation = Quaternion(-0.41899323, -0.11659399, 0.041023, 0.8995375)
 
 [node name="chaser_mesh" parent="idle_gremlin/chaser_armature/Skeleton3D" index="0"]
 layers = 2
+visibility_range_end = 100.0
 
 [editable path="idle_gremlin"]
