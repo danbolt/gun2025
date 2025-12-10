@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	if viewport:
 		camera = viewport.get_camera_3d()
 		
-	if camera and camera.global_position.distance_squared_to(global_position) < 70 * 70:
+	if (camera and camera.global_position.distance_squared_to(global_position) < 105 * 105):
 		var move_result := move_and_slide()
 		if queue_free_on_collision and move_result:
 			queue_free()
