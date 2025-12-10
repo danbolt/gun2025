@@ -75,7 +75,7 @@ func wait_then_next() -> void:
 	await get_tree().create_timer(1.5, true, true).timeout
 	var time_passed_in_gameplay := gameplay.seconds_passed_in_game_time
 	var player_hp := gameplay.hp
-	var time_bonus := maxi(int(time_passed_in_gameplay - 500), 0)
+	var time_bonus := maxi(int(time_passed_in_gameplay - 500), 0) * 1000
 	clear_old_level()
 	var new_results_screen: EndLevelScreen = preload("res://hud/end_level_screen.tscn").instantiate()
 	add_child(new_results_screen)
