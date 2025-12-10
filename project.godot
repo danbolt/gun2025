@@ -27,6 +27,7 @@ TitleMap="*res://scripts/title_map.gd"
 [dialogic]
 
 directories/dch_directory={
+"phone": "res://characters/phone.dch",
 "protag": "res://characters/protag.dch",
 "wizard": "res://characters/wizard.dch"
 }
@@ -75,6 +76,7 @@ audio/channel_defaults={
 layout/style_list=["res://styles/test_style.tres"]
 layout/default_style="res://styles/test_style.tres"
 glossary/default_case_sensitive=true
+variables={}
 
 [display]
 

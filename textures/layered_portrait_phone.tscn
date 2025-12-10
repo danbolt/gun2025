@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqeffn7nmcscs"]
+
+[ext_resource type="Script" uid="uid://cfwf5d8exox4f" path="res://addons/dialogic/Modules/LayeredPortrait/custom_layered_portrait.gd" id="1_uubi5"]
+[ext_resource type="Texture2D" uid="uid://00xifwnowlq" path="res://textures/phone_back.png" id="2_rdwqx"]
+[ext_resource type="Texture2D" uid="uid://d3ddjcf777unv" path="res://textures/phone_incoming_call.png" id="3_b00a2"]
+[ext_resource type="Texture2D" uid="uid://c4r0g8tpe0wuh" path="res://textures/phone_mom.png" id="4_4up1u"]
+[ext_resource type="Texture2D" uid="uid://db4y3p7xpyn3b" path="res://textures/phone_gremlin_wizard.png" id="5_qn25k"]
+[ext_resource type="Texture2D" uid="uid://bacgxri5f1lmu" path="res://textures/phone_call_present.png" id="6_b00a2"]
+
+[node name="LayeredPortrait" type="CanvasGroup"]
+position = Vector2(10.000006, 204.99998)
+rotation = 0.18874468
+script = ExtResource("1_uubi5")
+
+[node name="Layer1" type="Sprite2D" parent="."]
+texture = ExtResource("2_rdwqx")
+
+[node name="Screen" type="Node2D" parent="."]
+
+[node name="IncomingCall" type="Sprite2D" parent="Screen"]
+visible = false
+texture = ExtResource("3_b00a2")
+
+[node name="CallPresent" type="Sprite2D" parent="Screen"]
+visible = false
+texture = ExtResource("6_b00a2")
+
+[node name="Person" type="Node2D" parent="."]
+
+[node name="Mom" type="Sprite2D" parent="Person"]
+visible = false
+texture = ExtResource("4_4up1u")
+
+[node name="Wizard" type="Sprite2D" parent="Person"]
+visible = false
+texture = ExtResource("5_qn25k")

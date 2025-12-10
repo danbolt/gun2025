@@ -1,9 +1,14 @@
-[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":15}"]
-wizard: Ahahahahahah!
-wizard: Well now!
-wizard: This is a real treat!
-wizard: This curse is going to make quick work of you, Green-Haired Fool!
-[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":0}"]
-join protag left 
-protag: Ugh! This sucks!
-wizard: Don't expect to leave alive!
+join phone right [extra_data="set Screen/IncomingCall, set Person/Wizard"]
+RING RING
+- Pick up the phone
+	join protag left 
+	update phone [extra_data="set Screen/CallPresent"]
+	[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":15}"]
+	wizard: Ahahahahahah!
+	wizard: Well now!
+	wizard: This is a real treat!
+	wizard: This curse is going to make quick work of you, Green-Haired Fool!
+	[signal arg_type="dict" arg="{"Camera":"WizardCamera","Priority":0}"]
+	protag: Ugh! This sucks!
+	wizard: Don't expect to leave alive!
+- Ignore
