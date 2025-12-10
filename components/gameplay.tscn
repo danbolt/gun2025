@@ -1193,6 +1193,7 @@ offset_right = -20.0
 grow_horizontal = 2
 
 [node name="HPDisplay" type="PanelContainer" parent="GameplayHUD/Control/HUDTopCenter"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

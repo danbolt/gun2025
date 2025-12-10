@@ -55,6 +55,8 @@ func level_clear() -> void:
 	if arrived_at_exit:
 		return
 	
+	%HPDisplay.visible = false
+	
 	arrived_at_exit = true
 	
 	level_clear_root.visible = true

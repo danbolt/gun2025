@@ -34,6 +34,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "entry": "res://timelines/entry.dtl",
+"killed_wizard": "res://timelines/killed_wizard.dtl",
 "mom_tutorial": "res://timelines/mom_tutorial.dtl",
 "test": "res://timelines/test.dtl",
 "wizard_laugh": "res://timelines/wizard_laugh.dtl"

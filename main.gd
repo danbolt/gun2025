@@ -68,8 +68,9 @@ func new_level(next_level: String, skip_title_card: bool = false) -> void:
 	gameplay.player_death.connect(on_player_death.call_deferred)
 	gameplay.load_and_add_level("res://levels/%s.tscn" % next_level)
 
-func wait_then_next(next_level: String) -> void:
-	await get_tree().create_timer(1.5, true, true).timeout
+func wait_then_next() -> void:
+	await Dialogic.timeline_ended
+	await get_tree().create_timer(3.0, true, true).timeout
 	curtains_open = false
 	await get_tree().create_timer(1.5, true, true).timeout
 	var time_passed_in_gameplay := gameplay.seconds_passed_in_game_time
@@ -88,14 +89,13 @@ func wait_then_next(next_level: String) -> void:
 	curtains_value = 0.0
 	new_results_screen.queue_free()
 	remove_child(new_results_screen)
-	await new_level(next_level)
+	show_title_screen()
 	await get_tree().create_timer(0.5, true, true).timeout
 	curtains_open = true
-	gameplay.set_score_to_display(current_score)
 
-func level_cleared(next_level: String) -> void:
+func level_cleared() -> void:
 	gameplay.level_clear()
-	wait_then_next.call_deferred(next_level)
+	wait_then_next.call_deferred()
 
 func show_title_screen() -> void:
 	var new_title_screen: TitleScreen = preload("res://hud/title_screen.tscn").instantiate()

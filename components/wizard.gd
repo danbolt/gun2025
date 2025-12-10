@@ -3,6 +3,11 @@ class_name Wizard extends TouchObject
 
 @onready var animation_player: AnimationPlayer = $wizard_gremlin/AnimationPlayer
 
+func on_wizard_killed() -> void:
+	Dialogic.start(preload("res://timelines/killed_wizard.dtl")).process_mode = Node.PROCESS_MODE_ALWAYS
+	#
+	get_tree().call_group("listen_for_level_change", "level_cleared")
+
 func _ready() -> void:
 	super._ready()
 	animation_player.play("idle")
@@ -12,7 +17,7 @@ func _ready() -> void:
 	arte_view.damaged.connect(on_wizard_damaged)
 	
 func on_wizard_damaged(intruder: Node3D) -> void:
-	
+	on_wizard_killed.call_deferred()
 	var direction_to_intruder := (position - intruder.position).normalized()
 	
 	var slice_a := preload("res://source_mesh/shoot_gremlin_slice_a.blend").instantiate() as Node3D
