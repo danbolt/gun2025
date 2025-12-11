@@ -24,6 +24,8 @@ func on_attacked_player(player: PlayerController) -> void:
 
 func on_chaser_damaged(intruder: Node3D) -> void:
 	
+	get_tree().call_group("sound_effect_listener", "play_3d_one_shot", Gameplay.GremlinSound.DeathSound, global_position)
+	
 	var direction_to_intruder := (position - intruder.position).normalized()
 	
 	var slice_a := preload("res://source_mesh/chase_gremlin_slices.blend").instantiate() as Node3D
@@ -80,7 +82,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if fov_cone:
-		if fov_cone.has_overlapping_bodies():
+		if fov_cone.has_overlapping_bodies() and aggro_target == null:
 			for intruder: Node3D in fov_cone.get_overlapping_bodies():
 				
 				## TODO: optimize this
@@ -92,6 +94,7 @@ func _physics_process(delta: float) -> void:
 				
 				nav_tick = randi_range(1, 40)
 				aggro_target = intruder
+				get_tree().call_group("sound_effect_listener", "play_3d_one_shot", Gameplay.GremlinSound.AggroA, global_position)
 				
 				animation_player.play("chase")
 				

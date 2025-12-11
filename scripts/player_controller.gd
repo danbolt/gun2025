@@ -12,6 +12,8 @@ signal struck_victim(victim: ArteView)
 
 @onready var sprinting_effect_sound: AudioStreamPlayer = $Sprinting
 
+@onready var knife_sound: AudioStreamPlayer = $KnifeSound
+
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 @export var camera_rotation_y: float:
 	get:
@@ -66,6 +68,10 @@ func update_fov(_new_fov: float) -> void:
 
 func struck(victim: ArteView) -> void:
 	struck_victim.emit(victim)
+	
+	knife_sound.pitch_scale = randf_range(0.95, 1.03)
+	knife_sound.play()
+	
 	
 	knife_hand_animation_player.play("strike")
 	if not is_on_floor():

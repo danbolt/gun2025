@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://icjpxsgtudhd"]
+[gd_scene load_steps=18 format=3 uid="uid://icjpxsgtudhd"]
 
 [ext_resource type="Script" uid="uid://ci2bdepegepjt" path="res://scripts/player_controller.gd" id="1_1l8hx"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_8d205"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://br3qntxbmfctx" path="res://sfx/mystic_artes_2.wav" id="9_fvjii"]
 [ext_resource type="AudioStream" uid="uid://1gb7sqenn5ge" path="res://sfx/mystic_artes_3.wav" id="10_k34us"]
 [ext_resource type="AudioStream" uid="uid://dbk48wobj5iot" path="res://sfx/mystic_artes_ambient.wav" id="11_fvjii"]
+[ext_resource type="AudioStream" uid="uid://n7iorj5tjk7t" path="res://sfx/stab.wav" id="12_k34us"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y7be5"]
 
@@ -78,3 +79,9 @@ bus = &"SFX"
 stream = ExtResource("11_fvjii")
 autoplay = true
 bus = &"BGM"
+
+[node name="KnifeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_k34us")
+volume_db = -4.0
+max_polyphony = 2
+bus = &"SFX"

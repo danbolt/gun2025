@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4gifpnib5bjm"]
+
+[ext_resource type="AudioStream" uid="uid://dyew1xrl8tg8v" path="res://sfx/monster_die_b.wav" id="1_mrl7t"]
+
+[node name="GremlinAggroA" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_mrl7t")
+max_distance = 90.0
+max_polyphony = 3
+bus = &"SFX"

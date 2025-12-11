@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccq2lncotd4l7"]
+[gd_scene load_steps=22 format=3 uid="uid://ccq2lncotd4l7"]
 
 [ext_resource type="Script" uid="uid://df7x4nbm2yb0" path="res://scripts/gameplay.gd" id="1_8r83d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vd3jt"]
@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://cy8yfplkyme4s" path="res://hud/pause_screen.gd" id="11_he0yp"]
 [ext_resource type="PackedScene" uid="uid://d0pm37oocpcoo" path="res://hud/game_settings_panel.tscn" id="12_fwhjk"]
 [ext_resource type="Texture2D" uid="uid://b4pri5jk1n2m" path="res://textures/portrait_idle.png" id="14_mocpu"]
+[ext_resource type="PackedScene" uid="uid://bn2c1mmd7kcnm" path="res://components/gremlin_death_sound.tscn" id="16_shw3s"]
+[ext_resource type="PackedScene" uid="uid://d4gifpnib5bjm" path="res://components/gremlin_aggro_a.tscn" id="17_b6e02"]
+[ext_resource type="PackedScene" uid="uid://b2ljanboo1mgm" path="res://components/gremlin_aggro_b.tscn" id="18_wgtua"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mocpu"]
 size = Vector2(128, 128)
@@ -26,7 +29,7 @@ gradient = SubResource("Gradient_mocpu")
 width = 128
 height = 128
 
-[node name="Gameplay" type="Node3D" groups=["listen_for_score_events"]]
+[node name="Gameplay" type="Node3D" groups=["listen_for_score_events", "sound_effect_listener"]]
 process_mode = 1
 script = ExtResource("1_8r83d")
 
@@ -1586,4 +1589,16 @@ offset_bottom = 184.0
 script = ExtResource("8_bev8n")
 
 [node name="Level" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="MonsterEffects" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="GremlinDeathSound" parent="MonsterEffects" instance=ExtResource("16_shw3s")]
+unique_name_in_owner = true
+
+[node name="GremlinAggroA" parent="MonsterEffects" instance=ExtResource("17_b6e02")]
+unique_name_in_owner = true
+
+[node name="GremlinAggroB" parent="MonsterEffects" instance=ExtResource("18_wgtua")]
 unique_name_in_owner = true

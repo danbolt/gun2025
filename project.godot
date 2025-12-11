@@ -103,6 +103,7 @@ default_map_settings="uid://cvtgbpsw27vq2"
 [global_group]
 
 mystic=""
+sound_effect_listener=""
 
 [input]
 

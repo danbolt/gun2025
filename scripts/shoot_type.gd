@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 					continue
 					
 				aggro_target = intruder
+				get_tree().call_group("sound_effect_listener", "play_3d_one_shot", Gameplay.GremlinSound.AggroA, global_position)
 	
 	
 	
@@ -75,6 +76,7 @@ func _physics_process(delta: float) -> void:
 
 func on_shooter_damaged(intruder: Node3D) -> void:
 	
+	get_tree().call_group("sound_effect_listener", "play_3d_one_shot", Gameplay.GremlinSound.DeathSound, global_position)
 	var direction_to_intruder := (position - intruder.position).normalized()
 	
 	var slice_a := preload("res://source_mesh/shoot_gremlin_slice_a.blend").instantiate() as Node3D

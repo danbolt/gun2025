@@ -14,6 +14,7 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
 func on_idler_damaged(intruder: Node3D) -> void:
+	get_tree().call_group("sound_effect_listener", "play_3d_one_shot", Gameplay.GremlinSound.DeathSound, global_position)
 	
 	var direction_to_intruder := (position - intruder.position).normalized()
 	

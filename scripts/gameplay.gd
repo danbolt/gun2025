@@ -51,6 +51,30 @@ var combo_time: float = 0.0
 const DEFAULT_PORTRAIT_RECT_POSITION: Vector2 = Vector2(-66, -66)
 const WALK_AMPLITUDE: float = 16
 
+@onready var monster_effects: Node = %MonsterEffects
+
+enum GremlinSound {
+	DeathSound,
+	AggroA,
+	AggroB
+}
+
+func play_3d_one_shot(sound: GremlinSound, sound_location: Vector3) -> void:
+	var sound_to_play: AudioStreamPlayer3D = null
+	if sound == GremlinSound.DeathSound:
+		sound_to_play = preload("res://components/gremlin_death_sound.tscn").instantiate()
+	elif sound == GremlinSound.AggroA:
+		sound_to_play = preload("res://components/gremlin_aggro_a.tscn").instantiate()
+	elif sound == GremlinSound.AggroB:
+		sound_to_play = preload("res://components/gremlin_aggro_b.tscn").instantiate()
+	
+	if sound_to_play != null:
+		sound_to_play.position = sound_location
+		monster_effects.add_child(sound_to_play)
+		sound_to_play.finished.connect(sound_to_play.queue_free)
+		sound_to_play.pitch_scale = randf_range(0.95, 1.04)
+		sound_to_play.play()
+
 func level_clear() -> void:
 	if arrived_at_exit:
 		return
