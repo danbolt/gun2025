@@ -10,6 +10,8 @@ signal struck_victim(victim: ArteView)
 @onready var arte_sfx_2: AudioStreamPlayer = $ArteSounds/arte_2
 @onready var arte_sfx_3: AudioStreamPlayer = $ArteSounds/arte_3
 
+@onready var sprinting_effect_sound: AudioStreamPlayer = $Sprinting
+
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 @export var camera_rotation_y: float:
 	get:
@@ -104,6 +106,9 @@ func _ready() -> void:
 	
 	camera_rot_z = 0.0
 	
+	sprinting_effect_sound.volume_linear = 0.0
+	sprinting_effect_sound.play()
+	
 	character_camera.set_follow_target(self)
 
 func _process_mouse_turning(delta: float) -> void:
@@ -151,6 +156,8 @@ func _process_gamepad_turning(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	character_camera.fov = Settings.fov
+	
+	sprinting_effect_sound.volume_linear = lerp(sprinting_effect_sound.volume_linear, 0.4 if Input.is_action_pressed("sprint") else 0.0, 1.0 - pow(0.5, delta * 10.41))
 	
 	_process_mouse_turning(delta)
 	_process_gamepad_turning(delta)
