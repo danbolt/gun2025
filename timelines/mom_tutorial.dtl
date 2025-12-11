@@ -1,21 +1,21 @@
 join phone right [extra_data="set Screen/IncomingCall, set Person/Mom"]
 RING RING RING
 join protag left
-protag: Ugh...
-protag: I feel like garbage...
-protag: It's like there's a timer in my head and I'm going to die if it hits zero.
+protag: [mood=default] Ugh...
+protag: [mood=default] I feel like garbage...
+protag: [mood=default] It's like there's a timer in my head and I'm going to die if it hits zero.
 - Pick up the phone
 	*click*
-	protag: Hello?
+	protag: [mood=default] Hello?
 	update phone [extra_data="set Screen/CallPresent"]
-	mom: Hey! It's me!
-	mom: How's it going?
-	protag: I feel kind of gross Mom.
-	mom: Hmmm...
-	mom: Like there's a timer in your head and you're going to die if it hits zero?
+	mom: [mood=default] Hey! It's me!
+	mom: [mood=default] How's it going?
+	protag: [mood=default] I feel kind of gross Mom.
+	mom: [mood=default] Hmmm...
+	mom: [mood=default] Like there's a timer in your head and you're going to die if it hits zero?
 	- Uh, yeah!
-		protag: Yeah!
-		protag: Exactly like that.
+		protag: [mood=default] Yeah!
+		protag: [mood=default] Exactly like that.
 	- Maybe...
 		protag: I dunno...
 	mom: You're probably cursed by some Wizard.
