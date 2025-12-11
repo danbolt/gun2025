@@ -5,6 +5,11 @@ signal struck_victim(victim: ArteView)
 @onready var knife_hand_animation_player := $CharacterCamera/HandsRoot/knife_hand2/AnimationPlayer
 @onready var mystic_hand_animation_player := $CharacterCamera/HandsRoot/mystic_hand/AnimationPlayer
 
+@onready var arte_sfx_0: AudioStreamPlayer = $ArteSounds/arte_0
+@onready var arte_sfx_1: AudioStreamPlayer = $ArteSounds/arte_1
+@onready var arte_sfx_2: AudioStreamPlayer = $ArteSounds/arte_2
+@onready var arte_sfx_3: AudioStreamPlayer = $ArteSounds/arte_3
+
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 @export var camera_rotation_y: float:
 	get:
@@ -184,18 +189,26 @@ func _process_mystic_artes() -> void:
 	if Input.is_action_just_pressed("arte_0"):
 		get_tree().call_group("mystic", "mystic_arte", 0)
 		mystic_hand_animation_player.play("arte_0")
+		arte_sfx_0.pitch_scale = randf_range(0.99, 1.01)
+		arte_sfx_0.play()
 	
 	if Input.is_action_just_pressed("arte_1"):
 		get_tree().call_group("mystic", "mystic_arte", 1)
 		mystic_hand_animation_player.play("arte_1")
+		arte_sfx_1.pitch_scale = randf_range(0.99, 1.01)
+		arte_sfx_1.play()
 	
 	if Input.is_action_just_pressed("arte_2"):
 		get_tree().call_group("mystic", "mystic_arte", 2)
 		mystic_hand_animation_player.play("arte_2")
+		arte_sfx_2.pitch_scale = randf_range(0.99, 1.01)
+		arte_sfx_2.play()
 	
 	if Input.is_action_just_pressed("arte_3"):
 		get_tree().call_group("mystic", "mystic_arte", 3)
 		mystic_hand_animation_player.play("arte_3")
+		arte_sfx_3.pitch_scale = randf_range(0.99, 1.01)
+		arte_sfx_3.play()
 
 func _play_idle_on_strike_end(anim_name: String) -> void:
 	if anim_name == "strike":

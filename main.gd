@@ -141,6 +141,8 @@ func _ready() -> void:
 		if arg.begins_with("--level="):
 			level_override = arg.split("=")[1]
 	
+	level_override = "stadium"
+	
 	if not level_override.is_empty():
 		new_level(level_override, true)
 	else:

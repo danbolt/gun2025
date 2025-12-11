@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://icjpxsgtudhd"]
+[gd_scene load_steps=16 format=3 uid="uid://icjpxsgtudhd"]
 
 [ext_resource type="Script" uid="uid://ci2bdepegepjt" path="res://scripts/player_controller.gd" id="1_1l8hx"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_8d205"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_8d205"]
 [ext_resource type="PackedScene" uid="uid://bqi5i1gaw7s1a" path="res://source_mesh/mystic_hand.blend" id="5_675rc"]
 [ext_resource type="PackedScene" uid="uid://b8js38l8e1as8" path="res://source_mesh/knife_hand.blend" id="5_j41tn"]
+[ext_resource type="AudioStream" uid="uid://b5mxwdg1jmj16" path="res://sfx/mystic_artes_0.wav" id="7_0ofcn"]
+[ext_resource type="AudioStream" uid="uid://c2ngndtjkvacx" path="res://sfx/mystic_artes_1.wav" id="8_uul4e"]
+[ext_resource type="AudioStream" uid="uid://br3qntxbmfctx" path="res://sfx/mystic_artes_2.wav" id="9_fvjii"]
+[ext_resource type="AudioStream" uid="uid://1gb7sqenn5ge" path="res://sfx/mystic_artes_3.wav" id="10_k34us"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y7be5"]
 
@@ -50,3 +54,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39253712, -0.72376025)
 
 [node name="ShadowMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8d205")
+
+[node name="ArteSounds" type="Node" parent="."]
+
+[node name="arte_0" type="AudioStreamPlayer" parent="ArteSounds"]
+stream = ExtResource("7_0ofcn")
+bus = &"SFX"
+
+[node name="arte_1" type="AudioStreamPlayer" parent="ArteSounds"]
+stream = ExtResource("8_uul4e")
+bus = &"SFX"
+
+[node name="arte_2" type="AudioStreamPlayer" parent="ArteSounds"]
+stream = ExtResource("9_fvjii")
+bus = &"SFX"
+
+[node name="arte_3" type="AudioStreamPlayer" parent="ArteSounds"]
+stream = ExtResource("10_k34us")
+bus = &"SFX"
