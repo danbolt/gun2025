@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjigwn81vpgx8"]
+
+[ext_resource type="AudioStream" uid="uid://duas3lkfapu1h" path="res://sfx/shoot_sound.wav" id="1_efadw"]
+
+[node name="ShootSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_efadw")
+volume_db = 40.0
+max_distance = 117.03
+bus = &"SFX"
+emission_angle_enabled = true
+emission_angle_degrees = 48.0
+doppler_tracking = 2

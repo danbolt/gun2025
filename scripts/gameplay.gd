@@ -56,10 +56,11 @@ const WALK_AMPLITUDE: float = 16
 enum GremlinSound {
 	DeathSound,
 	AggroA,
-	AggroB
+	AggroB,
+	ShootSound
 }
 
-func play_3d_one_shot(sound: GremlinSound, sound_location: Vector3) -> void:
+func play_3d_one_shot(sound: GremlinSound, sound_location: Vector3, orientation: Basis = Basis.IDENTITY) -> void:
 	var sound_to_play: AudioStreamPlayer3D = null
 	if sound == GremlinSound.DeathSound:
 		sound_to_play = preload("res://components/gremlin_death_sound.tscn").instantiate()
@@ -67,9 +68,12 @@ func play_3d_one_shot(sound: GremlinSound, sound_location: Vector3) -> void:
 		sound_to_play = preload("res://components/gremlin_aggro_a.tscn").instantiate()
 	elif sound == GremlinSound.AggroB:
 		sound_to_play = preload("res://components/gremlin_aggro_b.tscn").instantiate()
+	elif sound == GremlinSound.ShootSound:
+		sound_to_play = preload("res://components/shoot_sound.tscn").instantiate()
 	
 	if sound_to_play != null:
 		sound_to_play.position = sound_location
+		sound_to_play.basis = orientation
 		monster_effects.add_child(sound_to_play)
 		sound_to_play.finished.connect(sound_to_play.queue_free)
 		sound_to_play.pitch_scale = randf_range(0.95, 1.04)

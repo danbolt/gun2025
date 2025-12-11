@@ -67,6 +67,7 @@ func _physics_process(delta: float) -> void:
 			new_projectile.damaged.connect(on_projectile_struck)
 			new_projectile.no_score_on_kill = true
 			new_projectile.queue_free_on_collision = true
+			get_tree().call_group("sound_effect_listener", "play_3d_one_shot", Gameplay.GremlinSound.ShootSound, new_projectile.position, basis)
 			
 			animation_player.play("shoot")
 			
