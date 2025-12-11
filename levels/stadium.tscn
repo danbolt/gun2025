@@ -1,5 +1,6 @@
-[gd_scene load_steps=627 format=4 uid="uid://cgps4mup8vp2i"]
+[gd_scene load_steps=629 format=4 uid="uid://cgps4mup8vp2i"]
 
+[ext_resource type="Script" uid="uid://c4ro0agqx2svx" path="res://levels/stadium.gd" id="1_rfno4"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_tiqbq"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_4p2ec"]
 [ext_resource type="Resource" uid="uid://cvtgbpsw27vq2" path="res://maps/map_settings.tres" id="2_e406y"]
@@ -14,6 +15,7 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://b1ua8u3ii33ww" path="res://occluders/stadium.occ" id="5_7wtnf"]
 [ext_resource type="Material" uid="uid://ddakk0e584lke" path="res://maps/textures/bricks099.tres" id="5_h85j8"]
 [ext_resource type="LightmapGIData" uid="uid://c5gyv5vvhy7p3" path="res://bakes/stadium.lmbake" id="6_rosg5"]
+[ext_resource type="AudioStream" uid="uid://cbe7s7tr4t4r0" path="res://bgm/level.ogg" id="6_t1ni4"]
 [ext_resource type="Material" uid="uid://bwnlgoksj6ca7" path="res://maps/textures/woodfloor51.tres" id="6_x8k5k"]
 [ext_resource type="Material" uid="uid://kmsh0y2jd3sm" path="res://maps/textures/moss002.tres" id="6_yut1b"]
 [ext_resource type="PackedScene" uid="uid://b2gltlvs8xnef" path="res://components/idler.tscn" id="7_c0d48"]
@@ -1966,6 +1968,7 @@ size = Vector3(86.27247, 6.0092773, 10.553711)
 size = Vector3(2.206543, 3.7739258, 8.219116)
 
 [node name="Stadium" type="Node3D"]
+script = ExtResource("1_rfno4")
 
 [node name="Wizard" parent="." instance=ExtResource("15_ucj1u")]
 unique_name_in_owner = true
@@ -2000,6 +2003,12 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("5_7wtnf")
 bake_mask = 4294966273
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("6_t1ni4")
+bus = &"BGM"
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 2
