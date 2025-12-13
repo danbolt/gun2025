@@ -61,14 +61,16 @@ func _ready() -> void:
 	fov_slider.value_changed.connect(func (new_value: float) -> void: Settings.fov = new_value)
 
 func _process(_delta: float) -> void:
+	if not is_visible_in_tree():
+		return
+	
 	var current_vsync_mode := DisplayServer.window_get_vsync_mode()
 	vsync_check.button_pressed = current_vsync_mode != DisplayServer.VSyncMode.VSYNC_DISABLED
 	
-	if is_visible_in_tree():
-		get_viewport().use_taa = gamer_mode.button_pressed
-		
-		var current_fps := Engine.get_frames_per_second()
-		fps_label.text = "FPS: %d" % int(current_fps)
+	get_viewport().use_taa = gamer_mode.button_pressed
+	
+	var current_fps := Engine.get_frames_per_second()
+	fps_label.text = "FPS: %d" % int(current_fps)
 	
 	fullscreen_toggle.button_pressed = Settings.fullscreen
 	var window := get_window()
