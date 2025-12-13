@@ -59,8 +59,7 @@ func populate_with_monsters() -> void:
 			new_monster.mask_flags = randi_range(1, 15)
 			new_monster.spawn_flags = randi_range(0, 15)
 			
-			#HACK: Grabbing parents like this is kinda bad!
-			get_parent().get_parent().add_child.call_deferred(new_monster)
+			add_child(new_monster)
 		
 
 @export_range(0.0, 1.0, 0.01) var idle_val: float:
