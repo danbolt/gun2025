@@ -5,7 +5,7 @@ extends Node
 	"indoor": "A test map:",
 	"first_stage": "Part One",
 	"stage_two": "Part Two",
-	"stadium": "Curse of the Gremlin Wizard!"
+	"stadium": "A Curse!"
 }
 
 @export var titles : Dictionary[String, String] = {
@@ -13,5 +13,5 @@ extends Node
 	"indoor": "Indoor",
 	"first_stage": "An Assasination Attempt\non the\nMiddling Prince",
 	"stage_two": "The Start of\nan Escape",
-	"stadium": "Death's Door\nand the\nMystic Artes"
+	"stadium": "Gremlins\nand the\nMystic Artes"
 }
