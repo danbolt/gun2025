@@ -14,6 +14,8 @@ signal struck_victim(victim: ArteView)
 
 @onready var knife_sound: AudioStreamPlayer = $KnifeSound
 
+@onready var hurt_sound: AudioStreamPlayer = $HurtSound
+
 @onready var character_camera: PhantomCamera3D = $CharacterCamera
 @export var camera_rotation_y: float:
 	get:
@@ -86,6 +88,9 @@ func damaged(damager: ArteView) -> void:
 	is_knocked_back = true
 	knockback_time = knockback_duration
 	knockback_direction = (global_position - damager.global_position + Vector3.UP * 3.5).normalized()
+	
+	hurt_sound.pitch_scale = randf_range(0.98, 1.02)
+	hurt_sound.play()
 	
 	var dot_with_right := character_camera.basis.x.dot(knockback_direction)
 	
