@@ -67,7 +67,8 @@ func _process(_delta: float) -> void:
 	var current_vsync_mode := DisplayServer.window_get_vsync_mode()
 	vsync_check.button_pressed = current_vsync_mode != DisplayServer.VSyncMode.VSYNC_DISABLED
 	
-	get_viewport().use_taa = gamer_mode.button_pressed
+	if get_viewport().use_taa != gamer_mode.button_pressed:
+		get_viewport().use_taa = gamer_mode.button_pressed
 	
 	var current_fps := Engine.get_frames_per_second()
 	fps_label.text = "FPS: %d" % int(current_fps)
@@ -75,7 +76,11 @@ func _process(_delta: float) -> void:
 	fullscreen_toggle.button_pressed = Settings.fullscreen
 	var window := get_window()
 	if window:
-		window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN if Settings.fullscreen else Window.MODE_WINDOWED
+		var current_window_mode := window.mode
+		if current_window_mode != Window.MODE_EXCLUSIVE_FULLSCREEN and Settings.fullscreen:
+			window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+		elif current_window_mode == Window.MODE_EXCLUSIVE_FULLSCREEN and not Settings.fullscreen:
+			window.mode = Window.MODE_WINDOWED
 		
 	fov_text.text = "FOV: %d" % (int(fov_slider.value))
 	Settings.fov = fov_slider.value
