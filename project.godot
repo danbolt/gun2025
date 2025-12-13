@@ -13,6 +13,7 @@ config_version=5
 config/name="gun2025"
 run/main_scene="uid://11v1xdx0u5r3"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -89,6 +90,7 @@ audio/type_sound_bus="SFX"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -235,5 +237,6 @@ textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 lightmapping/bake_performance/region_size=64
 occlusion_culling/use_occlusion_culling=true
