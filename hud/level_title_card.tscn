@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl6xnungtg35"]
+[gd_scene load_steps=5 format=3 uid="uid://bl6xnungtg35"]
 
 [ext_resource type="Theme" uid="uid://ccpauq2da4rfu" path="res://themes/default_theme.tres" id="1_yhir3"]
 [ext_resource type="Script" uid="uid://bhil0l7mhd3fe" path="res://hud/level_title_card.gd" id="2_yhir3"]
 [ext_resource type="FontFile" uid="uid://dqel37d8p7uiu" path="res://fonts/luxi/luxisb.ttf" id="3_pcdkl"]
+[ext_resource type="AudioStream" uid="uid://gshphenbsq0e" path="res://bgm/title_card.ogg" id="4_11x2s"]
 
 [node name="LevelTitleCard" type="AspectRatioContainer"]
 anchors_preset = 15
@@ -62,3 +63,7 @@ vertical_alignment = 1
 visible_characters = 0
 visible_characters_behavior = 1
 visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_11x2s")
+bus = &"BGM"
