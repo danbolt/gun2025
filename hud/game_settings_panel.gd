@@ -21,6 +21,7 @@ class_name GameSettingsPanel extends Control
 @onready var gamer_mode: CheckButton = %GamerModeCheckBox
 
 func _ready() -> void:
+	fullscreen_toggle.button_pressed = Settings.fullscreen
 	fullscreen_toggle.pressed.connect(func() -> void: Settings.fullscreen = fullscreen_toggle.button_pressed)
 	
 	gamer_mode.button_pressed = get_viewport().use_taa
