@@ -10,6 +10,17 @@ var curtains_value: float = 0.0
 
 var current_score: int = 0
 
+func process_exit_to_title_screen() -> void:
+	curtains_open = false
+	await get_tree().create_timer(1.0, true, true).timeout
+	clear_old_level()
+	show_title_screen()
+	curtains_open = true
+	get_tree().paused = false
+
+func exit_gameplay_to_title_screen() -> void:
+	process_exit_to_title_screen.call_deferred()
+
 func on_player_death() -> void:
 	await get_tree().create_timer(2.0, true, true).timeout
 	curtains_open = false

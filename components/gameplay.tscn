@@ -1173,6 +1173,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
 
+[node name="ToTitleScreen" type="Button" parent="GameplayHUD/Control/PauseScreen/PauseMenuPanel/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "To Title Screen"
+
 [node name="ExitGameButton" type="Button" parent="GameplayHUD/Control/PauseScreen/PauseMenuPanel/VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

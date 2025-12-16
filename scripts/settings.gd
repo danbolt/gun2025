@@ -95,3 +95,6 @@ func _ready() -> void:
 	if RenderingServer.get_current_rendering_driver_name() == "metal":
 		SCALING_OPTIONS["MetalFX Spatial"] = Viewport.Scaling3DMode.SCALING_3D_MODE_METALFX_SPATIAL
 		SCALING_OPTIONS["MetalFX Temporal"] = Viewport.Scaling3DMode.SCALING_3D_MODE_METALFX_TEMPORAL
+	if RenderingServer.get_current_rendering_method() != "forward_plus":
+		SCALING_OPTIONS.erase("FSR")
+		SCALING_OPTIONS.erase("FSR2")
