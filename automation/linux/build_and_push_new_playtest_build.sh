@@ -16,8 +16,15 @@ if [ $? -ne 0 ]; then
 	echo "Error building the macOS version"
 	exit 1
 fi
+
+automation/linux/export_web_playtest.sh 
+if [ $? -ne 0 ]; then
+	echo "Error building the web version"
+	exit 1
+fi
 automation/linux/upload_linux_playtest_build_via_butler.sh
 automation/linux/upload_windows_playtest_build_via_butler.sh
 automation/linux/upload_macos_playtest_build_via_butler.sh
+automation/linux/upload_web_playtest_build_via_butler.sh
 
 echo -e "🎉 We're done! 🎉"
