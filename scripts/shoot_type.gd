@@ -8,15 +8,21 @@ var aggro_target: PlayerController = null
 var shoot_time: float = 0.0
 var shoot_period: float = 2.5
 
+var cancel_bonus: float = 5.0
+
 @onready var animation_player: AnimationPlayer = $shoot_gremlin/AnimationPlayer
 @onready var skeleton: Skeleton3D = $shoot_gremlin/shoot_armature/Skeleton3D
 
 func on_projectile_struck() -> void:
 	get_tree().call_group("listen_for_score_events", "score_event", ScoreTable.SCORE_EVENT_HIT_PROJECTILE)
+	
+	cancel_bonus = max(1.0, cancel_bonus - 1.0)
 
 func _ready() -> void:
 	super._ready()
 	shoot_time = shoot_period * 0.5
+	
+	cancel_bonus = 5.0
 	
 	arte_view.damaged.connect(on_shooter_damaged)
 	
@@ -61,7 +67,7 @@ func _physics_process(delta: float) -> void:
 			mask = mask << count
 			new_projectile.mask_flags = mask
 			new_projectile.velocity = direction_to_target * 20.0
-			new_projectile.bonus = 5.0
+			new_projectile.bonus = cancel_bonus
 			new_projectile.position =global_bone_pos
 			new_projectile.no_gravity = true
 			new_projectile.damaged.connect(on_projectile_struck)
