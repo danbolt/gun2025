@@ -167,6 +167,17 @@ unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Cool PC gamers only."
 
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "High Shadow Detail"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighShadowDetailCheck" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Enable for more detailed shadows. "
+
 [node name="FPSText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2

@@ -19,12 +19,22 @@ class_name GameSettingsPanel extends Control
 @onready var fps_label: Label = %FPSText
 
 @onready var gamer_mode: CheckButton = %GamerModeCheckBox
+@onready var high_shadow_detail_button: CheckButton = %HighShadowDetailCheck
 
 func _ready() -> void:
 	fullscreen_toggle.button_pressed = Settings.fullscreen
 	fullscreen_toggle.pressed.connect(func() -> void: Settings.fullscreen = fullscreen_toggle.button_pressed)
 	
 	gamer_mode.button_pressed = get_viewport().use_taa
+	
+	if Settings.use_high_detail_shadows:
+		high_shadow_detail_button.button_pressed = true
+		RenderingServer.directional_shadow_atlas_set_size(4096, true)
+	else:
+		high_shadow_detail_button.button_pressed = false
+		RenderingServer.directional_shadow_atlas_set_size(1024, true)
+	high_shadow_detail_button.pressed.connect(func() -> void: Settings.use_high_detail_shadows = high_shadow_detail_button.button_pressed)
+	high_shadow_detail_button.pressed.connect(func() -> void: RenderingServer.directional_shadow_atlas_set_size(4096 if high_shadow_detail_button.pressed else 1024, true))
 	
 	for key: String in Settings.RESOLUTION_SCALE_OPTIONS:
 		resolution_scale.add_item(key)
